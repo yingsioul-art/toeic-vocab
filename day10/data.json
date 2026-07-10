@@ -1,0 +1,1131 @@
+{
+ "day": 10,
+ "theme": "購物",
+ "title_page": "購物高手（購物）",
+ "words": [
+  {
+   "num": 1,
+   "word": "purchase",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "ˋpɝtʃəs",
+   "kk_uk": "ˋpəːtʃəs",
+   "senses": [
+    {
+     "pos": "v.",
+     "zh": "購買"
+    },
+    {
+     "pos": "n.",
+     "zh": "購買（的東西）"
+    }
+   ],
+   "related": [
+    {
+     "rel": "同",
+     "text": "buy 買"
+    }
+   ],
+   "example_en": "You can purchase movie tickets online and pick them up at the counter.",
+   "example_zh": "你可以在網路上購買電影票，再到櫃台取票。",
+   "example_src": "原創",
+   "exam_point": "固定搭配 within … days of purchase（購買後～天內），Part 5 常考選介系詞 within。",
+   "uncertain": true,
+   "uncertain_note": "KK 音標所在角落照片失焦：起始 [ˋpɝ-]/[ˋpəː-] 已由 IMG_0184 頁緣放大證實，結尾 -tʃəs 依模糊字形與該字標準 KK 補齊，未能逐字元清晰核對"
+  },
+  {
+   "num": 2,
+   "word": "price",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "praɪs",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "價格"
+    },
+    {
+     "pos": "v.",
+     "zh": "為～定價"
+    }
+   ],
+   "related": [],
+   "example_en": "The price of this jacket was lowered by 20 percent last week.",
+   "example_zh": "這件夾克的價格上週調降了兩成。",
+   "example_src": "原創",
+   "exam_point": "price 是可數名詞，單數前要加 a：a reduced price 折扣價、a retail price 零售價（↔ wholesale price 批發價）。",
+   "uncertain": false,
+   "uncertain_note": ""
+  },
+  {
+   "num": 3,
+   "word": "affordable",
+   "stars": 2,
+   "part": "5,6",
+   "kk_us": "əˋfɔrdəbl̩",
+   "kk_uk": "əˋfɔːdəbl",
+   "senses": [
+    {
+     "pos": "adj.",
+     "zh": "（價格）負擔得起的；實惠的"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "afford v. 可負擔～"
+    },
+    {
+     "rel": "派",
+     "text": "affordability n. 可負擔性"
+    },
+    {
+     "rel": "派",
+     "text": "affordably adv. 負擔得起地"
+    },
+    {
+     "rel": "同",
+     "text": "reasonable （價格）合理的，不貴的"
+    },
+    {
+     "rel": "反",
+     "text": "expensive 貴的"
+    }
+   ],
+   "example_en": "The store is popular because its furniture is stylish and affordable.",
+   "example_zh": "這家店很受歡迎，因為它的家具有型又負擔得起。",
+   "example_src": "原創",
+   "exam_point": "常見搭配 at an affordable price/rate（以負擔得起的價格／費率），affordable 常和價格類名詞一起出題。",
+   "uncertain": false,
+   "uncertain_note": ""
+  },
+  {
+   "num": 4,
+   "word": "exactly",
+   "stars": 1,
+   "part": "5,6",
+   "kk_us": "ɪgˋzæktlɪ",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "adv.",
+     "zh": "確切地；正好"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "exact adj. 確切的"
+    },
+    {
+     "rel": "同",
+     "text": "precisely 準確地，精確地"
+    }
+   ],
+   "example_en": "The final bill was exactly the same as the estimate.",
+   "example_zh": "最後的帳單和估價完全一樣。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": ""
+  },
+  {
+   "num": 5,
+   "word": "installment",
+   "stars": 1,
+   "part": "7",
+   "kk_us": "ɪnˋstɔlmənt",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "分期付款"
+    }
+   ],
+   "related": [],
+   "example_en": "You can pay for the sofa in six monthly installments.",
+   "example_zh": "你可以分六期按月付款買這張沙發。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": ""
+  },
+  {
+   "num": 6,
+   "word": "notice",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "ˋnotɪs",
+   "kk_uk": "ˋnəutis",
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "通知，公告"
+    },
+    {
+     "pos": "v.",
+     "zh": "注意到"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "notify v. 通知"
+    },
+    {
+     "rel": "派",
+     "text": "notification n. 通知"
+    },
+    {
+     "rel": "派",
+     "text": "noticeable adj. 顯而易見的"
+    }
+   ],
+   "example_en": "The store posted a notice about its new opening hours.",
+   "example_zh": "這家店張貼了新營業時間的公告。",
+   "example_src": "原創",
+   "exam_point": "notice 多以慣用語出題：until further notice（直到另行通知）、give two weeks' notice（提前兩週通知）。",
+   "uncertain": false,
+   "uncertain_note": ""
+  },
+  {
+   "num": 7,
+   "word": "charge",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "tʃɑrdʒ",
+   "kk_uk": "tʃɑːdʒ",
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "收費，費用；責任"
+    },
+    {
+     "pos": "v.",
+     "zh": "索取（費用）；把～記在帳上"
+    }
+   ],
+   "related": [
+    {
+     "rel": "同",
+     "text": "expense 費用"
+    }
+   ],
+   "example_en": "There is no extra charge for gift wrapping at this shop.",
+   "example_zh": "這家店的禮物包裝不另外收費。",
+   "example_src": "原創",
+   "exam_point": "四個高頻搭配：free of charge 免費、in charge of 負責～、additional charge 額外費用、charge A to B 把 A 記到 B 的帳上；free of charge 裡的 charge 不能換成 rate/price/fare。",
+   "uncertain": false,
+   "uncertain_note": ""
+  },
+  {
+   "num": 8,
+   "word": "experienced",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "ɪkˋspɪrɪənst",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "adj.",
+     "zh": "有經驗的；熟練的"
+    }
+   ],
+   "related": [],
+   "example_en": "An experienced clerk helped me choose the right size.",
+   "example_zh": "一位有經驗的店員幫我挑到合適的尺寸。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": ""
+  },
+  {
+   "num": 9,
+   "word": "instruction",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "ɪnˋstrʌkʃən",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "（使用）說明；指示"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "instructional adj. 教學的；教育的"
+    }
+   ],
+   "example_en": "Follow the instructions on the label when washing this shirt.",
+   "example_zh": "洗這件襯衫時，請按照標籤上的說明。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": ""
+  },
+  {
+   "num": 10,
+   "word": "expert",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "ˋɛkspɚt",
+   "kk_uk": "ˋekspəːt",
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "專家"
+    },
+    {
+     "pos": "adj.",
+     "zh": "專門的，專業的"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "expertly adv. 熟練地；巧妙地"
+    }
+   ],
+   "example_en": "Ask an expert before buying a used camera.",
+   "example_zh": "買二手相機之前，先問問專家。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": ""
+  },
+  {
+   "num": 11,
+   "word": "warranty",
+   "stars": 3,
+   "part": "7",
+   "kk_us": "ˋwɔrəntɪ",
+   "kk_uk": "ˋwɔrənti",
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "（品質等的）保證；保證書"
+    }
+   ],
+   "related": [],
+   "example_en": "This laptop comes with a two-year warranty.",
+   "example_zh": "這台筆電附有兩年保固。",
+   "example_src": "原創",
+   "exam_point": "固定搭配 under warranty（在保固期內），介系詞用 under。",
+   "uncertain": false,
+   "uncertain_note": ""
+  },
+  {
+   "num": 12,
+   "word": "refund",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "n. [ˋrɪˌfʌnd]；v. 美 [rɪˋfʌnd",
+   "kk_uk": "v. 英 [riˋfʌnd",
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "退款"
+    },
+    {
+     "pos": "v.",
+     "zh": "退款"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "refundable adj. 可退款的"
+    }
+   ],
+   "example_en": "If the item is damaged, you can ask for a full refund.",
+   "example_zh": "如果商品有損壞，你可以要求全額退款。",
+   "example_src": "原創",
+   "exam_point": "refund 是可數名詞：a full refund 全額退款；動詞常搭 provide a refund 提供退款。",
+   "uncertain": false,
+   "uncertain_note": "名詞唸法只列一行 [ˋrɪˌfʌnd]（無美英之分）；動詞義另標 美[rɪˋfʌnd]／英[riˋfʌnd]，右端貼近頁緣但可辨"
+  },
+  {
+   "num": 13,
+   "word": "subscriber",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "səbˋskraɪbɚ",
+   "kk_uk": "səbˋskraibə",
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "訂閱者，用戶"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "subscription n. 訂閱"
+    }
+   ],
+   "example_en": "Subscribers to the magazine get a discount coupon every month.",
+   "example_zh": "這本雜誌的訂閱者每個月都會拿到一張折價券。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": ""
+  },
+  {
+   "num": 14,
+   "word": "delivery",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "dɪˋlɪvərɪ",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "運送；交貨"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "deliver v. 運送"
+    }
+   ],
+   "example_en": "Free delivery is available for orders over 50 dollars.",
+   "example_zh": "訂單滿 50 美元即可免費送貨。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": ""
+  },
+  {
+   "num": 15,
+   "word": "receipt",
+   "stars": 3,
+   "part": "7",
+   "kk_us": "rɪˋsit",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "收據"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "receive v. 收到"
+    }
+   ],
+   "example_en": "Keep your receipt in case you need to exchange the shoes.",
+   "example_zh": "保留你的收據，以備需要換鞋時使用。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": ""
+  },
+  {
+   "num": 16,
+   "word": "carefully",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "ˋkɛrfəlɪ",
+   "kk_uk": "ˋkɛəfəli",
+   "senses": [
+    {
+     "pos": "adv.",
+     "zh": "小心謹慎地，仔細地"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "care n. 照料；關心 v. 關心"
+    },
+    {
+     "rel": "派",
+     "text": "careful adj. 小心謹慎的"
+    },
+    {
+     "rel": "反",
+     "text": "carelessly 粗心地"
+    }
+   ],
+   "example_en": "Please check your order carefully before you pay.",
+   "example_zh": "付款前請仔細確認你的訂單。",
+   "example_src": "原創",
+   "exam_point": "詞性辨析：carefully（副詞）修飾動詞、careful（形容詞）修飾名詞，Part 5 詞性題常客。",
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 17,
+   "word": "offer",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "ˋɔfɚ",
+   "kk_uk": "ˋɔːfə",
+   "senses": [
+    {
+     "pos": "v.",
+     "zh": "提供"
+    },
+    {
+     "pos": "n.",
+     "zh": "提供；優惠"
+    }
+   ],
+   "related": [
+    {
+     "rel": "同",
+     "text": "provide 提供"
+    }
+   ],
+   "example_en": "The bakery offers a free drink with every cake set.",
+   "example_zh": "這家烘焙坊的每份蛋糕套餐都提供一杯免費飲料。",
+   "example_src": "原創",
+   "exam_point": "名詞用法：promotional offer 促銷優惠、job offer 工作邀約；動詞句型 offer A B＝offer B to A（提供 B 給 A）。",
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 18,
+   "word": "benefit",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "ˋbɛnəfɪt",
+   "kk_uk": "ˋbenifit",
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "利益，好處"
+    },
+    {
+     "pos": "v.",
+     "zh": "受益，受惠"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "beneficial adj. 有益的，有利的"
+    },
+    {
+     "rel": "派",
+     "text": "beneficiary n. 受惠者，受益人"
+    },
+    {
+     "rel": "反",
+     "text": "disadvantage 不利"
+    }
+   ],
+   "example_en": "Members enjoy many benefits, such as points and special sales.",
+   "example_zh": "會員享有許多好處，例如點數和特賣。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 19,
+   "word": "exclusively",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "ɪkˋsklusɪvlɪ",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "adv.",
+     "zh": "獨占地；排外地"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "exclusive adj. 獨占的"
+    },
+    {
+     "rel": "派",
+     "text": "exclude v. 排除"
+    },
+    {
+     "rel": "同",
+     "text": "solely 單獨地"
+    }
+   ],
+   "example_en": "This color is sold exclusively on the official website.",
+   "example_zh": "這個顏色只在官方網站獨家販售。",
+   "example_src": "原創",
+   "exam_point": "高頻搭配：available exclusively online 僅在網路供應、sell exclusively 獨家販售；表「只有」時近 solely。",
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 20,
+   "word": "description",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "dɪˋskrɪpʃən",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "（產品等的）說明，描述"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "describe v. 說明，描述"
+    },
+    {
+     "rel": "同",
+     "text": "account 說明，解釋"
+    }
+   ],
+   "example_en": "The product description says the bag is waterproof.",
+   "example_zh": "產品說明寫著這個包包是防水的。",
+   "example_src": "原創",
+   "exam_point": "job description（職務說明）是徵才廣告高頻詞；閱讀題會考與 information、specification（規格）的區分。",
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 21,
+   "word": "relatively",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "ˋrɛlətɪvlɪ",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "adv.",
+     "zh": "相對地"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "relative adj. 相對的"
+    },
+    {
+     "rel": "派",
+     "text": "relate v. 有關，涉及；敘述"
+    }
+   ],
+   "example_en": "Prices at this market are relatively low.",
+   "example_zh": "這個市場的價格相對便宜。",
+   "example_src": "原創",
+   "exam_point": "relatively＋形容詞（relatively low 相對低）是常見出題形。",
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 22,
+   "word": "preparation",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "ˏprɛpəˋreʃən",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "準備（工作）"
+    }
+   ],
+   "related": [],
+   "example_en": "The staff stayed late in preparation for the big sale.",
+   "example_zh": "為了大特賣，員工留到很晚做準備。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": "p.191 以本條例句收尾；若有出題重點框應接續在下一張照片（IMG_0193）頂端，不在本批範圍內。"
+  },
+  {
+   "num": 23,
+   "word": "spare",
+   "stars": 3,
+   "part": "7",
+   "kk_us": "spɛr",
+   "kk_uk": "spɛə",
+   "senses": [
+    {
+     "pos": "v.",
+     "zh": "節省；吝惜"
+    },
+    {
+     "pos": "adj.",
+     "zh": "備用的；剩下的"
+    }
+   ],
+   "related": [],
+   "example_en": "The store spared no effort to please its customers.",
+   "example_zh": "這家店不遺餘力地讓顧客滿意。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 24,
+   "word": "area",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "`ɛrɪə",
+   "kk_uk": "`ɛəriə",
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "地區，區域"
+    }
+   ],
+   "related": [],
+   "example_en": "The parking area is behind the shopping center.",
+   "example_zh": "停車區在購物中心後面。",
+   "example_src": "原創",
+   "exam_point": "區分 area 與 site：area 指城市／國家的部分區域；site 指特定用途的地點（如工地、店址）。",
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 25,
+   "word": "clearance",
+   "stars": 3,
+   "part": "7",
+   "kk_us": "`klɪrəns",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "清除，清空；權限"
+    }
+   ],
+   "related": [
+    {
+     "rel": "同",
+     "text": "authorization 授權，批准"
+    }
+   ],
+   "example_en": "I bought this coat for half price at the clearance sale.",
+   "example_zh": "我在清倉特賣會上用半價買到這件外套。",
+   "example_src": "原創",
+   "exam_point": "clearance sale（清倉特賣）是商店廣告高頻詞——把庫存清空的特賣。",
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 26,
+   "word": "alter",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "`ɔltɚ",
+   "kk_uk": "`ɔ:ltə",
+   "senses": [
+    {
+     "pos": "v.",
+     "zh": "改變（性質、形象）；修改（衣服）"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "alteration n. 改變；修改"
+    },
+    {
+     "rel": "同",
+     "text": "change, modify 改變"
+    }
+   ],
+   "example_en": "The tailor can alter the pants to fit you.",
+   "example_zh": "裁縫師可以修改這件褲子讓你合身。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 27,
+   "word": "apply",
+   "stars": 3,
+   "part": "5,6",
+   "kk_us": "ə`plaɪ",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "v.",
+     "zh": "適用，應用；申請"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "application n. 適用；申請"
+    },
+    {
+     "rel": "派",
+     "text": "applicant n. 申請者，應徵者"
+    },
+    {
+     "rel": "派",
+     "text": "applicable adj. 可應用的，適用的"
+    },
+    {
+     "rel": "同",
+     "text": "put into effect 實施"
+    },
+    {
+     "rel": "同",
+     "text": "put to use 使用"
+    }
+   ],
+   "example_en": "The discount applies to all items in the store.",
+   "example_zh": "這項折扣適用於店內所有商品。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 28,
+   "word": "mutually",
+   "stars": 2,
+   "part": "5,6",
+   "kk_us": "`mjutʃʊəlɪ",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "adv.",
+     "zh": "互相，彼此"
+    }
+   ],
+   "related": [],
+   "example_en": "The buyer and the seller agreed on a mutually convenient time.",
+   "example_zh": "買家和賣家約定了一個彼此都方便的時間。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 29,
+   "word": "method",
+   "stars": 2,
+   "part": "5,6",
+   "kk_us": "`mɛθəd",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "方法，方式"
+    }
+   ],
+   "related": [
+    {
+     "rel": "同",
+     "text": "approach 方法"
+    }
+   ],
+   "example_en": "Which method of payment would you like to use?",
+   "example_zh": "你想使用哪一種付款方式？",
+   "example_src": "原創",
+   "exam_point": "a method of payment 付款方式（信用卡、現金、支票等）；表「方法」時 method 可與 approach 互換。",
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 30,
+   "word": "acceptable",
+   "stars": 2,
+   "part": "7",
+   "kk_us": "æk`sɛptəbl̩",
+   "kk_uk": "ək`sɛptəbl",
+   "senses": [
+    {
+     "pos": "adj.",
+     "zh": "可接受的，還可以的"
+    }
+   ],
+   "related": [
+    {
+     "rel": "同",
+     "text": "fine（提案、決定等）不錯的，還可以的"
+    }
+   ],
+   "example_en": "A store credit is acceptable if a refund is not possible.",
+   "example_zh": "如果無法退款，商店抵用金也是可以接受的。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": true,
+   "uncertain_note": "kk_uk 母音字形較閉，可能為 [ək`septəbl]（書中英式常用 e 而非 ɛ），放大後仍難以完全分辨"
+  },
+  {
+   "num": 31,
+   "word": "desire",
+   "stars": 2,
+   "part": "7",
+   "kk_us": "dɪ`zaɪr",
+   "kk_uk": "di`zaiə",
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "渴望，慾望"
+    },
+    {
+     "pos": "v.",
+     "zh": "渴望，想要"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "desirable adj. 令人渴望的，使人嚮往的"
+    },
+    {
+     "rel": "派",
+     "text": "undesirable adj. 令人討厭的，不受歡迎的"
+    }
+   ],
+   "example_en": "Many customers have a desire for high-quality but cheap goods.",
+   "example_zh": "許多顧客渴望品質好又便宜的商品。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 32,
+   "word": "redeemable",
+   "stars": 2,
+   "part": "7",
+   "kk_us": "rɪ`diməbl̩",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "adj.",
+     "zh": "可兌換（現金、商品）的；可償還的"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "redeem v. 贖回；（用禮券等）兌換商品"
+    }
+   ],
+   "example_en": "This coupon is redeemable at any branch store.",
+   "example_zh": "這張折價券可以在任何分店兌換。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 33,
+   "word": "officially",
+   "stars": 2,
+   "part": "5,6",
+   "kk_us": "ə`fɪʃəlɪ",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "adv.",
+     "zh": "正式地"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "official adj. 官方的；正式的"
+    },
+    {
+     "rel": "同",
+     "text": "formally 正式地"
+    }
+   ],
+   "example_en": "The new mall officially opens this Friday.",
+   "example_zh": "新的購物中心本週五正式開幕。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 34,
+   "word": "consumption",
+   "stars": 2,
+   "part": "7",
+   "kk_us": "kən`sʌmpʃən",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "消費（量）；消耗"
+    }
+   ],
+   "related": [],
+   "example_en": "Energy consumption is lower with this new refrigerator.",
+   "example_zh": "這台新冰箱的能源消耗量比較低。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 35,
+   "word": "qualify",
+   "stars": 2,
+   "part": "5,6",
+   "kk_us": "`kwɑlə,faɪ",
+   "kk_uk": "`kwɔlifai",
+   "senses": [
+    {
+     "pos": "v.",
+     "zh": "使（某人）有資格"
+    }
+   ],
+   "related": [
+    {
+     "rel": "派",
+     "text": "qualification n. 資格，資格證明"
+    },
+    {
+     "rel": "派",
+     "text": "qualified adj. 有資格的，符合資格條件的"
+    }
+   ],
+   "example_en": "Spending 100 dollars qualifies you for a free gift.",
+   "example_zh": "消費滿 100 美元，你就有資格獲得免費贈品。",
+   "example_src": "原創",
+   "exam_point": "qualify for A（有 A 的資格），介系詞固定用 for。",
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 36,
+   "word": "fabric",
+   "stars": 2,
+   "part": "7",
+   "kk_us": "`fæbrɪk",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "布料"
+    }
+   ],
+   "related": [],
+   "example_en": "This dress is made of soft, breathable fabric.",
+   "example_zh": "這件洋裝是用柔軟透氣的布料做的。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 37,
+   "word": "auction",
+   "stars": 2,
+   "part": "7",
+   "kk_us": "`ɔkʃən",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "拍賣"
+    }
+   ],
+   "related": [],
+   "example_en": "The rare watch was sold at an online auction.",
+   "example_zh": "這支稀有的手錶在網路拍賣會上售出。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 38,
+   "word": "authentic",
+   "stars": 2,
+   "part": "7",
+   "kk_us": "ə`θɛntɪk",
+   "kk_uk": "ɔ:`θentik",
+   "senses": [
+    {
+     "pos": "adj.",
+     "zh": "真正的，正統的"
+    }
+   ],
+   "related": [
+    {
+     "rel": "同",
+     "text": "genuine 真正的"
+    },
+    {
+     "rel": "反",
+     "text": "fake 假的"
+    }
+   ],
+   "example_en": "The shop sells authentic leather bags, not copies.",
+   "example_zh": "這家店賣的是正統真皮包，不是仿冒品。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 39,
+   "word": "valid",
+   "stars": 1,
+   "part": "5,6",
+   "kk_us": "`vælɪd",
+   "kk_uk": null,
+   "senses": [
+    {
+     "pos": "adj.",
+     "zh": "有效的"
+    }
+   ],
+   "related": [
+    {
+     "rel": "同",
+     "text": "effective 有效的"
+    },
+    {
+     "rel": "同",
+     "text": "good 有效的，效果好的"
+    },
+    {
+     "rel": "反",
+     "text": "invalid 無效的"
+    }
+   ],
+   "example_en": "This coupon is valid for thirty days.",
+   "example_zh": "這張折價券在三十天內有效。",
+   "example_src": "原創",
+   "exam_point": "be valid for＋期間（在～期間有效）；valid receipt 有效收據。",
+   "uncertain": false,
+   "uncertain_note": null
+  },
+  {
+   "num": 40,
+   "word": "vendor",
+   "stars": 1,
+   "part": "7",
+   "kk_us": "`vɛndɚ",
+   "kk_uk": "`vendə",
+   "senses": [
+    {
+     "pos": "n.",
+     "zh": "小販，攤販；賣家，供應商"
+    }
+   ],
+   "related": [],
+   "example_en": "Street vendors sell snacks outside the night market.",
+   "example_zh": "攤販在夜市外面賣小吃。",
+   "example_src": "原創",
+   "exam_point": null,
+   "uncertain": false,
+   "uncertain_note": null
+  }
+ ]
+}

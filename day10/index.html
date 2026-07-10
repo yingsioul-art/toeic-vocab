@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 10｜購物｜核心單字分步驟學習</title>
+<style>
+:root{
+  --ink:#243230; --sub:#5f7370; --bg:#f4f7f6; --card:#ffffff;
+  --brand:#2e8b6f; --brand-dark:#20624e; --brand-soft:#e3f2ec;
+  --gold:#e8a911; --red:#c85454; --red-soft:#fbeaea;
+  --blue:#4a7fb5; --blue-soft:#e9f1f8; --line:#dde6e3;
+  --ok:#2e8b6f; --ok-soft:#e3f2ec;
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+html{font-size:17px;}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Segoe UI","Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+  line-height:1.55;}
+#app{max-width:640px; margin:0 auto; padding:12px 14px 90px;}
+header.top{position:sticky; top:0; z-index:20; background:var(--bg);
+  padding:10px 2px 8px; border-bottom:1px solid var(--line);}
+h1{font-size:1.15rem; margin:0 0 6px; color:var(--brand-dark);}
+.progress-wrap{height:10px; background:#e2eae7; border-radius:6px; overflow:hidden; margin-top:6px;}
+.progress-bar{height:100%; background:linear-gradient(90deg,var(--brand),#57b894); width:0%;
+  border-radius:6px; transition:width .3s;}
+.progress-label{font-size:.85rem; color:var(--sub); margin-top:4px;}
+.chips{display:flex; gap:8px; flex-wrap:wrap; margin:8px 0 2px;}
+.chip{border:1.5px solid var(--line); background:var(--card); color:var(--sub);
+  border-radius:999px; padding:7px 14px; font-size:.92rem; cursor:pointer;}
+.chip.on{background:var(--brand); border-color:var(--brand); color:#fff; font-weight:600;}
+.card{background:var(--card); border:1px solid var(--line); border-radius:16px;
+  padding:20px 18px; margin:14px 0; box-shadow:0 1px 4px rgba(40,70,60,.06);}
+.center{text-align:center;}
+.word-big{font-size:2.2rem; font-weight:700; color:var(--brand-dark); letter-spacing:.5px; word-break:break-word;}
+.stars{color:var(--gold); font-size:1.15rem; letter-spacing:2px;}
+.stars .dim{color:#d8d2c2;}
+.kk{color:var(--sub); font-size:.98rem; margin-top:4px;}
+.pos-zh{font-size:1.25rem; margin:10px 0 2px;}
+.pos{color:var(--blue); font-weight:600; margin-right:6px; font-size:1.02rem;}
+.badge-part{display:inline-block; font-size:.78rem; color:var(--sub);
+  border:1px solid var(--line); border-radius:6px; padding:1px 7px; margin-left:8px; vertical-align:2px;}
+button.big{display:block; width:100%; border:none; border-radius:14px;
+  padding:16px 12px; font-size:1.12rem; font-weight:700; cursor:pointer; margin:10px 0;
+  font-family:inherit;}
+button.big:active{transform:scale(.985);}
+.btn-fam{background:var(--ok-soft); color:var(--brand-dark); border:2px solid var(--brand)!important;}
+.btn-unfam{background:var(--red-soft); color:var(--red); border:2px solid var(--red)!important;}
+.btn-main{background:var(--brand); color:#fff;}
+.btn-ghost{background:var(--card); color:var(--brand-dark); border:1.5px solid var(--brand)!important;}
+.btn-warn{background:#fff6e8; color:#9a6b00; border:1.5px solid var(--gold)!important;}
+.btn-plain{background:#eef2f1; color:var(--sub);}
+.row{display:flex; gap:10px;}
+.row>button{flex:1;}
+.small-note{font-size:.88rem; color:var(--sub);}
+.speak-btn{border:1.5px solid var(--brand); background:var(--brand-soft); color:var(--brand-dark);
+  border-radius:999px; padding:8px 16px; font-size:1rem; cursor:pointer; font-family:inherit;}
+.speak-btn.mini{padding:4px 10px; font-size:.9rem;}
+.example{background:var(--blue-soft); border-radius:12px; padding:12px 14px; margin-top:12px; text-align:left;}
+.example .en{font-size:1.08rem; line-height:1.6;}
+.example .en span.w{cursor:pointer; border-radius:4px; padding:0 1px;}
+.example .en span.w.hl{background:#ffe9a8;}
+.example .zh{color:var(--sub); margin-top:6px; font-size:.98rem;}
+.tipbox{background:#fdf8ec; border:1px solid #f0e2bb; border-radius:12px;
+  padding:10px 14px; margin-top:12px; text-align:left; font-size:.95rem;}
+.tipbox b.lbl{color:#9a6b00;}
+.relbox{margin-top:10px; text-align:left; font-size:.95rem; color:var(--sub);}
+.relbox .tag{display:inline-block; background:#eef2f1; border-radius:6px; padding:0 6px;
+  margin-right:6px; font-size:.82rem; color:var(--brand-dark);}
+.opt{display:block; width:100%; text-align:left; background:var(--card);
+  border:2px solid var(--line); border-radius:12px; padding:14px 16px;
+  font-size:1.15rem; font-weight:600; color:var(--ink); margin:8px 0; cursor:pointer; font-family:inherit;}
+.opt.correct{border-color:var(--ok); background:var(--ok-soft);}
+.opt.wrong{border-color:var(--red); background:var(--red-soft);}
+.opt:disabled{cursor:default; opacity:.92;}
+.feedback{font-size:1.05rem; font-weight:700; margin:10px 0; min-height:1.5em;}
+.feedback.good{color:var(--brand-dark);}
+.feedback.bad{color:var(--red);}
+.list-item{display:flex; align-items:center; gap:10px; padding:10px 4px;
+  border-bottom:1px solid var(--line); font-size:1rem;}
+.list-item:last-child{border-bottom:none;}
+.list-item .w{font-weight:700; color:var(--brand-dark); min-width:7.2em;}
+.list-item .zh{color:var(--sub); flex:1; font-size:.92rem;}
+.pill{font-size:.78rem; border-radius:6px; padding:1px 8px;}
+.pill.fam{background:var(--ok-soft); color:var(--brand-dark);}
+.pill.unfam{background:var(--red-soft); color:var(--red);}
+.plan-table{width:100%; border-collapse:collapse; margin-top:10px; font-size:.95rem;}
+.plan-table th,.plan-table td{border:1px solid var(--line); padding:8px 6px; text-align:center;}
+.plan-table th{background:var(--brand-soft); color:var(--brand-dark);}
+.plan-table tr.today-row{background:#fdf8ec;}
+.day-input{width:90px; font-size:1.3rem; text-align:center; padding:8px;
+  border:2px solid var(--brand); border-radius:10px; font-family:inherit;}
+.stat-num{font-size:1.9rem; font-weight:800;}
+.stat-fam{color:var(--brand-dark);} .stat-unfam{color:var(--red);}
+.speed-toggle{display:inline-flex; border:1.5px solid var(--brand); border-radius:999px; overflow:hidden;}
+.speed-toggle button{border:none; background:var(--card); color:var(--brand-dark);
+  padding:6px 14px; font-size:.92rem; cursor:pointer; font-family:inherit;}
+.speed-toggle button.on{background:var(--brand); color:#fff;}
+.footer-nav{position:fixed; bottom:0; left:0; right:0; background:rgba(244,247,246,.96);
+  border-top:1px solid var(--line); padding:8px 14px; z-index:30;}
+.footer-nav .inner{max-width:640px; margin:0 auto; display:flex; gap:8px;}
+.footer-nav button{flex:1; border:none; background:none; color:var(--sub);
+  font-size:.85rem; padding:6px 2px; cursor:pointer; border-radius:10px; font-family:inherit;}
+.footer-nav button.on{color:var(--brand-dark); font-weight:700; background:var(--brand-soft);}
+.hidden{display:none!important;}
+.uncertain-flag{font-size:.75rem; color:#b07f10; cursor:help;}
+.mic-btn{background:#fdeef0; color:#b03a52; border:2px solid #d96b82!important;}
+.mic-btn.listening{background:#d96b82; color:#fff; animation:pulse 1.2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(217,107,130,.45)}50%{box-shadow:0 0 0 10px rgba(217,107,130,0)}}
+.transcript{background:#f7f2fb; border:1px dashed #b9a3d0; border-radius:12px;
+  padding:10px 14px; margin-top:12px; font-size:1.05rem; min-height:2.4em; text-align:left;}
+.transcript .lbl{font-size:.8rem; color:#7c6a91; display:block;}
+.diff-line{margin-top:8px; font-size:1.05rem; line-height:1.7; text-align:left;}
+.diff-line .hit{color:var(--brand-dark); font-weight:600;}
+.diff-line .miss{color:var(--red); font-weight:700; text-decoration:underline;}
+.mic-note{background:#eef6fb; border:1px solid #c4dcee; border-radius:12px;
+  padding:10px 14px; margin:10px 0; font-size:.9rem; color:#3c6684; text-align:left;}
+@media (max-width:420px){
+  html{font-size:16px;}
+  .word-big{font-size:1.9rem;}
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="top">
+    <h1 id="page-title">Day 10｜購物</h1>
+    <div id="filter-area" class="chips"></div>
+    <div id="progress-area"></div>
+  </header>
+  <main id="screen"></main>
+</div>
+<div class="footer-nav"><div class="inner" id="nav"></div></div>
+<script>
+const DATA = {"day": 10, "theme": "購物", "title_page": "購物高手（購物）", "words": [{"num": 1, "word": "purchase", "stars": 3, "part": "5,6", "kk_us": "ˋpɝtʃəs", "kk_uk": "ˋpəːtʃəs", "senses": [{"pos": "v.", "zh": "購買"}, {"pos": "n.", "zh": "購買（的東西）"}], "related": [{"rel": "同", "text": "buy 買"}], "example_en": "You can purchase movie tickets online and pick them up at the counter.", "example_zh": "你可以在網路上購買電影票，再到櫃台取票。", "example_src": "原創", "exam_point": "固定搭配 within … days of purchase（購買後～天內），Part 5 常考選介系詞 within。", "uncertain": true, "uncertain_note": "KK 音標所在角落照片失焦：起始 [ˋpɝ-]/[ˋpəː-] 已由 IMG_0184 頁緣放大證實，結尾 -tʃəs 依模糊字形與該字標準 KK 補齊，未能逐字元清晰核對"}, {"num": 2, "word": "price", "stars": 3, "part": "5,6", "kk_us": "praɪs", "kk_uk": null, "senses": [{"pos": "n.", "zh": "價格"}, {"pos": "v.", "zh": "為～定價"}], "related": [], "example_en": "The price of this jacket was lowered by 20 percent last week.", "example_zh": "這件夾克的價格上週調降了兩成。", "example_src": "原創", "exam_point": "price 是可數名詞，單數前要加 a：a reduced price 折扣價、a retail price 零售價（↔ wholesale price 批發價）。", "uncertain": false, "uncertain_note": ""}, {"num": 3, "word": "affordable", "stars": 2, "part": "5,6", "kk_us": "əˋfɔrdəbl̩", "kk_uk": "əˋfɔːdəbl", "senses": [{"pos": "adj.", "zh": "（價格）負擔得起的；實惠的"}], "related": [{"rel": "派", "text": "afford v. 可負擔～"}, {"rel": "派", "text": "affordability n. 可負擔性"}, {"rel": "派", "text": "affordably adv. 負擔得起地"}, {"rel": "同", "text": "reasonable （價格）合理的，不貴的"}, {"rel": "反", "text": "expensive 貴的"}], "example_en": "The store is popular because its furniture is stylish and affordable.", "example_zh": "這家店很受歡迎，因為它的家具有型又負擔得起。", "example_src": "原創", "exam_point": "常見搭配 at an affordable price/rate（以負擔得起的價格／費率），affordable 常和價格類名詞一起出題。", "uncertain": false, "uncertain_note": ""}, {"num": 4, "word": "exactly", "stars": 1, "part": "5,6", "kk_us": "ɪgˋzæktlɪ", "kk_uk": null, "senses": [{"pos": "adv.", "zh": "確切地；正好"}], "related": [{"rel": "派", "text": "exact adj. 確切的"}, {"rel": "同", "text": "precisely 準確地，精確地"}], "example_en": "The final bill was exactly the same as the estimate.", "example_zh": "最後的帳單和估價完全一樣。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": ""}, {"num": 5, "word": "installment", "stars": 1, "part": "7", "kk_us": "ɪnˋstɔlmənt", "kk_uk": null, "senses": [{"pos": "n.", "zh": "分期付款"}], "related": [], "example_en": "You can pay for the sofa in six monthly installments.", "example_zh": "你可以分六期按月付款買這張沙發。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": ""}, {"num": 6, "word": "notice", "stars": 3, "part": "5,6", "kk_us": "ˋnotɪs", "kk_uk": "ˋnəutis", "senses": [{"pos": "n.", "zh": "通知，公告"}, {"pos": "v.", "zh": "注意到"}], "related": [{"rel": "派", "text": "notify v. 通知"}, {"rel": "派", "text": "notification n. 通知"}, {"rel": "派", "text": "noticeable adj. 顯而易見的"}], "example_en": "The store posted a notice about its new opening hours.", "example_zh": "這家店張貼了新營業時間的公告。", "example_src": "原創", "exam_point": "notice 多以慣用語出題：until further notice（直到另行通知）、give two weeks' notice（提前兩週通知）。", "uncertain": false, "uncertain_note": ""}, {"num": 7, "word": "charge", "stars": 3, "part": "5,6", "kk_us": "tʃɑrdʒ", "kk_uk": "tʃɑːdʒ", "senses": [{"pos": "n.", "zh": "收費，費用；責任"}, {"pos": "v.", "zh": "索取（費用）；把～記在帳上"}], "related": [{"rel": "同", "text": "expense 費用"}], "example_en": "There is no extra charge for gift wrapping at this shop.", "example_zh": "這家店的禮物包裝不另外收費。", "example_src": "原創", "exam_point": "四個高頻搭配：free of charge 免費、in charge of 負責～、additional charge 額外費用、charge A to B 把 A 記到 B 的帳上；free of charge 裡的 charge 不能換成 rate/price/fare。", "uncertain": false, "uncertain_note": ""}, {"num": 8, "word": "experienced", "stars": 3, "part": "5,6", "kk_us": "ɪkˋspɪrɪənst", "kk_uk": null, "senses": [{"pos": "adj.", "zh": "有經驗的；熟練的"}], "related": [], "example_en": "An experienced clerk helped me choose the right size.", "example_zh": "一位有經驗的店員幫我挑到合適的尺寸。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": ""}, {"num": 9, "word": "instruction", "stars": 3, "part": "5,6", "kk_us": "ɪnˋstrʌkʃən", "kk_uk": null, "senses": [{"pos": "n.", "zh": "（使用）說明；指示"}], "related": [{"rel": "派", "text": "instructional adj. 教學的；教育的"}], "example_en": "Follow the instructions on the label when washing this shirt.", "example_zh": "洗這件襯衫時，請按照標籤上的說明。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": ""}, {"num": 10, "word": "expert", "stars": 3, "part": "5,6", "kk_us": "ˋɛkspɚt", "kk_uk": "ˋekspəːt", "senses": [{"pos": "n.", "zh": "專家"}, {"pos": "adj.", "zh": "專門的，專業的"}], "related": [{"rel": "派", "text": "expertly adv. 熟練地；巧妙地"}], "example_en": "Ask an expert before buying a used camera.", "example_zh": "買二手相機之前，先問問專家。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": ""}, {"num": 11, "word": "warranty", "stars": 3, "part": "7", "kk_us": "ˋwɔrəntɪ", "kk_uk": "ˋwɔrənti", "senses": [{"pos": "n.", "zh": "（品質等的）保證；保證書"}], "related": [], "example_en": "This laptop comes with a two-year warranty.", "example_zh": "這台筆電附有兩年保固。", "example_src": "原創", "exam_point": "固定搭配 under warranty（在保固期內），介系詞用 under。", "uncertain": false, "uncertain_note": ""}, {"num": 12, "word": "refund", "stars": 3, "part": "5,6", "kk_us": "n. [ˋrɪˌfʌnd]；v. 美 [rɪˋfʌnd", "kk_uk": "v. 英 [riˋfʌnd", "senses": [{"pos": "n.", "zh": "退款"}, {"pos": "v.", "zh": "退款"}], "related": [{"rel": "派", "text": "refundable adj. 可退款的"}], "example_en": "If the item is damaged, you can ask for a full refund.", "example_zh": "如果商品有損壞，你可以要求全額退款。", "example_src": "原創", "exam_point": "refund 是可數名詞：a full refund 全額退款；動詞常搭 provide a refund 提供退款。", "uncertain": false, "uncertain_note": "名詞唸法只列一行 [ˋrɪˌfʌnd]（無美英之分）；動詞義另標 美[rɪˋfʌnd]／英[riˋfʌnd]，右端貼近頁緣但可辨"}, {"num": 13, "word": "subscriber", "stars": 3, "part": "5,6", "kk_us": "səbˋskraɪbɚ", "kk_uk": "səbˋskraibə", "senses": [{"pos": "n.", "zh": "訂閱者，用戶"}], "related": [{"rel": "派", "text": "subscription n. 訂閱"}], "example_en": "Subscribers to the magazine get a discount coupon every month.", "example_zh": "這本雜誌的訂閱者每個月都會拿到一張折價券。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": ""}, {"num": 14, "word": "delivery", "stars": 3, "part": "5,6", "kk_us": "dɪˋlɪvərɪ", "kk_uk": null, "senses": [{"pos": "n.", "zh": "運送；交貨"}], "related": [{"rel": "派", "text": "deliver v. 運送"}], "example_en": "Free delivery is available for orders over 50 dollars.", "example_zh": "訂單滿 50 美元即可免費送貨。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": ""}, {"num": 15, "word": "receipt", "stars": 3, "part": "7", "kk_us": "rɪˋsit", "kk_uk": null, "senses": [{"pos": "n.", "zh": "收據"}], "related": [{"rel": "派", "text": "receive v. 收到"}], "example_en": "Keep your receipt in case you need to exchange the shoes.", "example_zh": "保留你的收據，以備需要換鞋時使用。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": ""}, {"num": 16, "word": "carefully", "stars": 3, "part": "5,6", "kk_us": "ˋkɛrfəlɪ", "kk_uk": "ˋkɛəfəli", "senses": [{"pos": "adv.", "zh": "小心謹慎地，仔細地"}], "related": [{"rel": "派", "text": "care n. 照料；關心 v. 關心"}, {"rel": "派", "text": "careful adj. 小心謹慎的"}, {"rel": "反", "text": "carelessly 粗心地"}], "example_en": "Please check your order carefully before you pay.", "example_zh": "付款前請仔細確認你的訂單。", "example_src": "原創", "exam_point": "詞性辨析：carefully（副詞）修飾動詞、careful（形容詞）修飾名詞，Part 5 詞性題常客。", "uncertain": false, "uncertain_note": null}, {"num": 17, "word": "offer", "stars": 3, "part": "5,6", "kk_us": "ˋɔfɚ", "kk_uk": "ˋɔːfə", "senses": [{"pos": "v.", "zh": "提供"}, {"pos": "n.", "zh": "提供；優惠"}], "related": [{"rel": "同", "text": "provide 提供"}], "example_en": "The bakery offers a free drink with every cake set.", "example_zh": "這家烘焙坊的每份蛋糕套餐都提供一杯免費飲料。", "example_src": "原創", "exam_point": "名詞用法：promotional offer 促銷優惠、job offer 工作邀約；動詞句型 offer A B＝offer B to A（提供 B 給 A）。", "uncertain": false, "uncertain_note": null}, {"num": 18, "word": "benefit", "stars": 3, "part": "5,6", "kk_us": "ˋbɛnəfɪt", "kk_uk": "ˋbenifit", "senses": [{"pos": "n.", "zh": "利益，好處"}, {"pos": "v.", "zh": "受益，受惠"}], "related": [{"rel": "派", "text": "beneficial adj. 有益的，有利的"}, {"rel": "派", "text": "beneficiary n. 受惠者，受益人"}, {"rel": "反", "text": "disadvantage 不利"}], "example_en": "Members enjoy many benefits, such as points and special sales.", "example_zh": "會員享有許多好處，例如點數和特賣。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 19, "word": "exclusively", "stars": 3, "part": "5,6", "kk_us": "ɪkˋsklusɪvlɪ", "kk_uk": null, "senses": [{"pos": "adv.", "zh": "獨占地；排外地"}], "related": [{"rel": "派", "text": "exclusive adj. 獨占的"}, {"rel": "派", "text": "exclude v. 排除"}, {"rel": "同", "text": "solely 單獨地"}], "example_en": "This color is sold exclusively on the official website.", "example_zh": "這個顏色只在官方網站獨家販售。", "example_src": "原創", "exam_point": "高頻搭配：available exclusively online 僅在網路供應、sell exclusively 獨家販售；表「只有」時近 solely。", "uncertain": false, "uncertain_note": null}, {"num": 20, "word": "description", "stars": 3, "part": "5,6", "kk_us": "dɪˋskrɪpʃən", "kk_uk": null, "senses": [{"pos": "n.", "zh": "（產品等的）說明，描述"}], "related": [{"rel": "派", "text": "describe v. 說明，描述"}, {"rel": "同", "text": "account 說明，解釋"}], "example_en": "The product description says the bag is waterproof.", "example_zh": "產品說明寫著這個包包是防水的。", "example_src": "原創", "exam_point": "job description（職務說明）是徵才廣告高頻詞；閱讀題會考與 information、specification（規格）的區分。", "uncertain": false, "uncertain_note": null}, {"num": 21, "word": "relatively", "stars": 3, "part": "5,6", "kk_us": "ˋrɛlətɪvlɪ", "kk_uk": null, "senses": [{"pos": "adv.", "zh": "相對地"}], "related": [{"rel": "派", "text": "relative adj. 相對的"}, {"rel": "派", "text": "relate v. 有關，涉及；敘述"}], "example_en": "Prices at this market are relatively low.", "example_zh": "這個市場的價格相對便宜。", "example_src": "原創", "exam_point": "relatively＋形容詞（relatively low 相對低）是常見出題形。", "uncertain": false, "uncertain_note": null}, {"num": 22, "word": "preparation", "stars": 3, "part": "5,6", "kk_us": "ˏprɛpəˋreʃən", "kk_uk": null, "senses": [{"pos": "n.", "zh": "準備（工作）"}], "related": [], "example_en": "The staff stayed late in preparation for the big sale.", "example_zh": "為了大特賣，員工留到很晚做準備。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": "p.191 以本條例句收尾；若有出題重點框應接續在下一張照片（IMG_0193）頂端，不在本批範圍內。"}, {"num": 23, "word": "spare", "stars": 3, "part": "7", "kk_us": "spɛr", "kk_uk": "spɛə", "senses": [{"pos": "v.", "zh": "節省；吝惜"}, {"pos": "adj.", "zh": "備用的；剩下的"}], "related": [], "example_en": "The store spared no effort to please its customers.", "example_zh": "這家店不遺餘力地讓顧客滿意。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 24, "word": "area", "stars": 3, "part": "5,6", "kk_us": "`ɛrɪə", "kk_uk": "`ɛəriə", "senses": [{"pos": "n.", "zh": "地區，區域"}], "related": [], "example_en": "The parking area is behind the shopping center.", "example_zh": "停車區在購物中心後面。", "example_src": "原創", "exam_point": "區分 area 與 site：area 指城市／國家的部分區域；site 指特定用途的地點（如工地、店址）。", "uncertain": false, "uncertain_note": null}, {"num": 25, "word": "clearance", "stars": 3, "part": "7", "kk_us": "`klɪrəns", "kk_uk": null, "senses": [{"pos": "n.", "zh": "清除，清空；權限"}], "related": [{"rel": "同", "text": "authorization 授權，批准"}], "example_en": "I bought this coat for half price at the clearance sale.", "example_zh": "我在清倉特賣會上用半價買到這件外套。", "example_src": "原創", "exam_point": "clearance sale（清倉特賣）是商店廣告高頻詞——把庫存清空的特賣。", "uncertain": false, "uncertain_note": null}, {"num": 26, "word": "alter", "stars": 3, "part": "5,6", "kk_us": "`ɔltɚ", "kk_uk": "`ɔ:ltə", "senses": [{"pos": "v.", "zh": "改變（性質、形象）；修改（衣服）"}], "related": [{"rel": "派", "text": "alteration n. 改變；修改"}, {"rel": "同", "text": "change, modify 改變"}], "example_en": "The tailor can alter the pants to fit you.", "example_zh": "裁縫師可以修改這件褲子讓你合身。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 27, "word": "apply", "stars": 3, "part": "5,6", "kk_us": "ə`plaɪ", "kk_uk": null, "senses": [{"pos": "v.", "zh": "適用，應用；申請"}], "related": [{"rel": "派", "text": "application n. 適用；申請"}, {"rel": "派", "text": "applicant n. 申請者，應徵者"}, {"rel": "派", "text": "applicable adj. 可應用的，適用的"}, {"rel": "同", "text": "put into effect 實施"}, {"rel": "同", "text": "put to use 使用"}], "example_en": "The discount applies to all items in the store.", "example_zh": "這項折扣適用於店內所有商品。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 28, "word": "mutually", "stars": 2, "part": "5,6", "kk_us": "`mjutʃʊəlɪ", "kk_uk": null, "senses": [{"pos": "adv.", "zh": "互相，彼此"}], "related": [], "example_en": "The buyer and the seller agreed on a mutually convenient time.", "example_zh": "買家和賣家約定了一個彼此都方便的時間。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 29, "word": "method", "stars": 2, "part": "5,6", "kk_us": "`mɛθəd", "kk_uk": null, "senses": [{"pos": "n.", "zh": "方法，方式"}], "related": [{"rel": "同", "text": "approach 方法"}], "example_en": "Which method of payment would you like to use?", "example_zh": "你想使用哪一種付款方式？", "example_src": "原創", "exam_point": "a method of payment 付款方式（信用卡、現金、支票等）；表「方法」時 method 可與 approach 互換。", "uncertain": false, "uncertain_note": null}, {"num": 30, "word": "acceptable", "stars": 2, "part": "7", "kk_us": "æk`sɛptəbl̩", "kk_uk": "ək`sɛptəbl", "senses": [{"pos": "adj.", "zh": "可接受的，還可以的"}], "related": [{"rel": "同", "text": "fine（提案、決定等）不錯的，還可以的"}], "example_en": "A store credit is acceptable if a refund is not possible.", "example_zh": "如果無法退款，商店抵用金也是可以接受的。", "example_src": "原創", "exam_point": null, "uncertain": true, "uncertain_note": "kk_uk 母音字形較閉，可能為 [ək`septəbl]（書中英式常用 e 而非 ɛ），放大後仍難以完全分辨"}, {"num": 31, "word": "desire", "stars": 2, "part": "7", "kk_us": "dɪ`zaɪr", "kk_uk": "di`zaiə", "senses": [{"pos": "n.", "zh": "渴望，慾望"}, {"pos": "v.", "zh": "渴望，想要"}], "related": [{"rel": "派", "text": "desirable adj. 令人渴望的，使人嚮往的"}, {"rel": "派", "text": "undesirable adj. 令人討厭的，不受歡迎的"}], "example_en": "Many customers have a desire for high-quality but cheap goods.", "example_zh": "許多顧客渴望品質好又便宜的商品。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 32, "word": "redeemable", "stars": 2, "part": "7", "kk_us": "rɪ`diməbl̩", "kk_uk": null, "senses": [{"pos": "adj.", "zh": "可兌換（現金、商品）的；可償還的"}], "related": [{"rel": "派", "text": "redeem v. 贖回；（用禮券等）兌換商品"}], "example_en": "This coupon is redeemable at any branch store.", "example_zh": "這張折價券可以在任何分店兌換。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 33, "word": "officially", "stars": 2, "part": "5,6", "kk_us": "ə`fɪʃəlɪ", "kk_uk": null, "senses": [{"pos": "adv.", "zh": "正式地"}], "related": [{"rel": "派", "text": "official adj. 官方的；正式的"}, {"rel": "同", "text": "formally 正式地"}], "example_en": "The new mall officially opens this Friday.", "example_zh": "新的購物中心本週五正式開幕。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 34, "word": "consumption", "stars": 2, "part": "7", "kk_us": "kən`sʌmpʃən", "kk_uk": null, "senses": [{"pos": "n.", "zh": "消費（量）；消耗"}], "related": [], "example_en": "Energy consumption is lower with this new refrigerator.", "example_zh": "這台新冰箱的能源消耗量比較低。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 35, "word": "qualify", "stars": 2, "part": "5,6", "kk_us": "`kwɑlə,faɪ", "kk_uk": "`kwɔlifai", "senses": [{"pos": "v.", "zh": "使（某人）有資格"}], "related": [{"rel": "派", "text": "qualification n. 資格，資格證明"}, {"rel": "派", "text": "qualified adj. 有資格的，符合資格條件的"}], "example_en": "Spending 100 dollars qualifies you for a free gift.", "example_zh": "消費滿 100 美元，你就有資格獲得免費贈品。", "example_src": "原創", "exam_point": "qualify for A（有 A 的資格），介系詞固定用 for。", "uncertain": false, "uncertain_note": null}, {"num": 36, "word": "fabric", "stars": 2, "part": "7", "kk_us": "`fæbrɪk", "kk_uk": null, "senses": [{"pos": "n.", "zh": "布料"}], "related": [], "example_en": "This dress is made of soft, breathable fabric.", "example_zh": "這件洋裝是用柔軟透氣的布料做的。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 37, "word": "auction", "stars": 2, "part": "7", "kk_us": "`ɔkʃən", "kk_uk": null, "senses": [{"pos": "n.", "zh": "拍賣"}], "related": [], "example_en": "The rare watch was sold at an online auction.", "example_zh": "這支稀有的手錶在網路拍賣會上售出。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 38, "word": "authentic", "stars": 2, "part": "7", "kk_us": "ə`θɛntɪk", "kk_uk": "ɔ:`θentik", "senses": [{"pos": "adj.", "zh": "真正的，正統的"}], "related": [{"rel": "同", "text": "genuine 真正的"}, {"rel": "反", "text": "fake 假的"}], "example_en": "The shop sells authentic leather bags, not copies.", "example_zh": "這家店賣的是正統真皮包，不是仿冒品。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 39, "word": "valid", "stars": 1, "part": "5,6", "kk_us": "`vælɪd", "kk_uk": null, "senses": [{"pos": "adj.", "zh": "有效的"}], "related": [{"rel": "同", "text": "effective 有效的"}, {"rel": "同", "text": "good 有效的，效果好的"}, {"rel": "反", "text": "invalid 無效的"}], "example_en": "This coupon is valid for thirty days.", "example_zh": "這張折價券在三十天內有效。", "example_src": "原創", "exam_point": "be valid for＋期間（在～期間有效）；valid receipt 有效收據。", "uncertain": false, "uncertain_note": null}, {"num": 40, "word": "vendor", "stars": 1, "part": "7", "kk_us": "`vɛndɚ", "kk_uk": "`vendə", "senses": [{"pos": "n.", "zh": "小販，攤販；賣家，供應商"}], "related": [], "example_en": "Street vendors sell snacks outside the night market.", "example_zh": "攤販在夜市外面賣小吃。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}]};
+const WORDS = DATA.words;
+const LS_KEY = 'toeic_day10_stepapp_v1';
+
+/* ---------- state ---------- */
+const defaultState = () => ({
+  filter: 'high',              // high = ★★★+★★（預設）, s3, s2, all
+  marks: {},                   // num -> 'fam' | 'unfam'
+  plan: null,                  // {days, start, batches:[{fam:[],unfam:[]}], doneDays:{}}
+  review: [],                  // 待複習 num
+  mastered: [],                // 已掌握 num
+  speakMarks: {},              // 口說自評：num -> 'ok' | 'again'（新增欄位，不影響舊資料）
+  screen: 'home'
+});
+let S = load();
+function load(){
+  try{
+    const raw = localStorage.getItem(LS_KEY);
+    if(raw){ const s = JSON.parse(raw); return Object.assign(defaultState(), s); }
+  }catch(e){}
+  return defaultState();
+}
+function save(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(S)); }catch(e){} }
+
+/* ---------- helpers ---------- */
+const byNum = {}; WORDS.forEach(w => byNum[w.num] = w);
+function starStr(n){ return '★'.repeat(n) + '<span class="dim">' + '★'.repeat(Math.max(0,3-n)) + '</span>'; }
+function scopeWords(){
+  if(S.filter==='s3') return WORDS.filter(w=>w.stars===3);
+  if(S.filter==='s2') return WORDS.filter(w=>w.stars===2);
+  if(S.filter==='all') return WORDS.slice();
+  return WORDS.filter(w=>w.stars>=2);   // high
+}
+function sortLearn(a,b){ return b.stars-a.stars || a.num-b.num; }
+function todayStr(){
+  const d = new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function planDayIndex(){
+  if(!S.plan) return 1;
+  const ms = (new Date(todayStr()) - new Date(S.plan.start));
+  const k = Math.floor(ms/86400000)+1;
+  return Math.min(Math.max(k,1), S.plan.days);
+}
+const PRAISE = ['答對了，很棒！👍','太好了，就是這個！🌟','漂亮！繼續保持～','沒錯！你越來越穩了 😊','正確！這個字是你的了'];
+const COMFORT = ['沒關係，這個字會再出現，多聽幾次就熟了','別擔心，先記個印象就好 🌱','慢慢來，複習時再見到它','這個字比較難，放進複習清單囉'];
+function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+/* ---------- TTS ---------- */
+let voiceEn = null, slowMode = false;
+function pickVoice(){
+  const vs = speechSynthesis.getVoices();
+  voiceEn = vs.find(v=>v.lang==='en-US') || vs.find(v=>v.lang.startsWith('en')) || null;
+}
+if('speechSynthesis' in window){
+  pickVoice();
+  speechSynthesis.onvoiceschanged = pickVoice;
+}
+function speak(text, cb){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  if(voiceEn) u.voice = voiceEn;
+  u.rate = slowMode ? 0.65 : 0.95;
+  if(cb) u.onend = cb;
+  speechSynthesis.speak(u);
+}
+function speakWordThenExample(w){
+  speak(w.word, ()=>{ if(w.example_en) setTimeout(()=>speak(w.example_en), 450); });
+}
+
+/* ---------- rendering shell ---------- */
+const $screen = document.getElementById('screen');
+const $prog = document.getElementById('progress-area');
+const $filter = document.getElementById('filter-area');
+const $nav = document.getElementById('nav');
+
+function setProgress(label, done, total){
+  if(total>0){
+    $prog.innerHTML = '<div class="progress-wrap"><div class="progress-bar" style="width:'+
+      Math.round(done/total*100)+'%"></div></div><div class="progress-label">'+label+'：'+done+' / '+total+'</div>';
+  } else { $prog.innerHTML = ''; }
+}
+function renderFilter(show){
+  if(!show){ $filter.innerHTML=''; return; }
+  const opts = [['high','高頻（★★★＋★★）'],['s3','只看 ★★★'],['s2','只看 ★★'],['all','全部']];
+  $filter.innerHTML = opts.map(([k,t])=>'<button class="chip'+(S.filter===k?' on':'')+'" data-f="'+k+'">'+t+'</button>').join('');
+  $filter.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{
+    S.filter=b.dataset.f; save(); render();
+  });
+}
+function renderNav(){
+  const items=[['home','🏠 首頁'],['classify','① 分類'],['plan','② 計畫'],['today','③ 今日練習'],['browse','📖 總覽']];
+  $nav.innerHTML = items.map(([k,t])=>'<button class="'+(S.screen===k?'on':'')+'" data-s="'+k+'">'+t+'</button>').join('');
+  $nav.querySelectorAll('button').forEach(b=>b.onclick=()=>{ go(b.dataset.s); });
+}
+function go(screen){ S.screen=screen; save(); render(); }
+function render(){
+  renderNav();
+  renderFilter(['home','classify','browse'].includes(S.screen));
+  window.speechSynthesis && speechSynthesis.cancel();
+  ({home:renderHome, classify:renderClassify, plan:renderPlan, today:renderToday,
+    browse:renderBrowse, listen:renderListen, speak:renderSpeak, quiz:renderQuiz}[S.screen]||renderHome)();
+}
+
+/* ---------- home ---------- */
+function renderHome(){
+  const scope = scopeWords();
+  const marked = scope.filter(w=>S.marks[w.num]);
+  const fam = scope.filter(w=>S.marks[w.num]==='fam').length;
+  const unfam = scope.filter(w=>S.marks[w.num]==='unfam').length;
+  setProgress('已分類', marked.length, scope.length);
+  let html = '<div class="card center">';
+  html += '<div class="small-note">目前範圍：'+scope.length+' 個字（★★★ '+scope.filter(w=>w.stars===3).length+
+          '、★★ '+scope.filter(w=>w.stars===2).length+'、★ '+scope.filter(w=>w.stars===1).length+'）</div>';
+  html += '<div style="margin:10px 0"><span class="stat-num stat-fam">'+fam+'</span> 熟悉　<span class="stat-num stat-unfam">'+unfam+'</span> 不熟悉</div>';
+
+  if(marked.length < scope.length){
+    html += '<button class="big btn-main" onclick="go(\'classify\')">'+
+      (marked.length? '① 繼續分類測驗（還剩 '+(scope.length-marked.length)+' 字）':'① 開始分類測驗')+'</button>';
+  } else {
+    html += '<div class="feedback good">✅ 這個範圍都分類完了！</div>';
+  }
+  if(marked.length>0){
+    html += '<button class="big btn-ghost" onclick="go(\'plan\')">② '+(S.plan?'查看／調整學習計畫':'安排分幾天學')+'</button>';
+  }
+  if(S.plan){
+    const k = planDayIndex();
+    html += '<button class="big btn-main" onclick="go(\'today\')">③ 今天是第 '+k+' 天，開始今日練習</button>';
+  }
+  if(S.review.length>0){
+    html += '<button class="big btn-warn" onclick="startReview()">🔁 複習清單還有 '+S.review.length+' 個字</button>';
+  }
+  html += '<button class="big btn-plain" onclick="resetAll()">重設全部進度</button>';
+  html += '</div>';
+  $screen.innerHTML = html;
+}
+function resetAll(){
+  if(confirm('確定要清除 Day 10 的分類、計畫與複習進度嗎？')){
+    S = defaultState(); save(); render();
+  }
+}
+
+/* ---------- ① classify ---------- */
+let clsCurrent = null, clsRevealed = false, clsChoice = null;
+function renderClassify(){
+  const scope = scopeWords();
+  const queue = scope.filter(w=>!S.marks[w.num]).sort(sortLearn);
+  const done = scope.length - queue.length;
+  setProgress('分類進度', done, scope.length);
+  if(queue.length===0){
+    $screen.innerHTML = '<div class="card center"><div class="feedback good">🎉 分類完成！熟悉 '+
+      scope.filter(w=>S.marks[w.num]==='fam').length+' 字、不熟悉 '+
+      scope.filter(w=>S.marks[w.num]==='unfam').length+' 字</div>'+
+      '<button class="big btn-main" onclick="go(\'plan\')">下一步：安排分幾天學 →</button></div>';
+    return;
+  }
+  if(!clsCurrent || S.marks[clsCurrent.num] !== undefined && !clsRevealed){
+    clsCurrent = queue[0]; clsRevealed=false; clsChoice=null;
+  }
+  const w = clsCurrent;
+  let html = '<div class="card center">';
+  html += '<div class="stars">'+starStr(w.stars)+'</div>';
+  html += '<div class="word-big">'+w.word+'</div>';
+  html += '<div style="margin-top:8px"><button class="speak-btn" onclick="speak(\''+esc(w.word)+'\')">🔊 聽發音</button></div>';
+  if(!clsRevealed){
+    html += '<div class="small-note" style="margin:12px 0 4px">認得這個字的意思嗎？</div>';
+    html += '<div class="row"><button class="big btn-fam" onclick="clsMark(\'fam\')">😊 熟悉</button>'+
+            '<button class="big btn-unfam" onclick="clsMark(\'unfam\')">🤔 不熟悉</button></div>';
+  } else {
+    html += senseBlock(w);
+    html += '<div class="feedback '+(clsChoice==='fam'?'good':'')+'" style="margin-top:10px">'+
+            (clsChoice==='fam'?'已標記為「熟悉」':'已標記為「不熟悉」，之後會多練幾次 💪')+'</div>';
+    if(clsChoice==='fam'){
+      html += '<button class="big btn-unfam" onclick="clsSwitch()">😅 看了中文才發現認錯 → 改為不熟悉</button>';
+    }
+    html += '<button class="big btn-main" onclick="clsNext()">下一個字 →</button>';
+  }
+  html += '</div>';
+  $screen.innerHTML = html;
+  if(!clsRevealed) speak(w.word);
+}
+function senseBlock(w){
+  let h = '<div style="margin-top:10px">';
+  w.senses.forEach(s=>{ h += '<div class="pos-zh"><span class="pos">'+s.pos+'</span>'+s.zh+'</div>'; });
+  h += '<div class="kk">KK '+(w.kk_us?('['+w.kk_us+']'):'')+(w.kk_uk?('　英 ['+w.kk_uk+']'):'')+
+       (w.uncertain?' <span class="uncertain-flag" title="'+esc(w.uncertain_note||'照片辨識不完全確定')+'">？</span>':'')+'</div>';
+  h += '</div>';
+  return h;
+}
+function clsMark(kind){
+  clsChoice = kind; clsRevealed = true;
+  S.marks[clsCurrent.num] = kind; save();
+  renderClassifyRevealed();
+}
+function clsSwitch(){
+  clsChoice='unfam'; S.marks[clsCurrent.num]='unfam'; save();
+  renderClassifyRevealed();
+}
+function renderClassifyRevealed(){ renderClassify(); }
+function clsNext(){
+  clsCurrent=null; clsRevealed=false;
+  const scope = scopeWords();
+  const queue = scope.filter(w=>!S.marks[w.num]);
+  if(queue.length===0){ S.plan=null; save(); go('plan'); return; }   // 全部分完 → 直接進 1.5
+  renderClassify();
+}
+
+/* ---------- ②(1.5) plan ---------- */
+let planPreviewDays = null;
+function renderPlan(){
+  setProgress('',0,0);
+  const scope = scopeWords();
+  const fams = scope.filter(w=>S.marks[w.num]==='fam').sort(sortLearn);
+  const unfams = scope.filter(w=>S.marks[w.num]==='unfam').sort(sortLearn);
+  if(fams.length+unfams.length===0){
+    $screen.innerHTML='<div class="card center">先完成 ① 分類測驗，才能安排計畫喔。<button class="big btn-main" onclick="go(\'classify\')">去分類 →</button></div>';
+    return;
+  }
+  let html = '<div class="card center">';
+  html += '<div>分類結果：<b class="stat-fam">熟悉 '+fams.length+' 字</b>、<b class="stat-unfam">不熟悉 '+unfams.length+' 字</b></div>';
+  html += '<div class="small-note" style="margin-top:6px">不熟悉的字比較費力，配量時 1 個不熟悉字＝2 份、熟悉字＝1 份</div>';
+  html += '<div style="margin:14px 0">要分幾天學完？　<input type="number" id="days-in" class="day-input" min="1" max="14" value="'+
+          (planPreviewDays || (S.plan&&S.plan.days) || 3)+'"> 天</div>';
+  html += '<div class="chips" style="justify-content:center">'+[2,3,4,5,6,7].map(d=>'<button class="chip" onclick="setDays('+d+')">'+d+' 天</button>').join('')+'</div>';
+  html += '<button class="big btn-ghost" onclick="previewPlan()">產生計畫表預覽</button>';
+  html += '</div>';
+
+  const days = planPreviewDays || (S.plan && S.plan.days);
+  if(days){
+    const batches = buildBatches(fams.map(w=>w.num), unfams.map(w=>w.num), days);
+    const curK = S.plan ? planDayIndex() : -1;
+    html += '<div class="card"><b>'+days+' 天學習計畫表</b>';
+    html += '<table class="plan-table"><tr><th>天</th><th>熟悉</th><th>不熟悉</th><th>合計</th></tr>';
+    batches.forEach((b,i)=>{
+      html += '<tr'+(S.plan&&i+1===curK?' class="today-row"':'')+'><td>Day '+(i+1)+(S.plan&&i+1===curK?'（今天）':'')+'</td><td>'+
+        b.fam.length+' 字</td><td>'+b.unfam.length+' 字</td><td>'+(b.fam.length+b.unfam.length)+' 字</td></tr>';
+    });
+    html += '</table>';
+    html += '<div class="small-note" style="margin-top:8px">點開看每天的字：</div>';
+    batches.forEach((b,i)=>{
+      html += '<details style="margin-top:6px"><summary>Day '+(i+1)+'（'+(b.fam.length+b.unfam.length)+' 字）</summary><div style="margin-top:6px">';
+      b.unfam.forEach(n=>{ html += planWordLine(byNum[n],'unfam'); });
+      b.fam.forEach(n=>{ html += planWordLine(byNum[n],'fam'); });
+      html += '</div></details>';
+    });
+    if(!S.plan || S.plan.days!==days){
+      html += '<button class="big btn-main" onclick="adoptPlan('+days+')">✅ 就用這個計畫（從今天開始）</button>';
+      if(S.plan) html += '<div class="small-note center">（採用新計畫會從第 1 天重新開始）</div>';
+    } else {
+      html += '<button class="big btn-main" onclick="go(\'today\')">前往今日練習 →</button>';
+    }
+    html += '</div>';
+  }
+  $screen.innerHTML = html;
+  const inp = document.getElementById('days-in');
+  if(inp) inp.onchange = ()=>{ planPreviewDays = Math.max(1,Math.min(14,parseInt(inp.value)||3)); renderPlan(); };
+}
+function planWordLine(w,kind){
+  return '<div class="list-item"><span class="pill '+kind+'">'+(kind==='fam'?'熟':'不熟')+'</span>'+
+    '<span class="w">'+w.word+'</span><span class="stars" style="font-size:.85rem">'+starStr(w.stars)+'</span>'+
+    '<span class="zh">'+w.senses.map(s=>s.zh).join('；')+'</span></div>';
+}
+function setDays(d){ planPreviewDays=d; renderPlan(); }
+function previewPlan(){
+  const inp=document.getElementById('days-in');
+  planPreviewDays = Math.max(1,Math.min(14,parseInt(inp.value)||3));
+  renderPlan();
+}
+function buildBatches(famNums, unfamNums, days){
+  const batches = Array.from({length:days},()=>({fam:[],unfam:[]}));
+  // 不熟悉平均鋪（每字算 2 份）
+  const baseU = Math.floor(unfamNums.length/days), extraU = unfamNums.length%days;
+  let ui=0;
+  for(let d=0; d<days; d++){
+    const take = baseU + (d<extraU?1:0);
+    batches[d].unfam = unfamNums.slice(ui, ui+take); ui+=take;
+  }
+  // 熟悉字補到每天加權份量接近平均
+  const weights = batches.map(b=>b.unfam.length*2);
+  famNums.forEach(n=>{
+    let best=0;
+    for(let d=1; d<days; d++){ if(weights[d]<weights[best]) best=d; }
+    batches[best].fam.push(n); weights[best]+=1;
+  });
+  return batches;
+}
+function adoptPlan(days){
+  const scope = scopeWords();
+  const fams = scope.filter(w=>S.marks[w.num]==='fam').sort(sortLearn).map(w=>w.num);
+  const unfams = scope.filter(w=>S.marks[w.num]==='unfam').sort(sortLearn).map(w=>w.num);
+  S.plan = {days, start: todayStr(), batches: buildBatches(fams, unfams, days), doneDays:{}};
+  planPreviewDays = null;
+  save(); go('today');
+}
+
+/* ---------- ③ today (step 2 選堆) ---------- */
+let viewDay = null;
+function renderToday(){
+  setProgress('',0,0);
+  if(!S.plan){
+    $screen.innerHTML='<div class="card center">還沒有學習計畫。<button class="big btn-main" onclick="go(\'plan\')">先去安排 →</button></div>';
+    return;
+  }
+  const k = viewDay || planDayIndex();
+  const b = S.plan.batches[k-1] || {fam:[],unfam:[]};
+  let html = '<div class="card center">';
+  html += '<div class="small-note">今天是第 '+planDayIndex()+' 天（共 '+S.plan.days+' 天）'+
+          (S.plan.doneDays[k]?'　✅ 這天已完成':'')+'</div>';
+  html += '<div class="chips" style="justify-content:center">'+
+    S.plan.batches.map((_,i)=>'<button class="chip'+((i+1)===k?' on':'')+'" onclick="viewDay='+(i+1)+';renderToday()">D'+(i+1)+(S.plan.doneDays[i+1]?'✓':'')+'</button>').join('')+'</div>';
+  html += '<div style="margin:10px 0 4px"><b>第 '+k+' 天要練這些字：</b></div>';
+  b.unfam.forEach(n=>{ html += planWordLine(byNum[n],'unfam'); });
+  b.fam.forEach(n=>{ html += planWordLine(byNum[n],'fam'); });
+  html += '<div class="small-note" style="margin:12px 0 4px">先練哪一堆？（流程：聽發音輪 → 🎤 口說練習 → 聽力測驗）</div>';
+  if(b.unfam.length) html += '<button class="big btn-unfam" onclick="startPile('+k+',\'unfam\')">先練不熟悉（'+b.unfam.length+' 字）</button>';
+  if(b.fam.length) html += '<button class="big btn-fam" onclick="startPile('+k+',\'fam\')">先練熟悉（'+b.fam.length+' 字）</button>';
+  if(b.unfam.length+b.fam.length>0) html += '<button class="big mic-btn" onclick="startSpeakDay('+k+')">🎤 只做口說練習（今天 '+(b.unfam.length+b.fam.length)+' 字）</button>';
+  if(!S.plan.doneDays[k]) html += '<button class="big btn-plain" onclick="markDayDone('+k+')">把這天標為完成</button>';
+  html += '</div>';
+  $screen.innerHTML = html;
+}
+function markDayDone(k){ S.plan.doneDays[k]=true; save(); renderToday(); }
+
+/* ---------- session（step 3 聽發音輪 + step 4 測驗 + step 5 複習）---------- */
+let sess = null;   // {nums, idx, kind:'fam'|'unfam'|'review', dayK, phase:'listen'|'quiz', quiz:{...}}
+function startPile(dayK, kind){
+  const b = S.plan.batches[dayK-1];
+  sess = {nums: b[kind].slice(), idx:0, kind, dayK, otherKind: kind==='fam'?'unfam':'fam'};
+  if(sess.nums.length===0){ alert('這一堆沒有字'); return; }
+  S.screen='listen'; save(); render();
+}
+function startReview(){
+  if(S.review.length===0) return;
+  sess = {nums: S.review.slice(), idx:0, kind:'review', dayK:null, otherKind:null};
+  S.screen='listen'; save(); render();
+}
+
+/* step 3 聽發音輪 */
+function renderListen(){
+  if(!sess){ go('today'); return; }
+  const total = sess.nums.length;
+  setProgress((sess.kind==='review'?'複習・':'')+'聽發音輪', sess.idx+1, total);
+  const w = byNum[sess.nums[sess.idx]];
+  let html = '<div class="card center">';
+  html += '<div class="stars">'+starStr(w.stars)+'</div>';
+  html += '<div class="word-big">'+w.word+'</div>';
+  html += '<div class="kk">KK '+(w.kk_us?('['+w.kk_us+']'):'')+(w.kk_uk?('　英 ['+w.kk_uk+']'):'')+'</div>';
+  w.senses.forEach(s=>{ html += '<div class="pos-zh"><span class="pos">'+s.pos+'</span>'+s.zh+
+    '<span class="badge-part">Part '+w.part+' 常見</span></div>'; });
+  html += '<div style="margin:10px 0" class="row">'+
+    '<button class="speak-btn" onclick="speak(\''+esc(w.word)+'\')">🔊 單字</button>'+
+    (w.example_en?'<button class="speak-btn" onclick="speak(\''+esc(w.example_en)+'\')">🔊 例句</button>':'')+
+    '<span class="speed-toggle"><button id="sp-n" class="'+(slowMode?'':'on')+'" onclick="setSpeed(false)">正常</button><button id="sp-s" class="'+(slowMode?'on':'')+'" onclick="setSpeed(true)">慢速</button></span>'+
+    '</div>';
+  if(w.example_en){
+    html += '<div class="example"><div class="en">'+clickableWords(w.example_en)+'</div>'+
+            '<div class="zh">'+w.example_zh+(w.example_src==='原創'?'<span class="tag" style="font-size:.75rem;color:#999">（自製例句）</span>':'')+'</div></div>';
+  }
+  if(w.exam_point){
+    html += '<div class="tipbox"><b class="lbl">出題重點</b>　'+w.exam_point+'</div>';
+  }
+  if(w.related && w.related.length){
+    html += '<div class="relbox">'+w.related.map(r=>'<div><span class="tag">'+r.rel+'</span>'+r.text+'</div>').join('')+'</div>';
+  }
+  html += '</div>';
+  html += '<div class="row">'+
+    '<button class="big btn-plain" '+(sess.idx===0?'disabled':'')+' onclick="listenNav(-1)">← 上一個</button>'+
+    '<button class="big btn-ghost" onclick="replayCard()">🔁 重播</button>'+
+    '<button class="big btn-main" onclick="listenNav(1)">'+(sess.idx===total-1?'進入口說練習 →':'下一個 →')+'</button></div>';
+  $screen.innerHTML = html;
+  bindWordClicks();
+  speakWordThenExample(w);
+}
+function setSpeed(s){ slowMode=s; document.getElementById('sp-n').classList.toggle('on',!s); document.getElementById('sp-s').classList.toggle('on',s); }
+function replayCard(){ speakWordThenExample(byNum[sess.nums[sess.idx]]); }
+function listenNav(d){
+  if(sess.idx+d >= sess.nums.length){ startSpeak(false); return; }   // 步驟3之後 → 口說練習
+  sess.idx = Math.max(0, sess.idx+d);
+  renderListen();
+}
+function clickableWords(sentence){
+  return sentence.split(/(\s+)/).map(tok=>{
+    if(/^\s+$/.test(tok) || tok==='') return tok;
+    const clean = tok.replace(/[^A-Za-z''-]/g,'');
+    if(!clean) return tok;
+    return '<span class="w" data-w="'+esc(clean)+'">'+tok+'</span>';
+  }).join('');
+}
+function bindWordClicks(){
+  $screen.querySelectorAll('.example .en span.w').forEach(sp=>{
+    sp.onclick = ()=>{
+      $screen.querySelectorAll('.example .en span.w.hl').forEach(x=>x.classList.remove('hl'));
+      sp.classList.add('hl');
+      speak(sp.dataset.w);
+    };
+  });
+}
+
+/* step 3.5 口說練習（聽發音輪之後、聽力測驗之前；也可從今日練習單獨進入） */
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+let spk = null;   // {mode:'word'|'sentence', listening, transcript, result:null|{pass,hits}, noted}
+let recObj = null;
+
+function startSpeak(standalone){
+  sess.speak = {idx:0, standalone: !!standalone};
+  spk = freshSpk();
+  S.screen='speak'; save(); render();
+}
+function startSpeakDay(k){
+  const b = S.plan.batches[k-1];
+  const nums = b.unfam.concat(b.fam);
+  if(!nums.length) return;
+  sess = {nums, idx:0, kind:'speakonly', dayK:k, otherKind:null};
+  startSpeak(true);
+}
+function freshSpk(){ return {mode:'word', listening:false, transcript:'', result:null, micNoteShown:false}; }
+
+function renderSpeak(){
+  if(!sess || !sess.speak){ go('today'); return; }
+  const sp = sess.speak, total = sess.nums.length;
+  setProgress('口說練習', sp.idx+1, total);
+  const w = byNum[sess.nums[sp.idx]];
+  let html = '<div class="card center">';
+  html += '<div class="stars">'+starStr(w.stars)+'</div>';
+  html += '<div class="word-big">'+w.word+'</div>';
+  html += '<div class="kk">KK '+(w.kk_us?('['+w.kk_us+']'):'')+(w.kk_uk?('　英 ['+w.kk_uk+']'):'')+'</div>';
+  w.senses.forEach(s=>{ html += '<div class="pos-zh"><span class="pos">'+s.pos+'</span>'+s.zh+'</div>'; });
+  if(w.example_en){
+    html += '<div class="example"><div class="en">'+clickableWords(w.example_en)+'</div>'+
+            '<div class="zh">'+w.example_zh+'</div></div>';
+  }
+  // 示範發音
+  html += '<div style="margin:12px 0" class="row">'+
+    '<button class="speak-btn" onclick="speak(\''+esc(w.word)+'\')">🔊 示範單字</button>'+
+    (w.example_en?'<button class="speak-btn" onclick="speak(\''+esc(w.example_en)+'\')">🔊 示範例句</button>':'')+
+    '<span class="speed-toggle"><button id="sp-n" class="'+(slowMode?'':'on')+'" onclick="setSpeed(false)">正常</button><button id="sp-s" class="'+(slowMode?'on':'')+'" onclick="setSpeed(true)">慢速</button></span></div>';
+  // 換我說
+  if(SR){
+    if(!spk.micNoteShown){
+      html += '<div class="mic-note">🎙️ 按「換我說」後開始唸，第一次使用瀏覽器會詢問<b>麥克風權限</b>，請按「允許」。唸完停頓一下就會自動比對。</div>';
+    }
+    html += '<div class="row">'+
+      '<button class="big mic-btn'+(spk.listening?' listening':'')+'" onclick="micStart(\'word\')">'+(spk.listening&&spk.mode==='word'?'🎙️ 聆聽中…請唸單字':'🎤 換我說：唸單字')+'</button>'+
+      (w.example_en?'<button class="big mic-btn'+(spk.listening&&spk.mode==='sentence'?' listening':'')+'" onclick="micStart(\'sentence\')">'+(spk.listening&&spk.mode==='sentence'?'🎙️ 聆聽中…請唸例句':'🎤 換我說：唸例句')+'</button>':'')+
+      '</div>';
+    if(spk.listening || spk.transcript || spk.result){
+      html += '<div class="transcript"><span class="lbl">辨識到你說的是：</span>'+
+        (spk.transcript ? spk.transcript : (spk.listening?'（聆聽中…）':''))+'</div>';
+    }
+    if(spk.result){
+      if(spk.result.pass){
+        html += '<div class="feedback good">'+pick(['發音很清楚！👏','聽得懂，說得好！🌟','很棒，就是這樣唸！'])+'</div>';
+      } else {
+        html += '<div class="feedback bad" style="font-weight:600">再試一次看看，不急 🌱</div>';
+        html += '<div class="diff-line">'+spk.result.diffHtml+'</div>';
+        html += '<div class="small-note" style="text-align:left">綠色＝有聽到、紅色＝沒聽清楚的部分。也可能是麥克風或環境音的關係，不一定是你唸錯。</div>';
+      }
+      html += '<div class="row">'+
+        '<button class="big btn-ghost" onclick="speak(\''+esc(spk.mode==='sentence'&&w.example_en? w.example_en : w.word)+'\')">🔊 再聽示範</button>'+
+        '<button class="big mic-btn" onclick="micStart(\''+spk.mode+'\')">🎤 再說一次</button></div>';
+    }
+  } else {
+    html += '<div class="mic-note">此瀏覽器不支援自動語音辨識，改用<b>自我評估模式</b>：聽示範 → 自己跟著唸幾次 → 下面自評。想要自動辨識功能，可改用 <b>Chrome</b> 或 <b>Edge</b> 開啟本頁。</div>';
+  }
+  // 自我歸類（不強迫過關）
+  html += '<div class="small-note" style="margin-top:12px">這個字的發音你覺得？</div>';
+  html += '<div class="row">'+
+    '<button class="big btn-fam" onclick="speakMark(\'ok\')">✅ 發音沒問題</button>'+
+    '<button class="big btn-warn" onclick="speakMark(\'again\')">📌 還要練（入複習）</button></div>';
+  html += '<button class="big btn-plain" onclick="speakNext()">略過這個字 →</button>';
+  html += '</div>';
+  $screen.innerHTML = html;
+  bindWordClicks();
+}
+function micStart(mode){
+  if(!SR) return;
+  if(recObj){ try{recObj.abort();}catch(e){} }
+  window.speechSynthesis && speechSynthesis.cancel();
+  spk.mode = mode; spk.listening = true; spk.transcript=''; spk.result=null; spk.micNoteShown=true;
+  const rec = new SR();
+  recObj = rec;
+  rec.lang='en-US'; rec.interimResults=true; rec.maxAlternatives=4;
+  rec.continuous = (mode==='sentence');
+  let finals = [], alts = [];
+  rec.onresult = (ev)=>{
+    let interim='';
+    for(let i=ev.resultIndex;i<ev.results.length;i++){
+      const r=ev.results[i];
+      if(r.isFinal){ finals.push(r[0].transcript); for(let a=0;a<r.length;a++) alts.push(r[a].transcript); }
+      else interim += r[0].transcript;
+    }
+    spk.transcript = (finals.join(' ')+' '+interim).trim();
+    const el = $screen.querySelector('.transcript');
+    if(el) el.innerHTML = '<span class="lbl">辨識到你說的是：</span>'+(spk.transcript||'（聆聽中…）');
+  };
+  rec.onerror = (ev)=>{
+    spk.listening=false;
+    if(ev.error==='not-allowed' || ev.error==='service-not-allowed'){
+      spk.transcript=''; spk.result=null;
+      alert('沒有取得麥克風權限。請點網址列的 🎙️/鎖頭圖示允許麥克風，再按「換我說」。');
+      renderSpeak();
+    } else {
+      spk.result = evalSpeech(spk.transcript, alts); renderSpeak();
+    }
+  };
+  rec.onend = ()=>{
+    if(!spk.listening) return;
+    spk.listening=false;
+    spk.result = evalSpeech(spk.transcript, alts);
+    renderSpeak();
+  };
+  try{ rec.start(); }catch(e){ spk.listening=false; }
+  renderSpeak();
+  if(mode==='sentence'){ setTimeout(()=>{ try{rec.stop();}catch(e){} }, 12000); }  // 例句最多聽 12 秒
+}
+function normSp(s){ return String(s||'').toLowerCase().replace(/[^a-z0-9' ]+/g,' ').replace(/\s+/g,' ').trim(); }
+function evalSpeech(transcript, alts){
+  const w = byNum[sess.nums[sess.speak.idx]];
+  const cands = [transcript].concat(alts||[]).map(normSp).filter(Boolean);
+  if(spk.mode==='word' || !w.example_en){
+    const targets = normSp(w.word).split(' ').filter(Boolean);   // 片語逐字（如 fill out/in → fill out in）
+    let best = {pass:false, hitSet:new Set()};
+    cands.forEach(c=>{
+      const toks = new Set(c.split(' '));
+      const hits = new Set(targets.filter(t=>toks.has(t)));
+      const pass = hits.size >= Math.max(1, targets.length-1) && hits.size>0 && (targets.length>1 ? true : toks.has(targets[0]));
+      if(hits.size > best.hitSet.size || (pass&&!best.pass)) best = {pass, hitSet:hits};
+    });
+    const diffHtml = '你要唸的是：' + targets.map(t=>'<span class="'+(best.hitSet.has(t)?'hit':'miss')+'">'+t+'</span>').join(' ');
+    return {pass:best.pass, diffHtml};
+  } else {
+    const targets = normSp(w.example_en).split(' ').filter(Boolean);
+    let best = {ratio:0, hitSet:new Set()};
+    cands.forEach(c=>{
+      const toks = new Set(c.split(' '));
+      const hits = new Set(targets.filter(t=>toks.has(t)));
+      const ratio = hits.size/targets.length;
+      if(ratio>best.ratio) best = {ratio, hitSet:hits};
+    });
+    const diffHtml = targets.map(t=>'<span class="'+(best.hitSet.has(t)?'hit':'miss')+'">'+t+'</span>').join(' ');
+    return {pass: best.ratio>=0.7, diffHtml};
+  }
+}
+function speakMark(kind){
+  const n = sess.nums[sess.speak.idx];
+  S.speakMarks[n] = kind;
+  if(kind==='again') addReview(n);        // 併入既有複習機制
+  save();
+  speakNext();
+}
+function speakNext(){
+  if(recObj){ try{recObj.abort();}catch(e){} recObj=null; }
+  const sp = sess.speak;
+  if(sp.idx === sess.nums.length-1){ finishSpeak(); return; }
+  sp.idx++; spk = freshSpk(); spk.micNoteShown = true;
+  renderSpeak();
+}
+function finishSpeak(){
+  const okN = sess.nums.filter(n=>S.speakMarks[n]==='ok').length;
+  const agN = sess.nums.filter(n=>S.speakMarks[n]==='again').length;
+  setProgress('口說練習', sess.nums.length, sess.nums.length);
+  let html = '<div class="card center">';
+  html += '<div class="feedback good" style="font-size:1.3rem">🎤 口說練習完成！</div>';
+  html += '<div style="margin:8px 0">發音沒問題 <b class="stat-fam">'+okN+'</b> 字　還要練 <b class="stat-unfam">'+agN+'</b> 字</div>';
+  html += '<div class="small-note">開口唸出來，記憶會更牢。做得很好！</div>';
+  if(sess.speak.standalone){
+    if(S.review.length>0) html += '<button class="big btn-warn" onclick="startReview()">🔁 複習清單（'+S.review.length+' 字）</button>';
+    html += '<button class="big btn-main" onclick="go(\'today\')">回今日練習</button>';
+  } else {
+    html += '<button class="big btn-main" onclick="startQuiz()">進入聽力測驗 →</button>';
+    html += '<button class="big btn-plain" onclick="go(\'today\')">先休息，回今日練習</button>';
+  }
+  html += '</div>';
+  $screen.innerHTML = html;
+}
+
+/* step 4 聽力測驗 */
+function startQuiz(){
+  const qs = sess.nums.map(n=>{
+    const w = byNum[n];
+    const useSentence = w.example_en && Math.random()<0.3;
+    const pool = WORDS.filter(x=>x.num!==n);
+    shuffle(pool);
+    const opts = [w].concat(pool.slice(0,3));
+    shuffle(opts);
+    return {num:n, useSentence, options:opts.map(o=>({num:o.num, word:o.word}))};
+  });
+  shuffle(qs);
+  sess.phase='quiz';
+  sess.quiz = {qs, i:0, score:0, answered:false, wrongSet:[]};
+  S.screen='quiz'; save(); render();
+}
+function renderQuiz(){
+  if(!sess || !sess.quiz){ go('today'); return; }
+  const Q = sess.quiz, q = Q.qs[Q.i], w = byNum[q.num];
+  setProgress((sess.kind==='review'?'複習・':'')+'聽力測驗', Q.i+(Q.answered?1:0), Q.qs.length);
+  let html = '<div class="card center">';
+  html += '<div class="small-note">第 '+(Q.i+1)+' 題／共 '+Q.qs.length+' 題　　得分 '+Q.score+'</div>';
+  html += '<div style="margin:12px 0"><button class="speak-btn" onclick="playQ()">🔊 再聽一次</button>　'+
+    '<span class="speed-toggle"><button id="sp-n" class="'+(slowMode?'':'on')+'" onclick="setSpeed(false)">正常</button><button id="sp-s" class="'+(slowMode?'on':'')+'" onclick="setSpeed(true)">慢速</button></span></div>';
+  html += '<div class="small-note">'+(q.useSentence?'他唸的是一整句例句，句子裡的主角是哪個字？':'他唸的是哪個字？')+'</div>';
+  q.options.forEach((o,oi)=>{
+    let cls='opt', extra='';
+    if(Q.answered){
+      if(o.num===q.num) cls+=' correct';
+      else if(Q.pickedIdx===oi) cls+=' wrong';
+      extra='disabled';
+    }
+    html += '<button class="'+cls+'" '+extra+' onclick="answer('+oi+')">'+String.fromCharCode(65+oi)+'.　'+o.word+'</button>';
+  });
+  if(Q.answered){
+    const right = q.options[Q.pickedIdx] && q.options[Q.pickedIdx].num===q.num;
+    html += '<div class="feedback '+(right?'good':'bad')+'">'+Q.fbMsg+'</div>';
+    html += senseBlock(w);
+    if(right && !Q.selfMarked){
+      html += '<div class="small-note">這個字你覺得？</div><div class="row">'+
+        '<button class="big btn-fam" onclick="selfMark(true)">✅ 已掌握</button>'+
+        '<button class="big btn-warn" onclick="selfMark(false)">📌 還要複習</button></div>';
+    } else {
+      html += '<button class="big btn-main" onclick="nextQ()">'+(Q.i===Q.qs.length-1?'看成績 →':'下一題 →')+'</button>';
+    }
+  }
+  html += '</div>';
+  $screen.innerHTML = html;
+  if(!Q.answered) playQ();
+}
+function playQ(){
+  const Q=sess.quiz, q=Q.qs[Q.i], w=byNum[q.num];
+  speak(q.useSentence ? w.example_en : w.word);
+}
+function answer(oi){
+  const Q=sess.quiz, q=Q.qs[Q.i];
+  if(Q.answered) return;
+  Q.answered=true; Q.pickedIdx=oi; Q.selfMarked=false;
+  const right = q.options[oi].num===q.num;
+  if(right){ Q.score++; Q.fbMsg=pick(PRAISE); }
+  else{
+    Q.fbMsg=pick(COMFORT);
+    addReview(q.num); Q.wrongSet.push(q.num);
+  }
+  save(); renderQuiz();
+}
+function selfMark(mastered){
+  const Q=sess.quiz, q=Q.qs[Q.i];
+  Q.selfMarked=true;
+  if(mastered){
+    removeReview(q.num);
+    if(!S.mastered.includes(q.num)) S.mastered.push(q.num);
+  } else {
+    addReview(q.num);
+  }
+  save();
+  nextQ(true);
+}
+function nextQ(fromMark){
+  const Q=sess.quiz;
+  if(Q.i===Q.qs.length-1){ showQuizResult(); return; }
+  Q.i++; Q.answered=false; Q.pickedIdx=null; Q.selfMarked=false;
+  renderQuiz();
+}
+function addReview(num){ if(!S.review.includes(num)) S.review.push(num); const mi=S.mastered.indexOf(num); if(mi>=0) S.mastered.splice(mi,1); }
+function removeReview(num){ const i=S.review.indexOf(num); if(i>=0) S.review.splice(i,1); }
+function showQuizResult(){
+  const Q=sess.quiz;
+  setProgress('聽力測驗', Q.qs.length, Q.qs.length);
+  const pct = Math.round(Q.score/Q.qs.length*100);
+  let html = '<div class="card center">';
+  html += '<div class="feedback good" style="font-size:1.3rem">測驗結束！</div>';
+  html += '<div class="stat-num">'+Q.score+' / '+Q.qs.length+'</div>';
+  html += '<div class="small-note" style="margin:6px 0">'+(pct>=80?'表現很棒，繼續前進！🌟':pct>=50?'不錯的開始，複習一輪會更穩 😊':'第一次聽本來就不容易，複習幾輪就會進步 🌱')+'</div>';
+  if(S.review.length>0){
+    html += '<button class="big btn-warn" onclick="startReview()">🔁 複習這些字（'+S.review.length+' 個）</button>';
+  }
+  if(sess.kind!=='review' && sess.dayK){
+    const other = S.plan.batches[sess.dayK-1][sess.otherKind];
+    if(other && other.length){
+      html += '<button class="big btn-ghost" onclick="startPile('+sess.dayK+',\''+sess.otherKind+'\')">練另一堆：'+
+        (sess.otherKind==='fam'?'熟悉':'不熟悉')+'（'+other.length+' 字）→</button>';
+    }
+    html += '<button class="big btn-main" onclick="finishDay()">今天到這裡，標記完成 ✅</button>';
+  }
+  html += '<button class="big btn-plain" onclick="go(\'home\')">回首頁</button>';
+  html += '</div>';
+  $screen.innerHTML = html;
+}
+function finishDay(){
+  if(sess && sess.dayK){ S.plan.doneDays[sess.dayK]=true; save(); }
+  go('today');
+}
+
+/* ---------- browse 總覽 ---------- */
+function renderBrowse(){
+  const scope = scopeWords().slice().sort(sortLearn);
+  setProgress('',0,0);
+  let html = '<div class="card">';
+  html += '<div class="small-note">點 🔊 聽發音；點字展開細節。共 '+scope.length+' 字</div>';
+  scope.forEach(w=>{
+    const mk = S.marks[w.num];
+    html += '<details style="border-bottom:1px solid var(--line); padding:6px 0"><summary style="cursor:pointer">'+
+      '<span class="stars" style="font-size:.85rem">'+starStr(w.stars)+'</span> <b style="color:var(--brand-dark)">'+w.word+'</b>'+
+      (mk?' <span class="pill '+mk+'">'+(mk==='fam'?'熟':'不熟')+'</span>':'')+
+      (S.review.includes(w.num)?' <span class="pill unfam">複習中</span>':'')+
+      '　<button class="speak-btn mini" onclick="event.preventDefault();speak(\''+esc(w.word)+'\')">🔊</button></summary>'+
+      '<div style="padding:6px 2px">'+senseBlock(w)+
+      (w.example_en?'<div class="example"><div class="en">'+clickableWords(w.example_en)+'</div><div class="zh">'+w.example_zh+'</div></div>':'')+
+      (w.exam_point?'<div class="tipbox"><b class="lbl">出題重點</b>　'+w.exam_point+'</div>':'')+
+      (w.related&&w.related.length?'<div class="relbox">'+w.related.map(r=>'<div><span class="tag">'+r.rel+'</span>'+r.text+'</div>').join('')+'</div>':'')+
+      '</div></details>';
+  });
+  html += '</div>';
+  $screen.innerHTML = html;
+  $screen.querySelectorAll('.example .en span.w').forEach(sp=>{
+    sp.onclick=()=>{ sp.classList.toggle('hl'); speak(sp.dataset.w); };
+  });
+}
+
+/* ---------- utils ---------- */
+function esc(s){ return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'&quot;'); }
+function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+/* ---------- boot ---------- */
+if(!('speechSynthesis' in window)){
+  alert('這個瀏覽器不支援語音合成（TTS），聽發音與聽力測驗將無法出聲。建議用 Chrome / Edge / Safari 開啟。');
+}
+if(['listen','quiz','speak'].includes(S.screen) ) S.screen = 'home';   // session 不跨次保存
+render();
+</script>
+</body>
+</html>
