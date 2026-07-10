@@ -3,346 +3,672 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Day 14｜旅遊、機場｜TOEIC 單字</title>
+<title>Day 14｜旅遊、機場｜核心單字分步驟學習</title>
 <style>
 :root{
-  --green:#0e7c66; --green-dark:#0a5c4c; --green-light:#e6f4f0;
-  --amber:#b45309; --amber-bg:#fef3c7;
-  --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb;
-  --bg:#f6f8f7; --card:#ffffff; --red:#dc2626; --blue:#2563eb;
-  --radius:14px; --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 14px rgba(0,0,0,.06);
+  --ink:#243230; --sub:#5f7370; --bg:#f4f7f6; --card:#ffffff;
+  --brand:#2e8b6f; --brand-dark:#20624e; --brand-soft:#e3f2ec;
+  --gold:#e8a911; --red:#c85454; --red-soft:#fbeaea;
+  --blue:#4a7fb5; --blue-soft:#e9f1f8; --line:#dde6e3;
+  --ok:#2e8b6f; --ok-soft:#e3f2ec;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:"Segoe UI","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
-header{background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff;padding:16px 20px 12px}
-.hwrap{max-width:1080px;margin:0 auto}
-h1{font-size:1.35rem;font-weight:700;letter-spacing:.5px}
-h1 small{font-weight:400;opacity:.85;font-size:.85rem;margin-left:8px}
-.audiobar{max-width:1080px;margin:10px auto 0;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:rgba(255,255,255,.12);border-radius:10px;padding:8px 12px}
-.audiobar label{font-size:.85rem;white-space:nowrap}
-.audiobar audio{flex:1;min-width:220px;height:36px}
-.audiobar select{border:none;border-radius:6px;padding:4px 6px;font-size:.85rem}
-nav{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
-.tabs{max-width:1080px;margin:0 auto;display:flex;overflow-x:auto}
-.tabs button{flex:1;min-width:110px;background:none;border:none;padding:12px 8px;font-size:.95rem;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap;font-family:inherit}
-.tabs button.active{color:var(--green);border-bottom-color:var(--green);font-weight:700}
-main{max-width:1080px;margin:0 auto;padding:16px}
-.panel{display:none}
-.panel.active{display:block}
-/* toolbar */
-.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
-.toolbar input[type=search]{flex:1;min-width:180px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;font-size:.95rem;font-family:inherit}
-.toolbar select{padding:9px 8px;border:1px solid var(--line);border-radius:10px;font-size:.9rem;background:#fff;font-family:inherit}
-.stat{font-size:.85rem;color:var(--muted);margin-left:auto;white-space:nowrap}
-/* cards */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
-.fcard{perspective:1200px;min-height:230px;position:relative}
-.inner{position:relative;width:100%;min-height:230px;height:100%;transition:transform .5s;transform-style:preserve-3d;cursor:pointer}
-.fcard.flip .inner{transform:rotateY(180deg)}
-.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;display:flex;flex-direction:column;overflow:auto}
-.face.back{transform:rotateY(180deg)}
-.frow{display:flex;align-items:flex-start;gap:6px}
-.wnum{font-size:.7rem;color:#fff;background:var(--green);border-radius:6px;padding:1px 7px;margin-top:6px}
-.word{font-size:1.5rem;font-weight:700;color:var(--green-dark);word-break:break-word}
-.starz{color:var(--amber);font-size:.9rem;letter-spacing:1px}
-.kk{color:var(--muted);font-size:.92rem;margin-top:4px;font-family:"Segoe UI",Arial,sans-serif}
-.kk span{margin-right:10px}
-.partchip{font-size:.7rem;border:1px solid var(--green);color:var(--green);border-radius:20px;padding:0 8px;margin-top:8px;align-self:flex-start}
-.hintc{margin-top:auto;color:#c3cbc8;font-size:.78rem;text-align:center;padding-top:10px}
-.senses{margin:2px 0 6px}
-.senses .pos{color:var(--blue);font-weight:700;font-size:.85rem;margin-right:5px}
-.senses div{font-size:1.02rem}
-.ex{background:var(--green-light);border-radius:10px;padding:9px 11px;margin:6px 0;font-size:.92rem}
-.ex .en{cursor:pointer}
-.ex .en:hover{background:#c9e8df;border-radius:4px}
-.ex .en b{color:var(--green-dark)}
-.ex .zh{color:var(--muted);font-size:.87rem;margin-top:3px}
-.rel{font-size:.83rem;color:var(--muted);margin-top:4px}
-.rel b{color:var(--ink);font-weight:600}
-.reltag{display:inline-block;font-size:.7rem;border-radius:4px;padding:0 5px;margin-right:4px;color:#fff}
-.reltag.r派{background:#7c3aed}.reltag.r同{background:#0891b2}.reltag.r反{background:#dc2626}
-.expoint{background:var(--amber-bg);border-left:4px solid var(--amber);border-radius:6px;padding:8px 10px;font-size:.85rem;margin-top:6px;white-space:pre-wrap}
-.expoint::before{content:"📌 用法提醒";display:block;font-weight:700;color:var(--amber);font-size:.8rem;margin-bottom:2px}
-.spk{background:none;border:none;font-size:1.05rem;cursor:pointer;padding:2px 4px;vertical-align:middle}
-.spk:active{transform:scale(1.2)}
-.cardops{display:flex;gap:8px;margin-top:8px}
-.mark{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:8px;padding:6px;font-size:.85rem;cursor:pointer;font-family:inherit}
-.mark.known{background:var(--green);border-color:var(--green);color:#fff}
-.mark.review{background:#fff7ed;border-color:var(--amber);color:var(--amber)}
-.uncertain-badge{font-size:.68rem;color:#fff;background:var(--red);border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:middle}
-/* simple word tables */
-.wgroup{margin-bottom:22px}
-.wgroup h3{font-size:1.02rem;color:var(--green-dark);border-left:4px solid var(--green);padding-left:9px;margin-bottom:10px}
-.wtable{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-.wtable td{padding:9px 12px;border-bottom:1px solid var(--line);font-size:.93rem;vertical-align:top}
-.wtable tr:last-child td{border-bottom:none}
-.wtable .w{font-weight:700;color:var(--green-dark);white-space:nowrap}
-.wtable .p{color:var(--blue);font-size:.83rem;white-space:nowrap}
-/* quiz */
-.qzsec{margin-bottom:26px}
-.qzsec h3{font-size:1.05rem;color:var(--green-dark);margin-bottom:4px}
-.qzsec .desc{font-size:.85rem;color:var(--muted);margin-bottom:12px}
-.qcard{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin-bottom:14px}
-.qtext{font-weight:600;margin-bottom:10px}
-.qtext .qno{color:var(--green);margin-right:6px}
-.opts{display:grid;gap:8px}
-.opts button{text-align:left;padding:10px 12px;border:1.5px solid var(--line);background:#fafafa;border-radius:10px;cursor:pointer;font-size:.93rem;font-family:inherit;transition:all .15s}
-.opts button:hover:not(:disabled){border-color:var(--green);background:var(--green-light)}
-.opts button.correct{background:var(--green-light);border-color:var(--green);color:var(--green-dark);font-weight:700}
-.opts button.wrong{background:#fee2e2;border-color:var(--red);color:var(--red)}
-.opts button:disabled{cursor:default;opacity:.85}
-.qfeed{margin-top:8px;font-size:.88rem;display:none}
-.qfeed.show{display:block}
-.qz-score{background:var(--green-light);border-radius:10px;padding:10px 14px;font-size:.95rem;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.qz-score button{border:1px solid var(--green);color:var(--green);background:#fff;border-radius:8px;padding:6px 14px;cursor:pointer;font-family:inherit;font-size:.88rem}
-.bigspk{border:1.5px solid var(--green);background:var(--green-light);color:var(--green-dark);border-radius:10px;padding:8px 16px;font-size:1rem;cursor:pointer;font-family:inherit;margin-bottom:10px}
-footer{text-align:center;color:var(--muted);font-size:.78rem;padding:20px}
-@media(max-width:640px){
-  .grid{grid-template-columns:1fr}
-  h1{font-size:1.15rem}
-  .stat{margin-left:0;width:100%}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+html{font-size:17px;}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Segoe UI","Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+  line-height:1.55;}
+#app{max-width:640px; margin:0 auto; padding:12px 14px 90px;}
+header.top{position:sticky; top:0; z-index:20; background:var(--bg);
+  padding:10px 2px 8px; border-bottom:1px solid var(--line);}
+h1{font-size:1.15rem; margin:0 0 6px; color:var(--brand-dark);}
+.progress-wrap{height:10px; background:#e2eae7; border-radius:6px; overflow:hidden; margin-top:6px;}
+.progress-bar{height:100%; background:linear-gradient(90deg,var(--brand),#57b894); width:0%;
+  border-radius:6px; transition:width .3s;}
+.progress-label{font-size:.85rem; color:var(--sub); margin-top:4px;}
+.chips{display:flex; gap:8px; flex-wrap:wrap; margin:8px 0 2px;}
+.chip{border:1.5px solid var(--line); background:var(--card); color:var(--sub);
+  border-radius:999px; padding:7px 14px; font-size:.92rem; cursor:pointer;}
+.chip.on{background:var(--brand); border-color:var(--brand); color:#fff; font-weight:600;}
+.card{background:var(--card); border:1px solid var(--line); border-radius:16px;
+  padding:20px 18px; margin:14px 0; box-shadow:0 1px 4px rgba(40,70,60,.06);}
+.center{text-align:center;}
+.word-big{font-size:2.2rem; font-weight:700; color:var(--brand-dark); letter-spacing:.5px; word-break:break-word;}
+.stars{color:var(--gold); font-size:1.15rem; letter-spacing:2px;}
+.stars .dim{color:#d8d2c2;}
+.kk{color:var(--sub); font-size:.98rem; margin-top:4px;}
+.pos-zh{font-size:1.25rem; margin:10px 0 2px;}
+.pos{color:var(--blue); font-weight:600; margin-right:6px; font-size:1.02rem;}
+.badge-part{display:inline-block; font-size:.78rem; color:var(--sub);
+  border:1px solid var(--line); border-radius:6px; padding:1px 7px; margin-left:8px; vertical-align:2px;}
+button.big{display:block; width:100%; border:none; border-radius:14px;
+  padding:16px 12px; font-size:1.12rem; font-weight:700; cursor:pointer; margin:10px 0;
+  font-family:inherit;}
+button.big:active{transform:scale(.985);}
+.btn-fam{background:var(--ok-soft); color:var(--brand-dark); border:2px solid var(--brand)!important;}
+.btn-unfam{background:var(--red-soft); color:var(--red); border:2px solid var(--red)!important;}
+.btn-main{background:var(--brand); color:#fff;}
+.btn-ghost{background:var(--card); color:var(--brand-dark); border:1.5px solid var(--brand)!important;}
+.btn-warn{background:#fff6e8; color:#9a6b00; border:1.5px solid var(--gold)!important;}
+.btn-plain{background:#eef2f1; color:var(--sub);}
+.row{display:flex; gap:10px;}
+.row>button{flex:1;}
+.small-note{font-size:.88rem; color:var(--sub);}
+.speak-btn{border:1.5px solid var(--brand); background:var(--brand-soft); color:var(--brand-dark);
+  border-radius:999px; padding:8px 16px; font-size:1rem; cursor:pointer; font-family:inherit;}
+.speak-btn.mini{padding:4px 10px; font-size:.9rem;}
+.example{background:var(--blue-soft); border-radius:12px; padding:12px 14px; margin-top:12px; text-align:left;}
+.example .en{font-size:1.08rem; line-height:1.6;}
+.example .en span.w{cursor:pointer; border-radius:4px; padding:0 1px;}
+.example .en span.w.hl{background:#ffe9a8;}
+.example .zh{color:var(--sub); margin-top:6px; font-size:.98rem;}
+.tipbox{background:#fdf8ec; border:1px solid #f0e2bb; border-radius:12px;
+  padding:10px 14px; margin-top:12px; text-align:left; font-size:.95rem;}
+.tipbox b.lbl{color:#9a6b00;}
+.relbox{margin-top:10px; text-align:left; font-size:.95rem; color:var(--sub);}
+.relbox .tag{display:inline-block; background:#eef2f1; border-radius:6px; padding:0 6px;
+  margin-right:6px; font-size:.82rem; color:var(--brand-dark);}
+.opt{display:block; width:100%; text-align:left; background:var(--card);
+  border:2px solid var(--line); border-radius:12px; padding:14px 16px;
+  font-size:1.15rem; font-weight:600; color:var(--ink); margin:8px 0; cursor:pointer; font-family:inherit;}
+.opt.correct{border-color:var(--ok); background:var(--ok-soft);}
+.opt.wrong{border-color:var(--red); background:var(--red-soft);}
+.opt:disabled{cursor:default; opacity:.92;}
+.feedback{font-size:1.05rem; font-weight:700; margin:10px 0; min-height:1.5em;}
+.feedback.good{color:var(--brand-dark);}
+.feedback.bad{color:var(--red);}
+.list-item{display:flex; align-items:center; gap:10px; padding:10px 4px;
+  border-bottom:1px solid var(--line); font-size:1rem;}
+.list-item:last-child{border-bottom:none;}
+.list-item .w{font-weight:700; color:var(--brand-dark); min-width:7.2em;}
+.list-item .zh{color:var(--sub); flex:1; font-size:.92rem;}
+.pill{font-size:.78rem; border-radius:6px; padding:1px 8px;}
+.pill.fam{background:var(--ok-soft); color:var(--brand-dark);}
+.pill.unfam{background:var(--red-soft); color:var(--red);}
+.plan-table{width:100%; border-collapse:collapse; margin-top:10px; font-size:.95rem;}
+.plan-table th,.plan-table td{border:1px solid var(--line); padding:8px 6px; text-align:center;}
+.plan-table th{background:var(--brand-soft); color:var(--brand-dark);}
+.plan-table tr.today-row{background:#fdf8ec;}
+.day-input{width:90px; font-size:1.3rem; text-align:center; padding:8px;
+  border:2px solid var(--brand); border-radius:10px; font-family:inherit;}
+.stat-num{font-size:1.9rem; font-weight:800;}
+.stat-fam{color:var(--brand-dark);} .stat-unfam{color:var(--red);}
+.speed-toggle{display:inline-flex; border:1.5px solid var(--brand); border-radius:999px; overflow:hidden;}
+.speed-toggle button{border:none; background:var(--card); color:var(--brand-dark);
+  padding:6px 14px; font-size:.92rem; cursor:pointer; font-family:inherit;}
+.speed-toggle button.on{background:var(--brand); color:#fff;}
+.footer-nav{position:fixed; bottom:0; left:0; right:0; background:rgba(244,247,246,.96);
+  border-top:1px solid var(--line); padding:8px 14px; z-index:30;}
+.footer-nav .inner{max-width:640px; margin:0 auto; display:flex; gap:8px;}
+.footer-nav button{flex:1; border:none; background:none; color:var(--sub);
+  font-size:.85rem; padding:6px 2px; cursor:pointer; border-radius:10px; font-family:inherit;}
+.footer-nav button.on{color:var(--brand-dark); font-weight:700; background:var(--brand-soft);}
+.hidden{display:none!important;}
+.uncertain-flag{font-size:.75rem; color:#b07f10; cursor:help;}
+@media (max-width:420px){
+  html{font-size:16px;}
+  .word-big{font-size:1.9rem;}
 }
 </style>
 </head>
 <body>
-<header>
-  <div class="hwrap">
-    <h1>Day 14｜旅遊、機場 <small>TOEIC 主題單字・目標 780</small></h1>
-  </div>
-  <div class="audiobar">
-    
-    <audio id="fullAudio" style="display:none"></audio>
-    <label style="display:none">速度
-      <select id="audioRate">
-        <option value="0.7">0.7x</option>
-        <option value="0.85">0.85x</option>
-        <option value="1" selected>1x</option>
-        <option value="1.25">1.25x</option>
-        <option value="1.5">1.5x</option>
-      </select>
-    </label>
-    <label>🔊 TTS
-      <select id="ttsRate">
-        <option value="1" selected>正常</option>
-        <option value="0.6">慢速</option>
-      </select>
-    </label>
-  </div>
-</header>
-<nav><div class="tabs">
-  <button data-tab="core" class="active">① 核心單字</button>
-  <button data-tab="extra">② 延伸單字</button>
-  <button data-tab="adv">③ 挑戰字</button>
-  <button data-tab="quiz">④ 測驗</button>
-</div></nav>
-<main>
-<section id="core" class="panel active">
-  <div class="toolbar">
-    <input type="search" id="q" placeholder="搜尋英文或中文…">
-    <select id="fStar"><option value="">全部星級</option><option value="3">★★★ 最高頻</option><option value="2">★★ 高頻</option><option value="1">★ 中頻</option></select>
-    <select id="fPos"><option value="">全部詞性</option></select>
-    <select id="fKnown"><option value="">全部狀態</option><option value="known">已熟記</option><option value="review">待複習</option><option value="none">未標記</option></select>
-    <span class="stat" id="coreStat"></span>
-  </div>
-  <div class="grid" id="cardGrid"></div>
-</section>
-<section id="extra" class="panel"><div id="extraWrap"></div></section>
-<section id="adv" class="panel"><div id="advWrap"></div></section>
-<section id="quiz" class="panel">
-  <div class="qzsec">
-    <h3>📝 單字測驗</h3>
-    <div class="desc">字義與用法選擇題，作答後立即對答案。</div>
-    <div class="qz-score" id="ckScore"><span>已答 0 / 0</span><button onclick="resetCheckup()">重做</button></div>
-    <div id="ckWrap"></div>
-  </div>
-  <div class="qzsec">
-    <h3>👂 聽發音選單字</h3>
-    <div class="desc">點「播放發音」聽 TTS 唸單字，從四個選項中選出正確拼字。每次重做題目都會重新洗牌。</div>
-    <div class="qz-score" id="lsScore"><span>已答 0 / 0</span><button onclick="buildListening()">重新出題</button></div>
-    <div id="lsWrap"></div>
-  </div>
-</section>
-</main>
-<footer>原創內容練習頁・發音使用瀏覽器 Web Speech API・進度儲存於本機 localStorage</footer>
+<div id="app">
+  <header class="top">
+    <h1 id="page-title">Day 14｜旅遊、機場</h1>
+    <div id="filter-area" class="chips"></div>
+    <div id="progress-area"></div>
+  </header>
+  <main id="screen"></main>
+</div>
+<div class="footer-nav"><div class="inner" id="nav"></div></div>
 <script>
-const DATA = {"day": 14, "theme": "旅遊、機場", "audio": "", "main": [{"num": 1, "word": "international", "stars": 2, "part": "5,6", "kk_us": "ˌɪntɚ`næʃən!", "kk_uk": "ˌɪntə`næʃənəl", "senses": [{"pos": "adj.", "zh": "國際的"}], "related": [{"rel": "反", "text": "domestic 國內的"}], "example_en": "The airline plans to add three new international routes next year.", "example_zh": "這家航空公司計畫明年新增三條國際航線。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 2, "word": "attraction", "stars": 2, "part": "7", "kk_us": "ə`trækʃən", "kk_uk": null, "senses": [{"pos": "n.", "zh": "景點；吸引力"}], "related": [{"rel": "派", "text": "attract v. 吸引"}, {"rel": "派", "text": "attractive adj. 有吸引力的"}], "example_en": "The old lighthouse is the most popular attraction in the harbor town.", "example_zh": "那座老燈塔是這個港鎮最受歡迎的景點。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 3, "word": "itinerary", "stars": 3, "part": "7", "kk_us": "aɪ`tɪnəˌrɛrɪ", "kk_uk": "ai`tinərəri", "senses": [{"pos": "n.", "zh": "行程表，旅程路線"}], "related": [{"rel": "同", "text": "schedule 行程"}], "example_en": "A detailed itinerary will be emailed to all tour participants.", "example_zh": "詳細行程表將以電子郵件寄給所有團員。", "exam_point": "Part 7 電子郵件與旅遊廣告高頻字；訂位確認信常見 attached itinerary（附上行程表）。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 4, "word": "exotic", "stars": 1, "part": "7", "kk_us": "ɛg`zɑtɪk", "kk_uk": "eg`zɔtik", "senses": [{"pos": "adj.", "zh": "異國風情的"}], "related": [], "example_en": "The menu features exotic fruits imported from Southeast Asia.", "example_zh": "菜單主打從東南亞進口的異國水果。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 5, "word": "diverse", "stars": 2, "part": "5,6", "kk_us": "daɪ`vɝs", "kk_uk": "dai`və:s", "senses": [{"pos": "adj.", "zh": "多樣的，多元的"}], "related": [{"rel": "派", "text": "diversity n. 多樣性"}, {"rel": "派", "text": "diversify v. 使多樣化"}], "example_en": "The city is famous for its diverse dining options.", "example_zh": "這座城市以多樣的餐飲選擇聞名。", "exam_point": "常見搭配：a diverse range/selection of + 複數名詞。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 6, "word": "superb", "stars": 2, "part": "5,6", "kk_us": "sʊ`pɝb", "kk_uk": "sju`pə:b", "senses": [{"pos": "adj.", "zh": "極好的，一流的"}], "related": [{"rel": "同", "text": "excellent, outstanding 出色的"}], "example_en": "Reviewers praised the resort for its superb ocean view.", "example_zh": "評論者稱讚這家度假村絕佳的海景。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 7, "word": "baggage", "stars": 2, "part": "7", "kk_us": "`bægɪdʒ", "kk_uk": null, "senses": [{"pos": "n.", "zh": "行李（不可數）"}], "related": [{"rel": "同", "text": "luggage 行李"}], "example_en": "Each passenger may check in one piece of baggage free of charge.", "example_zh": "每位乘客可免費託運一件行李。", "exam_point": "不可數名詞：一件行李＝a piece of baggage，不可寫 a baggage。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 8, "word": "destination", "stars": 3, "part": "7", "kk_us": "ˌdɛstə`neʃən", "kk_uk": "ˌdesti`neiʃən", "senses": [{"pos": "n.", "zh": "目的地"}], "related": [], "example_en": "The island has become a popular destination for honeymooners.", "example_zh": "這座島已成為蜜月旅客的熱門目的地。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 9, "word": "missing", "stars": 2, "part": "5,6", "kk_us": "`mɪsɪŋ", "kk_uk": null, "senses": [{"pos": "adj.", "zh": "遺失的，失蹤的；缺少的"}], "related": [{"rel": "同", "text": "lost 遺失的"}], "example_en": "Report any missing luggage to the service desk immediately.", "example_zh": "行李遺失請立即向服務台通報。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 10, "word": "locate", "stars": 2, "part": "5,6", "kk_us": "lo`ket", "kk_uk": "ləu`keit", "senses": [{"pos": "v.", "zh": "找出～的位置；（be located）位於"}], "related": [{"rel": "派", "text": "location n. 位置"}], "example_en": "The information center is located next to the main entrance.", "example_zh": "服務中心位於正門旁邊。", "exam_point": "be located + 地點介系詞（in/on/near）＝位於～，Part 5 常考被動形。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 11, "word": "approximately", "stars": 3, "part": "5,6", "kk_us": "ə`prɑksəmɪtlɪ", "kk_uk": "ə`prɔksimitli", "senses": [{"pos": "adv.", "zh": "大約"}], "related": [{"rel": "同", "text": "about, roughly 大約"}], "example_en": "The flight to Tokyo takes approximately three hours.", "example_zh": "飛往東京的班機大約需要三小時。", "exam_point": "後接數字（approximately 30 minutes）；Part 5 副詞題高頻。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 12, "word": "duty", "stars": 2, "part": "7", "kk_us": "`djutɪ", "kk_uk": null, "senses": [{"pos": "n.", "zh": "關稅，稅；職責，義務"}], "related": [{"rel": "派", "text": "duty-free adj. 免稅的"}], "example_en": "Visitors must pay a duty on goods worth over six hundred dollars.", "example_zh": "旅客攜帶價值超過六百美元的商品必須繳納關稅。", "exam_point": "duty-free shop 免稅店；on duty 值班中。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 13, "word": "process", "stars": 3, "part": "5,6", "kk_us": "`prɑsɛs", "kk_uk": "`prəuses", "senses": [{"pos": "n.", "zh": "過程，程序"}, {"pos": "v.", "zh": "處理"}], "related": [{"rel": "派", "text": "procedure n. 程序"}], "example_en": "Please allow ten business days to process your visa application.", "example_zh": "簽證申請的處理需要十個工作天。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 14, "word": "board", "stars": 3, "part": "7", "kk_us": "bord", "kk_uk": "bɔːd", "senses": [{"pos": "v.", "zh": "登上（飛機、船、車）"}, {"pos": "n.", "zh": "董事會；板子"}], "related": [{"rel": "派", "text": "boarding pass n. 登機證"}], "example_en": "Passengers in rows 20 to 35 may now board the plane.", "example_zh": "20 至 35 排的乘客現在可以登機。", "exam_point": "board＝get on；boarding gate 登機門、boarding pass 登機證為固定搭配。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 15, "word": "comfortable", "stars": 2, "part": "5,6", "kk_us": "ˋkʌmfɚtəbl̩", "kk_uk": "ˋkʌmfətəbl", "senses": [{"pos": "adj.", "zh": "舒適的"}], "related": [{"rel": "派", "text": "comfort n. 舒適"}], "example_en": "The shuttle bus offers comfortable seats and free Wi-Fi.", "example_zh": "接駁車提供舒適座位與免費無線網路。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 16, "word": "declare", "stars": 2, "part": "7", "kk_us": "dɪˋklɛr", "kk_uk": "diˋklɛə", "senses": [{"pos": "v.", "zh": "（海關）申報；宣布"}], "related": [{"rel": "派", "text": "declaration n. 申報（單）"}], "example_en": "Do you have anything to declare at customs?", "example_zh": "你有需要向海關申報的物品嗎？", "exam_point": "海關固定用語：nothing to declare 無申報物品；declaration form 申報單。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 17, "word": "specify", "stars": 2, "part": "5,6", "kk_us": "ˋspɛsəˏfaɪ", "kk_uk": "ˋspesifai", "senses": [{"pos": "v.", "zh": "具體說明，指定"}], "related": [{"rel": "派", "text": "specific adj. 具體的"}], "example_en": "Please specify your seating preference when booking.", "example_zh": "訂位時請具體說明您的座位偏好。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 18, "word": "depart", "stars": 3, "part": "7", "kk_us": "dɪˋpɑrt", "kk_uk": "diˋpɑːt", "senses": [{"pos": "v.", "zh": "出發，離開"}], "related": [{"rel": "派", "text": "departure n. 出發"}, {"rel": "反", "text": "arrive 抵達"}], "example_en": "The express train departs from Platform 2 every half hour.", "example_zh": "特快車每半小時從二號月台發車。", "exam_point": "depart from＋出發地、depart for＋目的地；departure 與 arrival 成對記。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 19, "word": "emergency", "stars": 2, "part": "7", "kk_us": "ɪˋmɝdʒənsɪ", "kk_uk": "iˋməːdʒənsi", "senses": [{"pos": "n.", "zh": "緊急狀況"}], "related": [], "example_en": "In case of an emergency, follow the crew's instructions.", "example_zh": "遇緊急狀況時，請聽從機組人員指示。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 20, "word": "passenger", "stars": 3, "part": "7", "kk_us": "ˋpæsəndʒɚ", "kk_uk": "ˋpæsindʒə", "senses": [{"pos": "n.", "zh": "乘客"}], "related": [], "example_en": "Passengers are reminded to keep their boarding passes ready.", "example_zh": "提醒乘客備妥登機證。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 21, "word": "outgoing", "stars": 1, "part": "5,6", "kk_us": "ˋaʊtˏgoɪŋ", "kk_uk": "ˋautˏgəuiŋ", "senses": [{"pos": "adj.", "zh": "離開的，外送的；外向的"}], "related": [{"rel": "反", "text": "incoming 進來的"}], "example_en": "All outgoing flights were delayed because of the storm.", "example_zh": "所有離境班機都因暴風雨延誤。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 22, "word": "tightly", "stars": 1, "part": "5,6", "kk_us": "ˋtaɪtlɪ", "kk_uk": null, "senses": [{"pos": "adv.", "zh": "緊緊地"}], "related": [{"rel": "派", "text": "tight adj. 緊的"}], "example_en": "Make sure the cap of the bottle is tightly closed before packing.", "example_zh": "打包前請確認瓶蓋已拴緊。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 23, "word": "tour", "stars": 2, "part": "7", "kk_us": "tʊr", "kk_uk": "tuə", "senses": [{"pos": "n.", "zh": "旅遊，遊覽"}, {"pos": "v.", "zh": "遊覽"}], "related": [{"rel": "派", "text": "tourist n. 觀光客"}], "example_en": "We toured the historic district with a local guide.", "example_zh": "我們在當地導遊帶領下遊覽了歷史街區。", "exam_point": "動詞 tour 是及物動詞，直接接受詞（tour the city），不加 to。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 24, "word": "carrier", "stars": 2, "part": "7", "kk_us": "ˋkærɪɚ", "kk_uk": "ˋkæriə", "senses": [{"pos": "n.", "zh": "航空公司，運輸公司；運送者"}], "related": [{"rel": "派", "text": "carry v. 運送"}], "example_en": "The low-cost carrier announced new routes to three cities.", "example_zh": "這家廉價航空宣布開闢三個城市的新航線。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 25, "word": "customarily", "stars": 1, "part": "5,6", "kk_us": "ˋkʌstəmˏɛrəlɪ", "kk_uk": "ˋkʌstəmˏerili", "senses": [{"pos": "adv.", "zh": "按照慣例，通常"}], "related": [{"rel": "派", "text": "customary adj. 慣常的"}], "example_en": "Hotel staff customarily greet guests by name.", "example_zh": "飯店人員習慣上會以姓名問候客人。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 26, "word": "confuse", "stars": 1, "part": "5,6", "kk_us": "kənˋfjuz", "kk_uk": null, "senses": [{"pos": "v.", "zh": "使混淆，使困惑"}], "related": [{"rel": "派", "text": "confusion n. 混淆"}], "example_en": "The similar gate numbers often confuse first-time travelers.", "example_zh": "相似的登機門號碼常讓初次搭機的旅客混淆。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 27, "word": "arrive", "stars": 2, "part": "7", "kk_us": "əˋraɪv", "kk_uk": null, "senses": [{"pos": "v.", "zh": "抵達"}], "related": [{"rel": "派", "text": "arrival n. 抵達"}, {"rel": "反", "text": "depart 出發"}], "example_en": "The delegation is scheduled to arrive at noon on Friday.", "example_zh": "代表團預定週五中午抵達。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 28, "word": "brochure", "stars": 2, "part": "7", "kk_us": "broˋʃʊr", "kk_uk": "brəuˋʃjuə", "senses": [{"pos": "n.", "zh": "（宣傳）小冊子"}], "related": [{"rel": "同", "text": "pamphlet 小冊子"}], "example_en": "Free brochures about local attractions are available in the lobby.", "example_zh": "大廳備有當地景點的免費簡介手冊。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 29, "word": "involve", "stars": 2, "part": "5,6", "kk_us": "ɪnˋvɑlv", "kk_uk": "inˋvɔlv", "senses": [{"pos": "v.", "zh": "包含；使參與"}], "related": [{"rel": "派", "text": "involvement n. 參與"}], "example_en": "The tour package involves a full-day visit to the national park.", "example_zh": "這個旅遊套裝行程包含國家公園一日遊。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 30, "word": "ship", "stars": 2, "part": "7", "kk_us": "ʃɪp", "kk_uk": null, "senses": [{"pos": "v.", "zh": "運送"}, {"pos": "n.", "zh": "船"}], "related": [{"rel": "派", "text": "shipment n. 貨運"}], "example_en": "The souvenirs you ordered will be shipped to your home address within five days.", "example_zh": "您訂購的紀念品將在五天內運送到您的住家地址。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 31, "word": "suitcase", "stars": 1, "part": "7", "kk_us": "ˈsutˌkes", "kk_uk": null, "senses": [{"pos": "n.", "zh": "行李箱"}], "related": [{"rel": "同", "text": "luggage 行李"}], "example_en": "Please make sure your suitcase weighs less than 23 kilograms before check-in.", "example_zh": "報到前請確認您的行李箱重量低於 23 公斤。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 32, "word": "unavailable", "stars": 2, "part": "5,6", "kk_us": "ˌʌnəˈveləbl", "kk_uk": null, "senses": [{"pos": "adj.", "zh": "無法取得的；沒空的"}], "related": [{"rel": "反", "text": "available 可取得的"}], "example_en": "Window seats are unavailable on this flight because it is fully booked.", "example_zh": "本班機已客滿，靠窗座位無法取得。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 33, "word": "fill out/in", "stars": 3, "part": "7", "kk_us": null, "kk_uk": null, "senses": [{"pos": "phr.", "zh": "填寫（表格）"}], "related": [{"rel": "同", "text": "complete 填寫完成"}], "example_en": "Please fill out the customs declaration form before the plane lands.", "example_zh": "請在飛機降落前填寫海關申報表格。", "exam_point": "fill out／fill in a form 填寫表格；出境入境情境高頻片語。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 34, "word": "customs", "stars": 2, "part": "7", "kk_us": "ˈkʌstəmz", "kk_uk": null, "senses": [{"pos": "n.", "zh": "海關"}], "related": [{"rel": "派", "text": "customs officer 海關人員"}], "example_en": "All passengers must go through customs after collecting their baggage.", "example_zh": "所有乘客領取行李後都必須通過海關。", "exam_point": "go through customs 通過海關；customs 表「海關」時恆用複數形。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 35, "word": "away", "stars": 1, "part": "7", "kk_us": "əˈwe", "kk_uk": null, "senses": [{"pos": "adv.", "zh": "離開；距離～之遠"}], "related": [], "example_en": "The hotel is only ten minutes away from the international airport.", "example_zh": "這家飯店距離國際機場只有十分鐘路程。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 36, "word": "dramatic", "stars": 2, "part": "5,6", "kk_us": "drəˈmætɪk", "kk_uk": null, "senses": [{"pos": "adj.", "zh": "急劇的；戲劇性的"}], "related": [{"rel": "派", "text": "dramatically adv. 大幅地"}], "example_en": "The seaside resort has seen a dramatic increase in bookings this summer.", "example_zh": "這家海濱度假村今年夏天的訂房量急劇增加。", "exam_point": "a dramatic increase/decrease in + 名詞：～的大幅增加／減少。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 37, "word": "hospitality", "stars": 2, "part": "7", "kk_us": "ˌhɑspɪˈtælətɪ", "kk_uk": "ˌhɔspiˈtæliti", "senses": [{"pos": "n.", "zh": "款待，好客"}], "related": [{"rel": "派", "text": "hospitable adj. 好客的"}], "example_en": "The staff were praised for their warm hospitality toward foreign visitors.", "example_zh": "工作人員因對外國旅客的熱情款待而受到讚賞。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 38, "word": "indulge", "stars": 1, "part": "7", "kk_us": "ɪnˈdʌldʒ", "kk_uk": null, "senses": [{"pos": "v.", "zh": "沉浸於，盡情享受"}], "related": [{"rel": "派", "text": "indulgence n. 放縱，享受"}], "example_en": "Guests can indulge in a variety of local dishes at the hotel restaurant.", "example_zh": "房客可以在飯店餐廳盡情享受各式當地菜餚。", "exam_point": "indulge in + 名詞：盡情享受～。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 39, "word": "proximity", "stars": 2, "part": "5,6", "kk_us": "prɑkˈsɪmətɪ", "kk_uk": "prɔkˈsimiti", "senses": [{"pos": "n.", "zh": "鄰近，接近"}], "related": [{"rel": "同", "text": "closeness 接近"}], "example_en": "Many travelers choose this hotel because of its close proximity to the train station.", "example_zh": "許多旅客因為這家飯店鄰近火車站而選擇它。", "exam_point": "固定片語 in close proximity to（緊鄰～），介系詞用 to。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 40, "word": "seating", "stars": 2, "part": "7", "kk_us": "ˈsitɪŋ", "kk_uk": null, "senses": [{"pos": "n.", "zh": "座位（安排）"}], "related": [{"rel": "派", "text": "seat n. 座位"}], "example_en": "The new terminal offers comfortable seating for waiting passengers.", "example_zh": "新航廈為候機乘客提供舒適的座位。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 41, "word": "unlimited", "stars": 1, "part": "7", "kk_us": "ʌnˈlɪmɪtɪd", "kk_uk": null, "senses": [{"pos": "adj.", "zh": "無限制的"}], "related": [{"rel": "反", "text": "limited 有限的"}], "example_en": "The car rental package includes unlimited mileage and full insurance.", "example_zh": "這個租車方案包含無限制里程與全額保險。", "exam_point": "unlimited mileage（不限里程）為租車廣告常見用語。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 42, "word": "simply", "stars": 1, "part": "5,6", "kk_us": "ˋsɪmplɪ", "kk_uk": null, "senses": [{"pos": "adv.", "zh": "只要，僅僅；簡直"}], "related": [{"rel": "派", "text": "simple adj. 簡單的"}], "example_en": "Simply present this coupon to receive a discount.", "example_zh": "只要出示這張優惠券即可獲得折扣。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 43, "word": "besides", "stars": 2, "part": "5,6", "kk_us": "bɪˋsaɪdz", "kk_uk": null, "senses": [{"pos": "prep.", "zh": "除了～之外（還）"}, {"pos": "adv.", "zh": "此外"}], "related": [{"rel": "同", "text": "in addition 此外"}], "example_en": "Besides the museum pass, the ticket includes a river cruise.", "example_zh": "除了博物館通行證，這張票還包含遊河行程。", "exam_point": "besides（除了～還有，包含）≠ except（除了～之外，排除）；beside 是「在～旁邊」。", "example_src": "原創", "uncertain": false, "uncertain_note": null}, {"num": 44, "word": "traditionally", "stars": 1, "part": "5,6", "kk_us": "trəˋdɪʃənlɪ", "kk_uk": null, "senses": [{"pos": "adv.", "zh": "傳統上"}], "related": [{"rel": "派", "text": "traditional adj. 傳統的"}], "example_en": "Traditionally, the festival marks the beginning of the harvest season.", "example_zh": "傳統上，這個節慶標誌著收穫季節的開始。", "exam_point": null, "example_src": "原創", "uncertain": false, "uncertain_note": null}], "extra_groups": [{"title": "延伸單字 — 機場與航班", "list": [{"word": "check-in counter", "pos": "n.", "zh": "報到櫃檯"}, {"word": "boarding pass", "pos": "n.", "zh": "登機證"}, {"word": "layover", "pos": "n.", "zh": "中途停留"}, {"word": "connecting flight", "pos": "n.", "zh": "轉機航班"}, {"word": "aisle seat", "pos": "n.", "zh": "走道座位"}, {"word": "window seat", "pos": "n.", "zh": "靠窗座位"}, {"word": "carousel", "pos": "n.", "zh": "行李轉盤"}, {"word": "overhead compartment", "pos": "n.", "zh": "頭頂置物櫃"}, {"word": "turbulence", "pos": "n.", "zh": "亂流"}, {"word": "jet lag", "pos": "n.", "zh": "時差疲勞"}, {"word": "one-way ticket", "pos": "n.", "zh": "單程票"}, {"word": "round-trip", "pos": "adj.", "zh": "來回的"}, {"word": "fare", "pos": "n.", "zh": "票價，車資"}, {"word": "delay", "pos": "n./v.", "zh": "延誤"}, {"word": "cancellation", "pos": "n.", "zh": "取消"}, {"word": "refund", "pos": "n./v.", "zh": "退款"}, {"word": "upgrade", "pos": "n./v.", "zh": "升等"}, {"word": "aviation", "pos": "n.", "zh": "航空（業）"}]}, {"title": "延伸單字 — 住宿與觀光", "list": [{"word": "accommodation", "pos": "n.", "zh": "住宿"}, {"word": "reservation", "pos": "n.", "zh": "預訂"}, {"word": "vacancy", "pos": "n.", "zh": "空房"}, {"word": "amenity", "pos": "n.", "zh": "便利設施"}, {"word": "concierge", "pos": "n.", "zh": "禮賓人員"}, {"word": "complimentary", "pos": "adj.", "zh": "免費贈送的"}, {"word": "sightseeing", "pos": "n.", "zh": "觀光"}, {"word": "landmark", "pos": "n.", "zh": "地標"}, {"word": "souvenir", "pos": "n.", "zh": "紀念品"}, {"word": "guided tour", "pos": "n.", "zh": "導覽行程"}, {"word": "admission", "pos": "n.", "zh": "入場（費）"}, {"word": "excursion", "pos": "n.", "zh": "短途旅行"}, {"word": "resort", "pos": "n.", "zh": "度假村"}, {"word": "scenic", "pos": "adj.", "zh": "風景優美的"}, {"word": "breathtaking", "pos": "adj.", "zh": "令人屏息的"}]}], "adv_groups": [{"title": "900分挑戰字 — 旅遊主題", "list": [{"word": "embark", "pos": "v.", "zh": "登上（船、機）；著手"}, {"word": "disembark", "pos": "v.", "zh": "下（船、機）"}, {"word": "expedite", "pos": "v.", "zh": "加速辦理"}, {"word": "stopover", "pos": "n.", "zh": "中途停留站"}, {"word": "quarantine", "pos": "n.", "zh": "檢疫"}, {"word": "transit", "pos": "n.", "zh": "過境；運輸"}, {"word": "courteous", "pos": "adj.", "zh": "有禮貌的"}, {"word": "punctual", "pos": "adj.", "zh": "準時的"}, {"word": "exquisite", "pos": "adj.", "zh": "精緻的"}, {"word": "secluded", "pos": "adj.", "zh": "僻靜的"}, {"word": "bustling", "pos": "adj.", "zh": "熙來攘往的"}, {"word": "unwind", "pos": "v.", "zh": "放鬆"}]}], "checkup": [{"type": "match", "q": "「itinerary」的中文字義是？", "options": ["行程表", "行李轉盤", "緊急狀況", "入場費"], "answer": 0, "explain": "itinerary n. 行程表，旅程路線"}, {"type": "match", "q": "「declare」的中文字義是？", "options": ["延誤", "（海關）申報；宣布", "使混淆", "盡情享受"], "answer": 1, "explain": "declare v. （海關）申報；宣布"}, {"type": "match", "q": "「proximity」的中文字義是？", "options": ["款待", "多樣性", "鄰近，接近", "目的地"], "answer": 2, "explain": "proximity n. 鄰近；片語 in close proximity to"}, {"type": "match", "q": "「hospitality」的中文字義是？", "options": ["醫院", "款待，好客", "住宿", "檢疫"], "answer": 1, "explain": "hospitality n. 款待（勿與 hospital 醫院混淆）"}, {"type": "match", "q": "「brochure」的中文字義是？", "options": ["（宣傳）小冊子", "登機證", "行李箱", "紀念品"], "answer": 0, "explain": "brochure n. 小冊子，同 pamphlet"}, {"type": "fill", "q": "Please ______ your meal preference when you book the flight.（選出符合文意的單字）", "options": ["specify", "declare", "indulge", "confuse"], "answer": 0, "explain": "specify 具體說明：訂位時具體說明餐點偏好。"}, {"type": "fill", "q": "All ______ flights are listed on the departure board.", "options": ["missing", "comfortable", "outgoing", "exotic"], "answer": 2, "explain": "outgoing flights 離境班機。"}, {"type": "fill", "q": "The hotel is in close ______ to the convention center.", "options": ["hospitality", "proximity", "seating", "duty"], "answer": 1, "explain": "in close proximity to 緊鄰～，固定片語。"}, {"type": "fill", "q": "Travelers must go through ______ before leaving the airport.", "options": ["customs", "carrier", "baggage", "attraction"], "answer": 0, "explain": "go through customs 通過海關。"}, {"type": "fill", "q": "The package includes ______ mileage for the rental car.", "options": ["unavailable", "diverse", "unlimited", "superb"], "answer": 2, "explain": "unlimited mileage 不限里程，租車廣告常見。"}]};
-const DAY = DATA.day;
-const LS_KEY = 'toeic_day' + DAY + '_marks';
+const DATA = {"day": 14, "theme": "旅遊、機場", "title_page": "出差的目的（旅遊、機場）", "words": [{"num": 1, "word": "international", "stars": 1, "part": "5,6", "kk_us": "ˌɪntɚ`næʃən!", "kk_uk": "ˌɪntə`næʃənəl", "senses": [{"pos": "adj.", "zh": "國際的"}], "related": [{"rel": "反", "text": "domestic 國內的"}], "example_en": "The airline plans to add three new international routes next year.", "example_zh": "這家航空公司計畫明年新增三條國際航線。", "example_src": "原創", "exam_point": null, "uncertain": true, "uncertain_note": "kk_us 結尾成節音 l 的印刷符號（! 或 l̩）在照片中無法百分之百分辨，已依 KK 慣例記為「!」"}, {"num": 2, "word": "attraction", "stars": 3, "part": "7", "kk_us": "ə`trækʃən", "kk_uk": null, "senses": [{"pos": "n.", "zh": "景點"}], "related": [{"rel": "派", "text": "attract v. 吸引"}, {"rel": "派", "text": "attractive adj. 有吸引力的"}], "example_en": "The old lighthouse is the most popular attraction in the harbor town.", "example_zh": "那座老燈塔是這個港鎮最受歡迎的景點。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 3, "word": "itinerary", "stars": 2, "part": "7", "kk_us": "aɪ`tɪnəˌrɛrɪ", "kk_uk": "ai`tinərəri", "senses": [{"pos": "n.", "zh": "旅遊行程"}], "related": [], "example_en": "A detailed itinerary will be emailed to all tour participants.", "example_zh": "詳細行程表將以電子郵件寄給所有團員。", "example_src": "原創", "exam_point": "Part 7 電子郵件與旅遊廣告高頻字；訂位確認信常見 attached itinerary（附上行程表）。", "uncertain": false, "uncertain_note": null}, {"num": 4, "word": "exotic", "stars": 1, "part": "7", "kk_us": "ɛg`zɑtɪk", "kk_uk": "eg`zɔtik", "senses": [{"pos": "adj.", "zh": "異國情調的；奇特的"}], "related": [], "example_en": "The menu features exotic fruits imported from Southeast Asia.", "example_zh": "菜單主打從東南亞進口的異國水果。", "example_src": "原創", "exam_point": null, "uncertain": true, "uncertain_note": "kk_uk 首音符號 e 與 ɛ 難分辨；依本書英式音標慣用 e 記為 eg`zɔtik"}, {"num": 5, "word": "diverse", "stars": 2, "part": "5,6", "kk_us": "daɪ`vɝs", "kk_uk": "dai`və:s", "senses": [{"pos": "adj.", "zh": "多樣的"}], "related": [{"rel": "派", "text": "diversify v. 使多樣化"}, {"rel": "派", "text": "diversity n. 多樣性"}, {"rel": "同", "text": "varied 多樣的"}], "example_en": "The city is famous for its diverse dining options.", "example_zh": "這座城市以多樣的餐飲選擇聞名。", "example_src": "原創", "exam_point": "常見搭配：a diverse range/selection of + 複數名詞。", "uncertain": false, "uncertain_note": null}, {"num": 6, "word": "superb", "stars": 1, "part": "7", "kk_us": "sʊ`pɝb", "kk_uk": "sju`pə:b", "senses": [{"pos": "adj.", "zh": "極好的，一流的"}], "related": [{"rel": "派", "text": "superbly adv. 極好地，上等地"}, {"rel": "同", "text": "excellent, outstanding 出色的"}], "example_en": "Reviewers praised the resort for its superb ocean view.", "example_zh": "評論者稱讚這家度假村絕佳的海景。", "example_src": "原創", "exam_point": null, "uncertain": true, "uncertain_note": "kk_us 第一母音 ʊ 與 u 在照片中難分辨，依 KK 慣例記為 sʊ`pɝb"}, {"num": 7, "word": "baggage", "stars": 1, "part": "7", "kk_us": "`bægɪdʒ", "kk_uk": null, "senses": [{"pos": "n.", "zh": "行李"}], "related": [{"rel": "同", "text": "luggage 行李"}], "example_en": "Each passenger may check in one piece of baggage free of charge.", "example_zh": "每位乘客可免費託運一件行李。", "example_src": "原創", "exam_point": "不可數名詞：一件行李＝a piece of baggage，不可寫 a baggage。", "uncertain": false, "uncertain_note": null}, {"num": 8, "word": "destination", "stars": 3, "part": "7", "kk_us": "ˌdɛstə`neʃən", "kk_uk": "ˌdesti`neiʃən", "senses": [{"pos": "n.", "zh": "目的地"}], "related": [{"rel": "派", "text": "destine v. （特定目的、用途的）預定；注定"}], "example_en": "The island has become a popular destination for honeymooners.", "example_zh": "這座島已成為蜜月旅客的熱門目的地。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 9, "word": "missing", "stars": 3, "part": "7", "kk_us": "`mɪsɪŋ", "kk_uk": null, "senses": [{"pos": "adj.", "zh": "遺失的；缺少的"}], "related": [], "example_en": "Report any missing luggage to the service desk immediately.", "example_zh": "行李遺失請立即向服務台通報。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 10, "word": "locate", "stars": 3, "part": "7", "kk_us": "lo`ket", "kk_uk": "ləu`keit", "senses": [{"pos": "v.", "zh": "找到～的位置；使～座落於"}], "related": [{"rel": "派", "text": "location n. 位置"}, {"rel": "同", "text": "find 找到"}], "example_en": "The information center is located next to the main entrance.", "example_zh": "服務中心位於正門旁邊。", "example_src": "原創", "exam_point": "be located + 地點介系詞（in/on/near）＝位於～，Part 5 常考被動形。", "uncertain": false, "uncertain_note": null}, {"num": 11, "word": "approximately", "stars": 3, "part": "5,6", "kk_us": "ə`prɑksəmɪtlɪ", "kk_uk": "ə`prɔksimitli", "senses": [{"pos": "adv.", "zh": "大概"}], "related": [{"rel": "派", "text": "approximate adj. 大約的 v. 接近；大略估計"}], "example_en": "The flight to Tokyo takes approximately three hours.", "example_zh": "飛往東京的班機大約需要三小時。", "example_src": "原創", "exam_point": "後接數字（approximately 30 minutes）；Part 5 副詞題高頻。", "uncertain": true, "uncertain_note": "kk_uk 後半 i/ɪ 字形在照片中偏小難分辨，記為 ə`prɔksimitli（本書英式慣用 i）"}, {"num": 12, "word": "duty", "stars": 3, "part": "7", "kk_us": "`djutɪ", "kk_uk": null, "senses": [{"pos": "n.", "zh": "稅，關稅；責任，職責"}], "related": [{"rel": "同", "text": "tax 稅；稅金"}], "example_en": "Visitors must pay a duty on goods worth over six hundred dollars.", "example_zh": "旅客攜帶價值超過六百美元的商品必須繳納關稅。", "example_src": "原創", "exam_point": "duty-free shop 免稅店；on duty 值班中。", "uncertain": false, "uncertain_note": null}, {"num": 13, "word": "process", "stars": 3, "part": "7", "kk_us": "`prɑsɛs", "kk_uk": "`prəuses", "senses": [{"pos": "n.", "zh": "過程；程序"}, {"pos": "v.", "zh": "處理"}], "related": [], "example_en": "Please allow ten business days to process your visa application.", "example_zh": "簽證申請的處理需要十個工作天。", "example_src": "原創", "exam_point": null, "uncertain": true, "uncertain_note": "kk_uk 末音節 e/ɛ 難分辨，記為 `prəuses（本書英式慣用 e）；第一例句對應 n.、第二例句對應 v."}, {"num": 14, "word": "board", "stars": 3, "part": "7", "kk_us": "bord", "kk_uk": "bɔːd", "senses": [{"pos": "v.", "zh": "上，登上（大眾運輸工具）"}, {"pos": "n.", "zh": "委員會，董事會"}], "related": [], "example_en": "Passengers in rows 20 to 35 may now board the plane.", "example_zh": "20 至 35 排的乘客現在可以登機。", "example_src": "原創", "exam_point": "board＝get on；boarding gate 登機門、boarding pass 登機證為固定搭配。", "uncertain": true, "uncertain_note": "例句1句尾 first 與出題重點「在閱讀測驗中」的「中」字被書頁內緣裁到，依上下文補齊；中譯「歡迎」二字依圖轉錄（語感上似應為「獲邀」，但印刷即如此顯示）"}, {"num": 15, "word": "comfortable", "stars": 3, "part": "5,6", "kk_us": "ˋkʌmfɚtəbl̩", "kk_uk": "ˋkʌmfətəbl", "senses": [{"pos": "adj.", "zh": "舒適的"}], "related": [{"rel": "衍", "text": "comfort n. 舒適；安慰 v. 使舒適；安慰"}, {"rel": "衍", "text": "comfortably adv. 舒適地"}], "example_en": "The shuttle bus offers comfortable seats and free Wi-Fi.", "example_zh": "接駁車提供舒適座位與免費無線網路。", "example_src": "原創", "exam_point": null, "uncertain": true, "uncertain_note": "美式音標 fɚ 的捲舌鉤與字尾成音節 l̩ 的下標點為放大後判讀，個別記號仍偏小"}, {"num": 16, "word": "declare", "stars": 3, "part": "7", "kk_us": "dɪˋklɛr", "kk_uk": "diˋklɛə", "senses": [{"pos": "v.", "zh": "（在海關）申報；宣告"}], "related": [{"rel": "衍", "text": "declaration n. （在海關的）申報；宣告"}], "example_en": "Do you have anything to declare at customs?", "example_zh": "你有需要向海關申報的物品嗎？", "example_src": "原創", "exam_point": "海關固定用語：nothing to declare 無申報物品；declaration form 申報單。", "uncertain": false, "uncertain_note": null}, {"num": 17, "word": "specify", "stars": 3, "part": "5,6", "kk_us": "ˋspɛsəˏfaɪ", "kk_uk": "ˋspesifai", "senses": [{"pos": "v.", "zh": "具體說明"}], "related": [{"rel": "衍", "text": "specific adj. 具體的；特定的"}], "example_en": "Please specify your seating preference when booking.", "example_zh": "訂位時請具體說明您的座位偏好。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 18, "word": "depart", "stars": 3, "part": "7", "kk_us": "dɪˋpɑrt", "kk_uk": "diˋpɑːt", "senses": [{"pos": "v.", "zh": "出發"}], "related": [{"rel": "衍", "text": "departure n. 出發"}, {"rel": "同", "text": "take off v. （飛機）起飛"}], "example_en": "The express train departs from Platform 2 every half hour.", "example_zh": "特快車每半小時從二號月台發車。", "example_src": "原創", "exam_point": "depart from＋出發地、depart for＋目的地；departure 與 arrival 成對記。", "uncertain": false, "uncertain_note": null}, {"num": 19, "word": "emergency", "stars": 2, "part": "7", "kk_us": "ɪˋmɝdʒənsɪ", "kk_uk": "iˋməːdʒənsi", "senses": [{"pos": "n.", "zh": "緊急情況"}], "related": [], "example_en": "In case of an emergency, follow the crew's instructions.", "example_zh": "遇緊急狀況時，請聽從機組人員指示。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 20, "word": "passenger", "stars": 2, "part": "7", "kk_us": "ˋpæsəndʒɚ", "kk_uk": "ˋpæsindʒə", "senses": [{"pos": "n.", "zh": "乘客"}], "related": [], "example_en": "Passengers are reminded to keep their boarding passes ready.", "example_zh": "提醒乘客備妥登機證。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 21, "word": "outgoing", "stars": 2, "part": "7", "kk_us": "ˋaʊtˏgoɪŋ", "kk_uk": "ˋautˏgəuiŋ", "senses": [{"pos": "adj.", "zh": "（從某地點）出發的，離開的；即將離職的"}], "related": [], "example_en": "All outgoing flights were delayed because of the storm.", "example_zh": "所有離境班機都因暴風雨延誤。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 22, "word": "tightly", "stars": 2, "part": "5,6", "kk_us": "ˋtaɪtlɪ", "kk_uk": null, "senses": [{"pos": "adv.", "zh": "緊緊地；牢固地"}], "related": [], "example_en": "Make sure the cap of the bottle is tightly closed before packing.", "example_zh": "打包前請確認瓶蓋已拴緊。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 23, "word": "tour", "stars": 2, "part": "5,6", "kk_us": "tʊr", "kk_uk": "tuə", "senses": [{"pos": "n.", "zh": "（工廠、設施等的）導覽；旅行"}, {"pos": "v.", "zh": "旅行"}], "related": [{"rel": "衍", "text": "tourist n. 觀光客"}], "example_en": "We toured the historic district with a local guide.", "example_zh": "我們在當地導遊帶領下遊覽了歷史街區。", "example_src": "原創", "exam_point": "動詞 tour 是及物動詞，直接接受詞（tour the city），不加 to。", "uncertain": true, "uncertain_note": "出題重點末行「是及物動詞」的「物」字被書頁內緣裁到，依上下文補齊"}, {"num": 24, "word": "carrier", "stars": 2, "part": "7", "kk_us": "ˋkærɪɚ", "kk_uk": "ˋkæriə", "senses": [{"pos": "n.", "zh": "運輸公司，航空公司；運輸工具"}], "related": [], "example_en": "The low-cost carrier announced new routes to three cities.", "example_zh": "這家廉價航空宣布開闢三個城市的新航線。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 25, "word": "customarily", "stars": 2, "part": "5,6", "kk_us": "ˋkʌstəmˏɛrəlɪ", "kk_uk": "ˋkʌstəmˏerili", "senses": [{"pos": "adv.", "zh": "習慣上，習俗上"}], "related": [{"rel": "衍", "text": "customary adj. 慣常的"}, {"rel": "衍", "text": "custom n. 習慣，習俗"}, {"rel": "衍", "text": "customs n. 海關"}], "example_en": "Hotel staff customarily greet guests by name.", "example_zh": "飯店人員習慣上會以姓名問候客人。", "example_src": "原創", "exam_point": "詞性辨析：customarily 是副詞（習慣上）、customary 是形容詞（慣常的），Part 5 詞性題常拿這組出題。", "uncertain": false, "uncertain_note": null}, {"num": 26, "word": "confuse", "stars": 2, "part": "7", "kk_us": "kənˋfjuz", "kk_uk": null, "senses": [{"pos": "v.", "zh": "使困惑"}], "related": [], "example_en": "The similar gate numbers often confuse first-time travelers.", "example_zh": "相似的登機門號碼常讓初次搭機的旅客混淆。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 27, "word": "arrive", "stars": 2, "part": "7", "kk_us": "əˋraɪv", "kk_uk": null, "senses": [{"pos": "v.", "zh": "到達"}], "related": [{"rel": "衍", "text": "arrival n. 到達"}], "example_en": "The delegation is scheduled to arrive at noon on Friday.", "example_zh": "代表團預定週五中午抵達。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 28, "word": "brochure", "stars": 2, "part": "5,6", "kk_us": "broˋʃʊr", "kk_uk": "brəuˋʃjuə", "senses": [{"pos": "n.", "zh": "（宣傳用的）摺頁，小冊子"}], "related": [], "example_en": "Free brochures about local attractions are available in the lobby.", "example_zh": "大廳備有當地景點的免費簡介手冊。", "example_src": "原創", "exam_point": "brochure（宣傳摺頁）、catalog（商品型錄）、guidelines（指導方針）意思相近但用途不同，閱讀題常要你選出正確的「冊子」。", "uncertain": true, "uncertain_note": "英式音標 ʃ 後的字元放大後仍偏糊，判讀為 [brəuˋʃjuə]，也可能是 [brəuˋʃuə]（j 不確定）"}, {"num": 29, "word": "involve", "stars": 2, "part": "5,6", "kk_us": "ɪnˋvɑlv", "kk_uk": "inˋvɔlv", "senses": [{"pos": "v.", "zh": "需要～，包含～；使～涉入"}], "related": [], "example_en": "The tour package involves a full-day visit to the national park.", "example_zh": "這個旅遊套裝行程包含國家公園一日遊。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 30, "word": "ship", "stars": 2, "part": "7", "kk_us": "ʃɪp", "kk_uk": null, "senses": [{"pos": "v.", "zh": "（用船或其他運輸工具）運送"}, {"pos": "n.", "zh": "船"}], "related": [{"rel": "派", "text": "shipment n. 運輸；運輸的貨物"}], "example_en": "The souvenirs you ordered will be shipped to your home address within five days.", "example_zh": "您訂購的紀念品將在五天內運送到您的住家地址。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 31, "word": "suitcase", "stars": 2, "part": "7", "kk_us": "ˈsutˌkes", "kk_uk": null, "senses": [{"pos": "n.", "zh": "行李箱"}], "related": [], "example_en": "Please make sure your suitcase weighs less than 23 kilograms before check-in.", "example_zh": "報到前請確認您的行李箱重量低於 23 公斤。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 32, "word": "unavailable", "stars": 2, "part": "5,6", "kk_us": "ˌʌnəˈveləbl", "kk_uk": null, "senses": [{"pos": "adj.", "zh": "無法利用的；無法取得的"}], "related": [{"rel": "反", "text": "available 可利用的；可取得的"}], "example_en": "Window seats are unavailable on this flight because it is fully booked.", "example_zh": "本班機已客滿，靠窗座位無法取得。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 33, "word": "fill out/in", "stars": 1, "part": "5,6", "kk_us": null, "kk_uk": null, "senses": [{"pos": "phr.", "zh": "填寫，填好（表格等文件）"}], "related": [], "example_en": "Please fill out the customs declaration form before the plane lands.", "example_zh": "請在飛機降落前填寫海關申報表格。", "example_src": "原創", "exam_point": "fill out／fill in a form 填寫表格；出境入境情境高頻片語。", "uncertain": false, "uncertain_note": null}, {"num": 34, "word": "customs", "stars": 1, "part": "7", "kk_us": "ˈkʌstəmz", "kk_uk": null, "senses": [{"pos": "n.", "zh": "海關"}], "related": [], "example_en": "All passengers must go through customs after collecting their baggage.", "example_zh": "所有乘客領取行李後都必須通過海關。", "example_src": "原創", "exam_point": "go through customs 通過海關；customs 表「海關」時恆用複數形。", "uncertain": false, "uncertain_note": null}, {"num": 35, "word": "away", "stars": 1, "part": "5,6", "kk_us": "əˈwe", "kk_uk": null, "senses": [{"pos": "adv.", "zh": "離開，遠離"}], "related": [], "example_en": "The hotel is only ten minutes away from the international airport.", "example_zh": "這家飯店距離國際機場只有十分鐘路程。", "example_src": "原創", "exam_point": "away 前面可以直接接距離（如 fifteen miles away）；far 前面不能直接加距離數字，是常見陷阱。", "uncertain": false, "uncertain_note": null}, {"num": 36, "word": "dramatic", "stars": 1, "part": "5,6", "kk_us": "drəˈmætɪk", "kk_uk": null, "senses": [{"pos": "adj.", "zh": "戲劇性的；激動人心的；急劇的"}], "related": [{"rel": "派", "text": "dramatically adv. 戲劇性地；急劇地"}], "example_en": "The seaside resort has seen a dramatic increase in bookings this summer.", "example_zh": "這家海濱度假村今年夏天的訂房量急劇增加。", "example_src": "原創", "exam_point": "a dramatic increase/decrease in + 名詞：～的大幅增加／減少。", "uncertain": false, "uncertain_note": null}, {"num": 37, "word": "hospitality", "stars": 1, "part": "5,6", "kk_us": "ˌhɑspɪˈtælətɪ", "kk_uk": "ˌhɔspiˈtæliti", "senses": [{"pos": "n.", "zh": "款待，殷勤招待"}], "related": [{"rel": "派", "text": "hospitable adj. 好客的，招待周到的"}], "example_en": "The staff were praised for their warm hospitality toward foreign visitors.", "example_zh": "工作人員因對外國旅客的熱情款待而受到讚賞。", "example_src": "原創", "exam_point": "常見搭配：hospitality industry（餐旅服務業）、hospitality extended to～（給予～的款待）。", "uncertain": true, "uncertain_note": "英式音標中 i／ɪ 字元難以完全區分，依印刷判讀為 [ˌhɔspiˈtæliti]（美式為小型大寫 ɪ、英式為有點的 i）"}, {"num": 38, "word": "indulge", "stars": 1, "part": "7", "kk_us": "ɪnˈdʌldʒ", "kk_uk": null, "senses": [{"pos": "v.", "zh": "沉迷；讓～享受"}], "related": [{"rel": "派", "text": "indulgence n. 沉迷；放縱"}], "example_en": "Guests can indulge in a variety of local dishes at the hotel restaurant.", "example_zh": "房客可以在飯店餐廳盡情享受各式當地菜餚。", "example_src": "原創", "exam_point": "indulge in + 名詞：盡情享受～。", "uncertain": false, "uncertain_note": null}, {"num": 39, "word": "proximity", "stars": 1, "part": "7", "kk_us": "prɑkˈsɪmətɪ", "kk_uk": "prɔkˈsimiti", "senses": [{"pos": "n.", "zh": "接近，鄰近"}], "related": [], "example_en": "Many travelers choose this hotel because of its close proximity to the train station.", "example_zh": "許多旅客因為這家飯店鄰近火車站而選擇它。", "example_src": "原創", "exam_point": "固定片語 in close proximity to（緊鄰～），介系詞用 to。", "uncertain": true, "uncertain_note": "英式音標中 i／ɪ 字元難以完全區分，依印刷判讀為 [prɔkˈsimiti]"}, {"num": 40, "word": "seating", "stars": 1, "part": "7", "kk_us": "ˈsitɪŋ", "kk_uk": null, "senses": [{"pos": "n.", "zh": "（整體的）座位安排；座位數量"}], "related": [{"rel": "派", "text": "seat n. 座位 v. 使就座"}], "example_en": "The new terminal offers comfortable seating for waiting passengers.", "example_zh": "新航廈為候機乘客提供舒適的座位。", "example_src": "原創", "exam_point": "seating 指整體座位安排或座位數（seating capacity）；seat 是一個座位。測驗常考兩者區分。", "uncertain": false, "uncertain_note": null}, {"num": 41, "word": "unlimited", "stars": 1, "part": "5,6", "kk_us": "ʌnˈlɪmɪtɪd", "kk_uk": null, "senses": [{"pos": "adj.", "zh": "無限制的"}], "related": [{"rel": "派", "text": "unlimitedly adv. 無限制地"}, {"rel": "反", "text": "limited, restricted 有限制的"}], "example_en": "The car rental package includes unlimited mileage and full insurance.", "example_zh": "這個租車方案包含無限制里程與全額保險。", "example_src": "原創", "exam_point": "unlimited mileage（不限里程）為租車廣告常見用語。", "uncertain": false, "uncertain_note": null}, {"num": 42, "word": "simply", "stars": 1, "part": "5,6", "kk_us": "ˋsɪmplɪ", "kk_uk": null, "senses": [{"pos": "adv.", "zh": "僅僅，只是；簡單地"}], "related": [{"rel": "派", "text": "simple adj. 簡單的"}, {"rel": "同", "text": "just 僅僅，只是"}], "example_en": "Simply present this coupon to receive a discount.", "example_zh": "只要出示這張優惠券即可獲得折扣。", "example_src": "原創", "exam_point": null, "uncertain": false, "uncertain_note": null}, {"num": 43, "word": "besides", "stars": 1, "part": "7", "kk_us": "bɪˋsaɪdz", "kk_uk": null, "senses": [{"pos": "adv.", "zh": "而且，此外"}, {"pos": "prep.", "zh": "除～之外"}], "related": [{"rel": "同", "text": "furthermore, in addition 而且，此外，還有"}, {"rel": "同", "text": "except 除～之外"}], "example_en": "Besides the museum pass, the ticket includes a river cruise.", "example_zh": "除了博物館通行證，這張票還包含遊河行程。", "example_src": "原創", "exam_point": "besides（除了～還有，包含）≠ except（除了～之外，排除）；beside 是「在～旁邊」。", "uncertain": false, "uncertain_note": null}, {"num": 44, "word": "traditionally", "stars": 1, "part": "5,6", "kk_us": "trəˋdɪʃənlɪ", "kk_uk": null, "senses": [{"pos": "adv.", "zh": "傳統地"}], "related": [{"rel": "派", "text": "traditional adj. 傳統的"}, {"rel": "派", "text": "tradition n. 傳統"}], "example_en": "Traditionally, the festival marks the beginning of the harvest season.", "example_zh": "傳統上，這個節慶標誌著收穫季節的開始。", "example_src": "原創", "exam_point": null, "uncertain": true, "uncertain_note": "KK 尾音節 -nlɪ 的 l 下方疑似有成音節符號（ḷ，即 trəˋdɪʃənḷɪ），放大後仍難以確認，其餘字元確定。"}]};
+const WORDS = DATA.words;
+const LS_KEY = 'toeic_day14_stepapp_v1';
+
+/* ---------- state ---------- */
+const defaultState = () => ({
+  filter: 'high',              // high = ★★★+★★（預設）, s3, s2, all
+  marks: {},                   // num -> 'fam' | 'unfam'
+  plan: null,                  // {days, start, batches:[{fam:[],unfam:[]}], doneDays:{}}
+  review: [],                  // 待複習 num
+  mastered: [],                // 已掌握 num
+  screen: 'home'
+});
+let S = load();
+function load(){
+  try{
+    const raw = localStorage.getItem(LS_KEY);
+    if(raw){ const s = JSON.parse(raw); return Object.assign(defaultState(), s); }
+  }catch(e){}
+  return defaultState();
+}
+function save(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(S)); }catch(e){} }
+
+/* ---------- helpers ---------- */
+const byNum = {}; WORDS.forEach(w => byNum[w.num] = w);
+function starStr(n){ return '★'.repeat(n) + '<span class="dim">' + '★'.repeat(Math.max(0,3-n)) + '</span>'; }
+function scopeWords(){
+  if(S.filter==='s3') return WORDS.filter(w=>w.stars===3);
+  if(S.filter==='s2') return WORDS.filter(w=>w.stars===2);
+  if(S.filter==='all') return WORDS.slice();
+  return WORDS.filter(w=>w.stars>=2);   // high
+}
+function sortLearn(a,b){ return b.stars-a.stars || a.num-b.num; }
+function todayStr(){
+  const d = new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function planDayIndex(){
+  if(!S.plan) return 1;
+  const ms = (new Date(todayStr()) - new Date(S.plan.start));
+  const k = Math.floor(ms/86400000)+1;
+  return Math.min(Math.max(k,1), S.plan.days);
+}
+const PRAISE = ['答對了，很棒！👍','太好了，就是這個！🌟','漂亮！繼續保持～','沒錯！你越來越穩了 😊','正確！這個字是你的了'];
+const COMFORT = ['沒關係，這個字會再出現，多聽幾次就熟了','別擔心，先記個印象就好 🌱','慢慢來，複習時再見到它','這個字比較難，放進複習清單囉'];
+function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
 
 /* ---------- TTS ---------- */
-let voices = [];
-function loadVoices(){ voices = speechSynthesis.getVoices().filter(v=>v.lang.startsWith('en')); }
-loadVoices();
-if (typeof speechSynthesis!=='undefined') speechSynthesis.onvoiceschanged = loadVoices;
-function speak(text){
-  if(!('speechSynthesis' in window)){ alert('此瀏覽器不支援語音合成'); return; }
+let voiceEn = null, slowMode = false;
+function pickVoice(){
+  const vs = speechSynthesis.getVoices();
+  voiceEn = vs.find(v=>v.lang==='en-US') || vs.find(v=>v.lang.startsWith('en')) || null;
+}
+if('speechSynthesis' in window){
+  pickVoice();
+  speechSynthesis.onvoiceschanged = pickVoice;
+}
+function speak(text, cb){
+  if(!('speechSynthesis' in window)) return;
   speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.lang = 'en-US';
-  u.rate = parseFloat(document.getElementById('ttsRate').value);
-  const v = voices.find(v=>v.lang==='en-US') || voices[0];
-  if(v) u.voice = v;
+  if(voiceEn) u.voice = voiceEn;
+  u.rate = slowMode ? 0.65 : 0.95;
+  if(cb) u.onend = cb;
   speechSynthesis.speak(u);
 }
-function spkBtn(text, big){
-  return '<button class="spk" title="發音" onclick="event.stopPropagation();speak(' + JSON.stringify(text).replace(/"/g,'&quot;') + ')">🔊</button>';
+function speakWordThenExample(w){
+  speak(w.word, ()=>{ if(w.example_en) setTimeout(()=>speak(w.example_en), 450); });
 }
 
-/* ---------- audio rate ---------- */
-document.getElementById('audioRate').addEventListener('change', e=>{
-  document.getElementById('fullAudio').playbackRate = parseFloat(e.target.value);
-});
-document.getElementById('fullAudio').addEventListener('play', e=>{
-  e.target.playbackRate = parseFloat(document.getElementById('audioRate').value);
-});
+/* ---------- rendering shell ---------- */
+const $screen = document.getElementById('screen');
+const $prog = document.getElementById('progress-area');
+const $filter = document.getElementById('filter-area');
+const $nav = document.getElementById('nav');
 
-/* ---------- tabs ---------- */
-document.querySelectorAll('.tabs button').forEach(b=>{
-  b.addEventListener('click', ()=>{
-    document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('active'));
-    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active');
-    document.getElementById(b.dataset.tab).classList.add('active');
+function setProgress(label, done, total){
+  if(total>0){
+    $prog.innerHTML = '<div class="progress-wrap"><div class="progress-bar" style="width:'+
+      Math.round(done/total*100)+'%"></div></div><div class="progress-label">'+label+'：'+done+' / '+total+'</div>';
+  } else { $prog.innerHTML = ''; }
+}
+function renderFilter(show){
+  if(!show){ $filter.innerHTML=''; return; }
+  const opts = [['high','高頻（★★★＋★★）'],['s3','只看 ★★★'],['s2','只看 ★★'],['all','全部']];
+  $filter.innerHTML = opts.map(([k,t])=>'<button class="chip'+(S.filter===k?' on':'')+'" data-f="'+k+'">'+t+'</button>').join('');
+  $filter.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{
+    S.filter=b.dataset.f; save(); render();
   });
-});
-
-/* ---------- marks ---------- */
-let marks = {};
-try{ marks = JSON.parse(localStorage.getItem(LS_KEY)||'{}'); }catch(e){ marks={}; }
-function saveMarks(){ localStorage.setItem(LS_KEY, JSON.stringify(marks)); }
-function setMark(num, val){
-  if(marks[num]===val) delete marks[num]; else marks[num]=val;
-  saveMarks(); renderCards();
+}
+function renderNav(){
+  const items=[['home','🏠 首頁'],['classify','① 分類'],['plan','② 計畫'],['today','③ 今日練習'],['browse','📖 總覽']];
+  $nav.innerHTML = items.map(([k,t])=>'<button class="'+(S.screen===k?'on':'')+'" data-s="'+k+'">'+t+'</button>').join('');
+  $nav.querySelectorAll('button').forEach(b=>b.onclick=()=>{ go(b.dataset.s); });
+}
+function go(screen){ S.screen=screen; save(); render(); }
+function render(){
+  renderNav();
+  renderFilter(['home','classify','browse'].includes(S.screen));
+  window.speechSynthesis && speechSynthesis.cancel();
+  ({home:renderHome, classify:renderClassify, plan:renderPlan, today:renderToday,
+    browse:renderBrowse, listen:renderListen, quiz:renderQuiz}[S.screen]||renderHome)();
 }
 
-/* ---------- helpers ---------- */
-function esc(s){ return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function stars(n){ return '★'.repeat(n||0); }
-function hiWord(sentence, word){
-  if(!sentence) return '';
-  const base = word.replace(/[^A-Za-z\- ]/g,'').split(/[ /]/)[0];
-  const re = new RegExp('\\b(' + base.slice(0, Math.max(3, base.length-2)) + '[A-Za-z]*)', 'gi');
-  return esc(sentence).replace(re, '<b>$1</b>');
+/* ---------- home ---------- */
+function renderHome(){
+  const scope = scopeWords();
+  const marked = scope.filter(w=>S.marks[w.num]);
+  const fam = scope.filter(w=>S.marks[w.num]==='fam').length;
+  const unfam = scope.filter(w=>S.marks[w.num]==='unfam').length;
+  setProgress('已分類', marked.length, scope.length);
+  let html = '<div class="card center">';
+  html += '<div class="small-note">目前範圍：'+scope.length+' 個字（★★★ '+scope.filter(w=>w.stars===3).length+
+          '、★★ '+scope.filter(w=>w.stars===2).length+'、★ '+scope.filter(w=>w.stars===1).length+'）</div>';
+  html += '<div style="margin:10px 0"><span class="stat-num stat-fam">'+fam+'</span> 熟悉　<span class="stat-num stat-unfam">'+unfam+'</span> 不熟悉</div>';
+
+  if(marked.length < scope.length){
+    html += '<button class="big btn-main" onclick="go(\'classify\')">'+
+      (marked.length? '① 繼續分類測驗（還剩 '+(scope.length-marked.length)+' 字）':'① 開始分類測驗')+'</button>';
+  } else {
+    html += '<div class="feedback good">✅ 這個範圍都分類完了！</div>';
+  }
+  if(marked.length>0){
+    html += '<button class="big btn-ghost" onclick="go(\'plan\')">② '+(S.plan?'查看／調整學習計畫':'安排分幾天學')+'</button>';
+  }
+  if(S.plan){
+    const k = planDayIndex();
+    html += '<button class="big btn-main" onclick="go(\'today\')">③ 今天是第 '+k+' 天，開始今日練習</button>';
+  }
+  if(S.review.length>0){
+    html += '<button class="big btn-warn" onclick="startReview()">🔁 複習清單還有 '+S.review.length+' 個字</button>';
+  }
+  html += '<button class="big btn-plain" onclick="resetAll()">重設全部進度</button>';
+  html += '</div>';
+  $screen.innerHTML = html;
+}
+function resetAll(){
+  if(confirm('確定要清除 Day 14 的分類、計畫與複習進度嗎？')){
+    S = defaultState(); save(); render();
+  }
 }
 
-/* ---------- core cards ---------- */
-const posSet = new Set();
-DATA.main.forEach(w=>w.senses.forEach(s=>posSet.add(s.pos)));
-const fPos = document.getElementById('fPos');
-[...posSet].sort().forEach(p=>{ const o=document.createElement('option'); o.value=p; o.textContent=p; fPos.appendChild(o); });
-
-function cardHTML(w){
-  const mk = marks[w.num]||'none';
-  const kk = [w.kk_us?('<span>美 ['+esc(w.kk_us)+']</span>'):'', w.kk_uk?('<span>英 ['+esc(w.kk_uk)+']</span>'):''].join('');
-  const sensesF = w.senses.map(s=>'<div><span class="pos">'+esc(s.pos)+'</span>'+esc(s.zh)+'</div>').join('');
-  const rel = (w.related&&w.related.length)? '<div class="rel">'+w.related.map(r=>'<span class="reltag r'+esc(r.rel)+'">'+esc(r.rel)+'</span><b>'+esc(r.text)+'</b>').join('<br>')+'</div>':'';
-  const exp = w.exam_point? '<div class="expoint">'+esc(w.exam_point)+'</div>':'';
-  const unc = w.uncertain? '<span class="uncertain-badge" title="'+esc(w.uncertain_note||'辨識不確定')+'">?</span>':'';
-  return '<div class="fcard" data-num="'+w.num+'"><div class="inner" onclick="this.parentNode.classList.toggle(\'flip\')">' +
-    '<div class="face front">' +
-      '<div class="frow"><span class="wnum">'+w.num+'</span><span class="word">'+esc(w.word)+'</span>'+spkBtn(w.word)+'<span class="starz">'+stars(w.stars)+'</span>'+unc+'</div>' +
-      '<div class="kk">'+kk+'</div>' +
-      '<span class="partchip">Part '+esc(w.part)+' 常見</span>' +
-      '<div class="hintc">點卡片翻面看字義與例句</div>' +
-    '</div>' +
-    '<div class="face back">' +
-      '<div class="frow" style="align-items:center"><span class="word" style="font-size:1.1rem">'+esc(w.word)+'</span>'+spkBtn(w.word)+'</div>' +
-      '<div class="senses">'+sensesF+'</div>' +
-      (w.example_en? '<div class="ex"><div class="en" title="點句子高亮/再點🔊發音">'+hiWord(w.example_en, w.word)+' '+spkBtn(w.example_en)+'</div><div class="zh">'+esc(w.example_zh)+'</div></div>':'') +
-      rel + exp +
-      '<div class="cardops">' +
-        '<button class="mark '+(mk==='known'?'known':'')+'" onclick="event.stopPropagation();setMark('+w.num+',\'known\')">✓ 已熟記</button>' +
-        '<button class="mark '+(mk==='review'?'review':'')+'" onclick="event.stopPropagation();setMark('+w.num+',\'review\')">↻ 待複習</button>' +
-      '</div>' +
-    '</div>' +
-  '</div></div>';
-}
-
-function renderCards(){
-  const q = document.getElementById('q').value.trim().toLowerCase();
-  const fs = document.getElementById('fStar').value;
-  const fp = document.getElementById('fPos').value;
-  const fk = document.getElementById('fKnown').value;
-  const flipped = new Set([...document.querySelectorAll('.fcard.flip')].map(c=>c.dataset.num));
-  const list = DATA.main.filter(w=>{
-    if(fs && String(w.stars)!==fs) return false;
-    if(fp && !w.senses.some(s=>s.pos===fp)) return false;
-    const mk = marks[w.num]||'none';
-    if(fk && mk!==fk) return false;
-    if(q){
-      const hay = (w.word+' '+w.senses.map(s=>s.zh).join(' ')+' '+(w.related||[]).map(r=>r.text).join(' ')).toLowerCase();
-      if(!hay.includes(q)) return false;
+/* ---------- ① classify ---------- */
+let clsCurrent = null, clsRevealed = false, clsChoice = null;
+function renderClassify(){
+  const scope = scopeWords();
+  const queue = scope.filter(w=>!S.marks[w.num]).sort(sortLearn);
+  const done = scope.length - queue.length;
+  setProgress('分類進度', done, scope.length);
+  if(queue.length===0){
+    $screen.innerHTML = '<div class="card center"><div class="feedback good">🎉 分類完成！熟悉 '+
+      scope.filter(w=>S.marks[w.num]==='fam').length+' 字、不熟悉 '+
+      scope.filter(w=>S.marks[w.num]==='unfam').length+' 字</div>'+
+      '<button class="big btn-main" onclick="go(\'plan\')">下一步：安排分幾天學 →</button></div>';
+    return;
+  }
+  if(!clsCurrent || S.marks[clsCurrent.num] !== undefined && !clsRevealed){
+    clsCurrent = queue[0]; clsRevealed=false; clsChoice=null;
+  }
+  const w = clsCurrent;
+  let html = '<div class="card center">';
+  html += '<div class="stars">'+starStr(w.stars)+'</div>';
+  html += '<div class="word-big">'+w.word+'</div>';
+  html += '<div style="margin-top:8px"><button class="speak-btn" onclick="speak(\''+esc(w.word)+'\')">🔊 聽發音</button></div>';
+  if(!clsRevealed){
+    html += '<div class="small-note" style="margin:12px 0 4px">認得這個字的意思嗎？</div>';
+    html += '<div class="row"><button class="big btn-fam" onclick="clsMark(\'fam\')">😊 熟悉</button>'+
+            '<button class="big btn-unfam" onclick="clsMark(\'unfam\')">🤔 不熟悉</button></div>';
+  } else {
+    html += senseBlock(w);
+    html += '<div class="feedback '+(clsChoice==='fam'?'good':'')+'" style="margin-top:10px">'+
+            (clsChoice==='fam'?'已標記為「熟悉」':'已標記為「不熟悉」，之後會多練幾次 💪')+'</div>';
+    if(clsChoice==='fam'){
+      html += '<button class="big btn-unfam" onclick="clsSwitch()">😅 看了中文才發現認錯 → 改為不熟悉</button>';
     }
-    return true;
-  });
-  document.getElementById('cardGrid').innerHTML = list.map(cardHTML).join('');
-  flipped.forEach(n=>{ const c=document.querySelector('.fcard[data-num="'+n+'"]'); if(c) c.classList.add('flip'); });
-  const known = DATA.main.filter(w=>marks[w.num]==='known').length;
-  document.getElementById('coreStat').textContent = '顯示 '+list.length+' / '+DATA.main.length+' 字・已熟記 '+known;
+    html += '<button class="big btn-main" onclick="clsNext()">下一個字 →</button>';
+  }
+  html += '</div>';
+  $screen.innerHTML = html;
+  if(!clsRevealed) speak(w.word);
 }
-['q','fStar','fPos','fKnown'].forEach(id=>document.getElementById(id).addEventListener('input', renderCards));
-renderCards();
-
-/* ---------- simple word lists ---------- */
-function wordTable(arr){
-  return '<table class="wtable">'+arr.map(w=>'<tr><td class="w">'+esc(w.word)+' '+spkBtn(w.word)+'</td><td class="p">'+esc(w.pos)+'</td><td>'+esc(w.zh)+(w.uncertain?' <span class="uncertain-badge">?</span>':'')+'</td></tr>').join('')+'</table>';
+function senseBlock(w){
+  let h = '<div style="margin-top:10px">';
+  w.senses.forEach(s=>{ h += '<div class="pos-zh"><span class="pos">'+s.pos+'</span>'+s.zh+'</div>'; });
+  h += '<div class="kk">KK '+(w.kk_us?('['+w.kk_us+']'):'')+(w.kk_uk?('　英 ['+w.kk_uk+']'):'')+
+       (w.uncertain?' <span class="uncertain-flag" title="'+esc(w.uncertain_note||'照片辨識不完全確定')+'">？</span>':'')+'</div>';
+  h += '</div>';
+  return h;
 }
-function renderGroups(el, groups){
-  let html='';
-  for(const g of groups){ if(g.list&&g.list.length) html += '<div class="wgroup"><h3>'+g.title+'（'+g.list.length+' 字）</h3>'+wordTable(g.list)+'</div>'; }
-  document.getElementById(el).innerHTML = html || '<p style="color:var(--muted)">（本日無此區內容）</p>';
+function clsMark(kind){
+  clsChoice = kind; clsRevealed = true;
+  S.marks[clsCurrent.num] = kind; save();
+  renderClassifyRevealed();
 }
-renderGroups('extraWrap', DATA.extra_groups||[]);
-renderGroups('advWrap', DATA.adv_groups||[]);
+function clsSwitch(){
+  clsChoice='unfam'; S.marks[clsCurrent.num]='unfam'; save();
+  renderClassifyRevealed();
+}
+function renderClassifyRevealed(){ renderClassify(); }
+function clsNext(){
+  clsCurrent=null; clsRevealed=false;
+  const scope = scopeWords();
+  const queue = scope.filter(w=>!S.marks[w.num]);
+  if(queue.length===0){ S.plan=null; save(); go('plan'); return; }   // 全部分完 → 直接進 1.5
+  renderClassify();
+}
 
-/* ---------- quiz engines ---------- */
-function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+/* ---------- ②(1.5) plan ---------- */
+let planPreviewDays = null;
+function renderPlan(){
+  setProgress('',0,0);
+  const scope = scopeWords();
+  const fams = scope.filter(w=>S.marks[w.num]==='fam').sort(sortLearn);
+  const unfams = scope.filter(w=>S.marks[w.num]==='unfam').sort(sortLearn);
+  if(fams.length+unfams.length===0){
+    $screen.innerHTML='<div class="card center">先完成 ① 分類測驗，才能安排計畫喔。<button class="big btn-main" onclick="go(\'classify\')">去分類 →</button></div>';
+    return;
+  }
+  let html = '<div class="card center">';
+  html += '<div>分類結果：<b class="stat-fam">熟悉 '+fams.length+' 字</b>、<b class="stat-unfam">不熟悉 '+unfams.length+' 字</b></div>';
+  html += '<div class="small-note" style="margin-top:6px">不熟悉的字比較費力，配量時 1 個不熟悉字＝2 份、熟悉字＝1 份</div>';
+  html += '<div style="margin:14px 0">要分幾天學完？　<input type="number" id="days-in" class="day-input" min="1" max="14" value="'+
+          (planPreviewDays || (S.plan&&S.plan.days) || 3)+'"> 天</div>';
+  html += '<div class="chips" style="justify-content:center">'+[2,3,4,5,6,7].map(d=>'<button class="chip" onclick="setDays('+d+')">'+d+' 天</button>').join('')+'</div>';
+  html += '<button class="big btn-ghost" onclick="previewPlan()">產生計畫表預覽</button>';
+  html += '</div>';
 
-function renderMC(wrapId, scoreId, items, opts){
-  const wrap = document.getElementById(wrapId);
-  const state = {done:0, right:0, total:items.length};
-  function upd(){ document.querySelector('#'+scoreId+' span').textContent = '已答 '+state.done+' / '+state.total+'・答對 '+state.right; }
-  wrap.innerHTML='';
-  items.forEach((it, qi)=>{
-    const div = document.createElement('div'); div.className='qcard';
-    let head = '<div class="qtext"><span class="qno">Q'+(qi+1)+'</span>'+ (it.audioWord? '' : esc(it.q)) +'</div>';
-    if(it.audioWord) head = '<div class="qtext"><span class="qno">Q'+(qi+1)+'</span>聽發音，選出正確的單字：</div><button class="bigspk" onclick="speak('+JSON.stringify(it.audioWord).replace(/"/g,'&quot;')+')">▶ 播放發音</button>';
-    div.innerHTML = head + '<div class="opts"></div><div class="qfeed"></div>';
-    const optsEl = div.querySelector('.opts');
-    it.options.forEach((op, oi)=>{
-      const b = document.createElement('button');
-      b.innerHTML = String.fromCharCode(65+oi)+'. '+esc(op);
-      b.addEventListener('click', ()=>{
-        if(div.dataset.done) return;
-        div.dataset.done='1'; state.done++;
-        const ok = oi===it.answer;
-        if(ok){ state.right++; b.classList.add('correct'); }
-        else { b.classList.add('wrong'); optsEl.children[it.answer].classList.add('correct'); }
-        [...optsEl.children].forEach(x=>x.disabled=true);
-        const f = div.querySelector('.qfeed'); f.classList.add('show');
-        f.innerHTML = (ok?'✅ 答對！':'❌ 正確答案：'+String.fromCharCode(65+it.answer)+'. '+esc(it.options[it.answer]))+(it.explain?'<br>'+esc(it.explain):'');
-        upd();
-      });
-      optsEl.appendChild(b);
+  const days = planPreviewDays || (S.plan && S.plan.days);
+  if(days){
+    const batches = buildBatches(fams.map(w=>w.num), unfams.map(w=>w.num), days);
+    const curK = S.plan ? planDayIndex() : -1;
+    html += '<div class="card"><b>'+days+' 天學習計畫表</b>';
+    html += '<table class="plan-table"><tr><th>天</th><th>熟悉</th><th>不熟悉</th><th>合計</th></tr>';
+    batches.forEach((b,i)=>{
+      html += '<tr'+(S.plan&&i+1===curK?' class="today-row"':'')+'><td>Day '+(i+1)+(S.plan&&i+1===curK?'（今天）':'')+'</td><td>'+
+        b.fam.length+' 字</td><td>'+b.unfam.length+' 字</td><td>'+(b.fam.length+b.unfam.length)+' 字</td></tr>';
     });
-    wrap.appendChild(div);
+    html += '</table>';
+    html += '<div class="small-note" style="margin-top:8px">點開看每天的字：</div>';
+    batches.forEach((b,i)=>{
+      html += '<details style="margin-top:6px"><summary>Day '+(i+1)+'（'+(b.fam.length+b.unfam.length)+' 字）</summary><div style="margin-top:6px">';
+      b.unfam.forEach(n=>{ html += planWordLine(byNum[n],'unfam'); });
+      b.fam.forEach(n=>{ html += planWordLine(byNum[n],'fam'); });
+      html += '</div></details>';
+    });
+    if(!S.plan || S.plan.days!==days){
+      html += '<button class="big btn-main" onclick="adoptPlan('+days+')">✅ 就用這個計畫（從今天開始）</button>';
+      if(S.plan) html += '<div class="small-note center">（採用新計畫會從第 1 天重新開始）</div>';
+    } else {
+      html += '<button class="big btn-main" onclick="go(\'today\')">前往今日練習 →</button>';
+    }
+    html += '</div>';
+  }
+  $screen.innerHTML = html;
+  const inp = document.getElementById('days-in');
+  if(inp) inp.onchange = ()=>{ planPreviewDays = Math.max(1,Math.min(14,parseInt(inp.value)||3)); renderPlan(); };
+}
+function planWordLine(w,kind){
+  return '<div class="list-item"><span class="pill '+kind+'">'+(kind==='fam'?'熟':'不熟')+'</span>'+
+    '<span class="w">'+w.word+'</span><span class="stars" style="font-size:.85rem">'+starStr(w.stars)+'</span>'+
+    '<span class="zh">'+w.senses.map(s=>s.zh).join('；')+'</span></div>';
+}
+function setDays(d){ planPreviewDays=d; renderPlan(); }
+function previewPlan(){
+  const inp=document.getElementById('days-in');
+  planPreviewDays = Math.max(1,Math.min(14,parseInt(inp.value)||3));
+  renderPlan();
+}
+function buildBatches(famNums, unfamNums, days){
+  const batches = Array.from({length:days},()=>({fam:[],unfam:[]}));
+  // 不熟悉平均鋪（每字算 2 份）
+  const baseU = Math.floor(unfamNums.length/days), extraU = unfamNums.length%days;
+  let ui=0;
+  for(let d=0; d<days; d++){
+    const take = baseU + (d<extraU?1:0);
+    batches[d].unfam = unfamNums.slice(ui, ui+take); ui+=take;
+  }
+  // 熟悉字補到每天加權份量接近平均
+  const weights = batches.map(b=>b.unfam.length*2);
+  famNums.forEach(n=>{
+    let best=0;
+    for(let d=1; d<days; d++){ if(weights[d]<weights[best]) best=d; }
+    batches[best].fam.push(n); weights[best]+=1;
   });
-  upd();
+  return batches;
+}
+function adoptPlan(days){
+  const scope = scopeWords();
+  const fams = scope.filter(w=>S.marks[w.num]==='fam').sort(sortLearn).map(w=>w.num);
+  const unfams = scope.filter(w=>S.marks[w.num]==='unfam').sort(sortLearn).map(w=>w.num);
+  S.plan = {days, start: todayStr(), batches: buildBatches(fams, unfams, days), doneDays:{}};
+  planPreviewDays = null;
+  save(); go('today');
 }
 
-function resetCheckup(){ renderMC('ckWrap','ckScore', DATA.checkup, {}); }
-resetCheckup();
-
-function buildListening(){
-  const pool = shuffle(DATA.main.filter(w=>/^[A-Za-z\- ]+$/.test(w.word))).slice(0,10);
-  const items = pool.map(w=>{
-    const wrongs = shuffle(DATA.main.filter(x=>x.num!==w.num)).slice(0,3).map(x=>x.word);
-    const options = shuffle([w.word, ...wrongs]);
-    return {audioWord:w.word, options, answer:options.indexOf(w.word), explain:w.word+'：'+w.senses.map(s=>s.pos+' '+s.zh).join('；')};
-  });
-  renderMC('lsWrap','lsScore', items, {});
+/* ---------- ③ today (step 2 選堆) ---------- */
+let viewDay = null;
+function renderToday(){
+  setProgress('',0,0);
+  if(!S.plan){
+    $screen.innerHTML='<div class="card center">還沒有學習計畫。<button class="big btn-main" onclick="go(\'plan\')">先去安排 →</button></div>';
+    return;
+  }
+  const k = viewDay || planDayIndex();
+  const b = S.plan.batches[k-1] || {fam:[],unfam:[]};
+  let html = '<div class="card center">';
+  html += '<div class="small-note">今天是第 '+planDayIndex()+' 天（共 '+S.plan.days+' 天）'+
+          (S.plan.doneDays[k]?'　✅ 這天已完成':'')+'</div>';
+  html += '<div class="chips" style="justify-content:center">'+
+    S.plan.batches.map((_,i)=>'<button class="chip'+((i+1)===k?' on':'')+'" onclick="viewDay='+(i+1)+';renderToday()">D'+(i+1)+(S.plan.doneDays[i+1]?'✓':'')+'</button>').join('')+'</div>';
+  html += '<div style="margin:10px 0 4px"><b>第 '+k+' 天要練這些字：</b></div>';
+  b.unfam.forEach(n=>{ html += planWordLine(byNum[n],'unfam'); });
+  b.fam.forEach(n=>{ html += planWordLine(byNum[n],'fam'); });
+  html += '<div class="small-note" style="margin:12px 0 4px">先練哪一堆？（流程：聽發音輪 → 聽力測驗）</div>';
+  if(b.unfam.length) html += '<button class="big btn-unfam" onclick="startPile('+k+',\'unfam\')">先練不熟悉（'+b.unfam.length+' 字）</button>';
+  if(b.fam.length) html += '<button class="big btn-fam" onclick="startPile('+k+',\'fam\')">先練熟悉（'+b.fam.length+' 字）</button>';
+  if(!S.plan.doneDays[k]) html += '<button class="big btn-plain" onclick="markDayDone('+k+')">把這天標為完成</button>';
+  html += '</div>';
+  $screen.innerHTML = html;
 }
-buildListening();
+function markDayDone(k){ S.plan.doneDays[k]=true; save(); renderToday(); }
+
+/* ---------- session（step 3 聽發音輪 + step 4 測驗 + step 5 複習）---------- */
+let sess = null;   // {nums, idx, kind:'fam'|'unfam'|'review', dayK, phase:'listen'|'quiz', quiz:{...}}
+function startPile(dayK, kind){
+  const b = S.plan.batches[dayK-1];
+  sess = {nums: b[kind].slice(), idx:0, kind, dayK, otherKind: kind==='fam'?'unfam':'fam'};
+  if(sess.nums.length===0){ alert('這一堆沒有字'); return; }
+  S.screen='listen'; save(); render();
+}
+function startReview(){
+  if(S.review.length===0) return;
+  sess = {nums: S.review.slice(), idx:0, kind:'review', dayK:null, otherKind:null};
+  S.screen='listen'; save(); render();
+}
+
+/* step 3 聽發音輪 */
+function renderListen(){
+  if(!sess){ go('today'); return; }
+  const total = sess.nums.length;
+  setProgress((sess.kind==='review'?'複習・':'')+'聽發音輪', sess.idx+1, total);
+  const w = byNum[sess.nums[sess.idx]];
+  let html = '<div class="card center">';
+  html += '<div class="stars">'+starStr(w.stars)+'</div>';
+  html += '<div class="word-big">'+w.word+'</div>';
+  html += '<div class="kk">KK '+(w.kk_us?('['+w.kk_us+']'):'')+(w.kk_uk?('　英 ['+w.kk_uk+']'):'')+'</div>';
+  w.senses.forEach(s=>{ html += '<div class="pos-zh"><span class="pos">'+s.pos+'</span>'+s.zh+
+    '<span class="badge-part">Part '+w.part+' 常見</span></div>'; });
+  html += '<div style="margin:10px 0" class="row">'+
+    '<button class="speak-btn" onclick="speak(\''+esc(w.word)+'\')">🔊 單字</button>'+
+    (w.example_en?'<button class="speak-btn" onclick="speak(\''+esc(w.example_en)+'\')">🔊 例句</button>':'')+
+    '<span class="speed-toggle"><button id="sp-n" class="'+(slowMode?'':'on')+'" onclick="setSpeed(false)">正常</button><button id="sp-s" class="'+(slowMode?'on':'')+'" onclick="setSpeed(true)">慢速</button></span>'+
+    '</div>';
+  if(w.example_en){
+    html += '<div class="example"><div class="en">'+clickableWords(w.example_en)+'</div>'+
+            '<div class="zh">'+w.example_zh+(w.example_src==='原創'?'<span class="tag" style="font-size:.75rem;color:#999">（自製例句）</span>':'')+'</div></div>';
+  }
+  if(w.exam_point){
+    html += '<div class="tipbox"><b class="lbl">出題重點</b>　'+w.exam_point+'</div>';
+  }
+  if(w.related && w.related.length){
+    html += '<div class="relbox">'+w.related.map(r=>'<div><span class="tag">'+r.rel+'</span>'+r.text+'</div>').join('')+'</div>';
+  }
+  html += '</div>';
+  html += '<div class="row">'+
+    '<button class="big btn-plain" '+(sess.idx===0?'disabled':'')+' onclick="listenNav(-1)">← 上一個</button>'+
+    '<button class="big btn-ghost" onclick="replayCard()">🔁 重播</button>'+
+    '<button class="big btn-main" onclick="listenNav(1)">'+(sess.idx===total-1?'進入聽力測驗 →':'下一個 →')+'</button></div>';
+  $screen.innerHTML = html;
+  bindWordClicks();
+  speakWordThenExample(w);
+}
+function setSpeed(s){ slowMode=s; document.getElementById('sp-n').classList.toggle('on',!s); document.getElementById('sp-s').classList.toggle('on',s); }
+function replayCard(){ speakWordThenExample(byNum[sess.nums[sess.idx]]); }
+function listenNav(d){
+  if(sess.idx+d >= sess.nums.length){ startQuiz(); return; }
+  sess.idx = Math.max(0, sess.idx+d);
+  renderListen();
+}
+function clickableWords(sentence){
+  return sentence.split(/(\s+)/).map(tok=>{
+    if(/^\s+$/.test(tok) || tok==='') return tok;
+    const clean = tok.replace(/[^A-Za-z''-]/g,'');
+    if(!clean) return tok;
+    return '<span class="w" data-w="'+esc(clean)+'">'+tok+'</span>';
+  }).join('');
+}
+function bindWordClicks(){
+  $screen.querySelectorAll('.example .en span.w').forEach(sp=>{
+    sp.onclick = ()=>{
+      $screen.querySelectorAll('.example .en span.w.hl').forEach(x=>x.classList.remove('hl'));
+      sp.classList.add('hl');
+      speak(sp.dataset.w);
+    };
+  });
+}
+
+/* step 4 聽力測驗 */
+function startQuiz(){
+  const qs = sess.nums.map(n=>{
+    const w = byNum[n];
+    const useSentence = w.example_en && Math.random()<0.3;
+    const pool = WORDS.filter(x=>x.num!==n);
+    shuffle(pool);
+    const opts = [w].concat(pool.slice(0,3));
+    shuffle(opts);
+    return {num:n, useSentence, options:opts.map(o=>({num:o.num, word:o.word}))};
+  });
+  shuffle(qs);
+  sess.phase='quiz';
+  sess.quiz = {qs, i:0, score:0, answered:false, wrongSet:[]};
+  S.screen='quiz'; save(); render();
+}
+function renderQuiz(){
+  if(!sess || !sess.quiz){ go('today'); return; }
+  const Q = sess.quiz, q = Q.qs[Q.i], w = byNum[q.num];
+  setProgress((sess.kind==='review'?'複習・':'')+'聽力測驗', Q.i+(Q.answered?1:0), Q.qs.length);
+  let html = '<div class="card center">';
+  html += '<div class="small-note">第 '+(Q.i+1)+' 題／共 '+Q.qs.length+' 題　　得分 '+Q.score+'</div>';
+  html += '<div style="margin:12px 0"><button class="speak-btn" onclick="playQ()">🔊 再聽一次</button>　'+
+    '<span class="speed-toggle"><button id="sp-n" class="'+(slowMode?'':'on')+'" onclick="setSpeed(false)">正常</button><button id="sp-s" class="'+(slowMode?'on':'')+'" onclick="setSpeed(true)">慢速</button></span></div>';
+  html += '<div class="small-note">'+(q.useSentence?'他唸的是一整句例句，句子裡的主角是哪個字？':'他唸的是哪個字？')+'</div>';
+  q.options.forEach((o,oi)=>{
+    let cls='opt', extra='';
+    if(Q.answered){
+      if(o.num===q.num) cls+=' correct';
+      else if(Q.pickedIdx===oi) cls+=' wrong';
+      extra='disabled';
+    }
+    html += '<button class="'+cls+'" '+extra+' onclick="answer('+oi+')">'+String.fromCharCode(65+oi)+'.　'+o.word+'</button>';
+  });
+  if(Q.answered){
+    const right = q.options[Q.pickedIdx] && q.options[Q.pickedIdx].num===q.num;
+    html += '<div class="feedback '+(right?'good':'bad')+'">'+Q.fbMsg+'</div>';
+    html += senseBlock(w);
+    if(right && !Q.selfMarked){
+      html += '<div class="small-note">這個字你覺得？</div><div class="row">'+
+        '<button class="big btn-fam" onclick="selfMark(true)">✅ 已掌握</button>'+
+        '<button class="big btn-warn" onclick="selfMark(false)">📌 還要複習</button></div>';
+    } else {
+      html += '<button class="big btn-main" onclick="nextQ()">'+(Q.i===Q.qs.length-1?'看成績 →':'下一題 →')+'</button>';
+    }
+  }
+  html += '</div>';
+  $screen.innerHTML = html;
+  if(!Q.answered) playQ();
+}
+function playQ(){
+  const Q=sess.quiz, q=Q.qs[Q.i], w=byNum[q.num];
+  speak(q.useSentence ? w.example_en : w.word);
+}
+function answer(oi){
+  const Q=sess.quiz, q=Q.qs[Q.i];
+  if(Q.answered) return;
+  Q.answered=true; Q.pickedIdx=oi; Q.selfMarked=false;
+  const right = q.options[oi].num===q.num;
+  if(right){ Q.score++; Q.fbMsg=pick(PRAISE); }
+  else{
+    Q.fbMsg=pick(COMFORT);
+    addReview(q.num); Q.wrongSet.push(q.num);
+  }
+  save(); renderQuiz();
+}
+function selfMark(mastered){
+  const Q=sess.quiz, q=Q.qs[Q.i];
+  Q.selfMarked=true;
+  if(mastered){
+    removeReview(q.num);
+    if(!S.mastered.includes(q.num)) S.mastered.push(q.num);
+  } else {
+    addReview(q.num);
+  }
+  save();
+  nextQ(true);
+}
+function nextQ(fromMark){
+  const Q=sess.quiz;
+  if(Q.i===Q.qs.length-1){ showQuizResult(); return; }
+  Q.i++; Q.answered=false; Q.pickedIdx=null; Q.selfMarked=false;
+  renderQuiz();
+}
+function addReview(num){ if(!S.review.includes(num)) S.review.push(num); const mi=S.mastered.indexOf(num); if(mi>=0) S.mastered.splice(mi,1); }
+function removeReview(num){ const i=S.review.indexOf(num); if(i>=0) S.review.splice(i,1); }
+function showQuizResult(){
+  const Q=sess.quiz;
+  setProgress('聽力測驗', Q.qs.length, Q.qs.length);
+  const pct = Math.round(Q.score/Q.qs.length*100);
+  let html = '<div class="card center">';
+  html += '<div class="feedback good" style="font-size:1.3rem">測驗結束！</div>';
+  html += '<div class="stat-num">'+Q.score+' / '+Q.qs.length+'</div>';
+  html += '<div class="small-note" style="margin:6px 0">'+(pct>=80?'表現很棒，繼續前進！🌟':pct>=50?'不錯的開始，複習一輪會更穩 😊':'第一次聽本來就不容易，複習幾輪就會進步 🌱')+'</div>';
+  if(S.review.length>0){
+    html += '<button class="big btn-warn" onclick="startReview()">🔁 複習這些字（'+S.review.length+' 個）</button>';
+  }
+  if(sess.kind!=='review' && sess.dayK){
+    const other = S.plan.batches[sess.dayK-1][sess.otherKind];
+    if(other && other.length){
+      html += '<button class="big btn-ghost" onclick="startPile('+sess.dayK+',\''+sess.otherKind+'\')">練另一堆：'+
+        (sess.otherKind==='fam'?'熟悉':'不熟悉')+'（'+other.length+' 字）→</button>';
+    }
+    html += '<button class="big btn-main" onclick="finishDay()">今天到這裡，標記完成 ✅</button>';
+  }
+  html += '<button class="big btn-plain" onclick="go(\'home\')">回首頁</button>';
+  html += '</div>';
+  $screen.innerHTML = html;
+}
+function finishDay(){
+  if(sess && sess.dayK){ S.plan.doneDays[sess.dayK]=true; save(); }
+  go('today');
+}
+
+/* ---------- browse 總覽 ---------- */
+function renderBrowse(){
+  const scope = scopeWords().slice().sort(sortLearn);
+  setProgress('',0,0);
+  let html = '<div class="card">';
+  html += '<div class="small-note">點 🔊 聽發音；點字展開細節。共 '+scope.length+' 字</div>';
+  scope.forEach(w=>{
+    const mk = S.marks[w.num];
+    html += '<details style="border-bottom:1px solid var(--line); padding:6px 0"><summary style="cursor:pointer">'+
+      '<span class="stars" style="font-size:.85rem">'+starStr(w.stars)+'</span> <b style="color:var(--brand-dark)">'+w.word+'</b>'+
+      (mk?' <span class="pill '+mk+'">'+(mk==='fam'?'熟':'不熟')+'</span>':'')+
+      (S.review.includes(w.num)?' <span class="pill unfam">複習中</span>':'')+
+      '　<button class="speak-btn mini" onclick="event.preventDefault();speak(\''+esc(w.word)+'\')">🔊</button></summary>'+
+      '<div style="padding:6px 2px">'+senseBlock(w)+
+      (w.example_en?'<div class="example"><div class="en">'+clickableWords(w.example_en)+'</div><div class="zh">'+w.example_zh+'</div></div>':'')+
+      (w.exam_point?'<div class="tipbox"><b class="lbl">出題重點</b>　'+w.exam_point+'</div>':'')+
+      (w.related&&w.related.length?'<div class="relbox">'+w.related.map(r=>'<div><span class="tag">'+r.rel+'</span>'+r.text+'</div>').join('')+'</div>':'')+
+      '</div></details>';
+  });
+  html += '</div>';
+  $screen.innerHTML = html;
+  $screen.querySelectorAll('.example .en span.w').forEach(sp=>{
+    sp.onclick=()=>{ sp.classList.toggle('hl'); speak(sp.dataset.w); };
+  });
+}
+
+/* ---------- utils ---------- */
+function esc(s){ return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'&quot;'); }
+function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+/* ---------- boot ---------- */
+if(!('speechSynthesis' in window)){
+  alert('這個瀏覽器不支援語音合成（TTS），聽發音與聽力測驗將無法出聲。建議用 Chrome / Edge / Safari 開啟。');
+}
+if(['listen','quiz'].includes(S.screen) ) S.screen = 'home';   // session 不跨次保存
+render();
 </script>
 </body>
 </html>

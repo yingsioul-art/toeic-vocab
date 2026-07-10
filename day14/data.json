@@ -1,12 +1,12 @@
 {
  "day": 14,
  "theme": "旅遊、機場",
- "audio": "",
- "main": [
+ "title_page": "出差的目的（旅遊、機場）",
+ "words": [
   {
    "num": 1,
    "word": "international",
-   "stars": 2,
+   "stars": 1,
    "part": "5,6",
    "kk_us": "ˌɪntɚ`næʃən!",
    "kk_uk": "ˌɪntə`næʃənəl",
@@ -24,22 +24,22 @@
    ],
    "example_en": "The airline plans to add three new international routes next year.",
    "example_zh": "這家航空公司計畫明年新增三條國際航線。",
-   "exam_point": null,
    "example_src": "原創",
-   "uncertain": false,
-   "uncertain_note": null
+   "exam_point": null,
+   "uncertain": true,
+   "uncertain_note": "kk_us 結尾成節音 l 的印刷符號（! 或 l̩）在照片中無法百分之百分辨，已依 KK 慣例記為「!」"
   },
   {
    "num": 2,
    "word": "attraction",
-   "stars": 2,
+   "stars": 3,
    "part": "7",
    "kk_us": "ə`trækʃən",
    "kk_uk": null,
    "senses": [
     {
      "pos": "n.",
-     "zh": "景點；吸引力"
+     "zh": "景點"
     }
    ],
    "related": [
@@ -54,34 +54,29 @@
    ],
    "example_en": "The old lighthouse is the most popular attraction in the harbor town.",
    "example_zh": "那座老燈塔是這個港鎮最受歡迎的景點。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 3,
    "word": "itinerary",
-   "stars": 3,
+   "stars": 2,
    "part": "7",
    "kk_us": "aɪ`tɪnəˌrɛrɪ",
    "kk_uk": "ai`tinərəri",
    "senses": [
     {
      "pos": "n.",
-     "zh": "行程表，旅程路線"
+     "zh": "旅遊行程"
     }
    ],
-   "related": [
-    {
-     "rel": "同",
-     "text": "schedule 行程"
-    }
-   ],
+   "related": [],
    "example_en": "A detailed itinerary will be emailed to all tour participants.",
    "example_zh": "詳細行程表將以電子郵件寄給所有團員。",
-   "exam_point": "Part 7 電子郵件與旅遊廣告高頻字；訂位確認信常見 attached itinerary（附上行程表）。",
    "example_src": "原創",
+   "exam_point": "Part 7 電子郵件與旅遊廣告高頻字；訂位確認信常見 attached itinerary（附上行程表）。",
    "uncertain": false,
    "uncertain_note": null
   },
@@ -95,16 +90,16 @@
    "senses": [
     {
      "pos": "adj.",
-     "zh": "異國風情的"
+     "zh": "異國情調的；奇特的"
     }
    ],
    "related": [],
    "example_en": "The menu features exotic fruits imported from Southeast Asia.",
    "example_zh": "菜單主打從東南亞進口的異國水果。",
-   "exam_point": null,
    "example_src": "原創",
-   "uncertain": false,
-   "uncertain_note": null
+   "exam_point": null,
+   "uncertain": true,
+   "uncertain_note": "kk_uk 首音符號 e 與 ɛ 難分辨；依本書英式音標慣用 e 記為 eg`zɔtik"
   },
   {
    "num": 5,
@@ -116,31 +111,35 @@
    "senses": [
     {
      "pos": "adj.",
-     "zh": "多樣的，多元的"
+     "zh": "多樣的"
     }
    ],
    "related": [
     {
      "rel": "派",
-     "text": "diversity n. 多樣性"
+     "text": "diversify v. 使多樣化"
     },
     {
      "rel": "派",
-     "text": "diversify v. 使多樣化"
+     "text": "diversity n. 多樣性"
+    },
+    {
+     "rel": "同",
+     "text": "varied 多樣的"
     }
    ],
    "example_en": "The city is famous for its diverse dining options.",
    "example_zh": "這座城市以多樣的餐飲選擇聞名。",
-   "exam_point": "常見搭配：a diverse range/selection of + 複數名詞。",
    "example_src": "原創",
+   "exam_point": "常見搭配：a diverse range/selection of + 複數名詞。",
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 6,
    "word": "superb",
-   "stars": 2,
-   "part": "5,6",
+   "stars": 1,
+   "part": "7",
    "kk_us": "sʊ`pɝb",
    "kk_uk": "sju`pə:b",
    "senses": [
@@ -151,28 +150,32 @@
    ],
    "related": [
     {
+     "rel": "派",
+     "text": "superbly adv. 極好地，上等地"
+    },
+    {
      "rel": "同",
      "text": "excellent, outstanding 出色的"
     }
    ],
    "example_en": "Reviewers praised the resort for its superb ocean view.",
    "example_zh": "評論者稱讚這家度假村絕佳的海景。",
-   "exam_point": null,
    "example_src": "原創",
-   "uncertain": false,
-   "uncertain_note": null
+   "exam_point": null,
+   "uncertain": true,
+   "uncertain_note": "kk_us 第一母音 ʊ 與 u 在照片中難分辨，依 KK 慣例記為 sʊ`pɝb"
   },
   {
    "num": 7,
    "word": "baggage",
-   "stars": 2,
+   "stars": 1,
    "part": "7",
    "kk_us": "`bægɪdʒ",
    "kk_uk": null,
    "senses": [
     {
      "pos": "n.",
-     "zh": "行李（不可數）"
+     "zh": "行李"
     }
    ],
    "related": [
@@ -183,8 +186,8 @@
    ],
    "example_en": "Each passenger may check in one piece of baggage free of charge.",
    "example_zh": "每位乘客可免費託運一件行李。",
-   "exam_point": "不可數名詞：一件行李＝a piece of baggage，不可寫 a baggage。",
    "example_src": "原創",
+   "exam_point": "不可數名詞：一件行李＝a piece of baggage，不可寫 a baggage。",
    "uncertain": false,
    "uncertain_note": null
   },
@@ -201,63 +204,67 @@
      "zh": "目的地"
     }
    ],
-   "related": [],
+   "related": [
+    {
+     "rel": "派",
+     "text": "destine v. （特定目的、用途的）預定；注定"
+    }
+   ],
    "example_en": "The island has become a popular destination for honeymooners.",
    "example_zh": "這座島已成為蜜月旅客的熱門目的地。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 9,
    "word": "missing",
-   "stars": 2,
-   "part": "5,6",
+   "stars": 3,
+   "part": "7",
    "kk_us": "`mɪsɪŋ",
    "kk_uk": null,
    "senses": [
     {
      "pos": "adj.",
-     "zh": "遺失的，失蹤的；缺少的"
+     "zh": "遺失的；缺少的"
     }
    ],
-   "related": [
-    {
-     "rel": "同",
-     "text": "lost 遺失的"
-    }
-   ],
+   "related": [],
    "example_en": "Report any missing luggage to the service desk immediately.",
    "example_zh": "行李遺失請立即向服務台通報。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 10,
    "word": "locate",
-   "stars": 2,
-   "part": "5,6",
+   "stars": 3,
+   "part": "7",
    "kk_us": "lo`ket",
    "kk_uk": "ləu`keit",
    "senses": [
     {
      "pos": "v.",
-     "zh": "找出～的位置；（be located）位於"
+     "zh": "找到～的位置；使～座落於"
     }
    ],
    "related": [
     {
      "rel": "派",
      "text": "location n. 位置"
+    },
+    {
+     "rel": "同",
+     "text": "find 找到"
     }
    ],
    "example_en": "The information center is located next to the main entrance.",
    "example_zh": "服務中心位於正門旁邊。",
-   "exam_point": "be located + 地點介系詞（in/on/near）＝位於～，Part 5 常考被動形。",
    "example_src": "原創",
+   "exam_point": "be located + 地點介系詞（in/on/near）＝位於～，Part 5 常考被動形。",
    "uncertain": false,
    "uncertain_note": null
   },
@@ -271,45 +278,45 @@
    "senses": [
     {
      "pos": "adv.",
-     "zh": "大約"
+     "zh": "大概"
     }
    ],
    "related": [
     {
-     "rel": "同",
-     "text": "about, roughly 大約"
+     "rel": "派",
+     "text": "approximate adj. 大約的 v. 接近；大略估計"
     }
    ],
    "example_en": "The flight to Tokyo takes approximately three hours.",
    "example_zh": "飛往東京的班機大約需要三小時。",
-   "exam_point": "後接數字（approximately 30 minutes）；Part 5 副詞題高頻。",
    "example_src": "原創",
-   "uncertain": false,
-   "uncertain_note": null
+   "exam_point": "後接數字（approximately 30 minutes）；Part 5 副詞題高頻。",
+   "uncertain": true,
+   "uncertain_note": "kk_uk 後半 i/ɪ 字形在照片中偏小難分辨，記為 ə`prɔksimitli（本書英式慣用 i）"
   },
   {
    "num": 12,
    "word": "duty",
-   "stars": 2,
+   "stars": 3,
    "part": "7",
    "kk_us": "`djutɪ",
    "kk_uk": null,
    "senses": [
     {
      "pos": "n.",
-     "zh": "關稅，稅；職責，義務"
+     "zh": "稅，關稅；責任，職責"
     }
    ],
    "related": [
     {
-     "rel": "派",
-     "text": "duty-free adj. 免稅的"
+     "rel": "同",
+     "text": "tax 稅；稅金"
     }
    ],
    "example_en": "Visitors must pay a duty on goods worth over six hundred dollars.",
    "example_zh": "旅客攜帶價值超過六百美元的商品必須繳納關稅。",
-   "exam_point": "duty-free shop 免稅店；on duty 值班中。",
    "example_src": "原創",
+   "exam_point": "duty-free shop 免稅店；on duty 值班中。",
    "uncertain": false,
    "uncertain_note": null
   },
@@ -317,31 +324,26 @@
    "num": 13,
    "word": "process",
    "stars": 3,
-   "part": "5,6",
+   "part": "7",
    "kk_us": "`prɑsɛs",
    "kk_uk": "`prəuses",
    "senses": [
     {
      "pos": "n.",
-     "zh": "過程，程序"
+     "zh": "過程；程序"
     },
     {
      "pos": "v.",
      "zh": "處理"
     }
    ],
-   "related": [
-    {
-     "rel": "派",
-     "text": "procedure n. 程序"
-    }
-   ],
+   "related": [],
    "example_en": "Please allow ten business days to process your visa application.",
    "example_zh": "簽證申請的處理需要十個工作天。",
-   "exam_point": null,
    "example_src": "原創",
-   "uncertain": false,
-   "uncertain_note": null
+   "exam_point": null,
+   "uncertain": true,
+   "uncertain_note": "kk_uk 末音節 e/ɛ 難分辨，記為 `prəuses（本書英式慣用 e）；第一例句對應 n.、第二例句對應 v."
   },
   {
    "num": 14,
@@ -353,30 +355,25 @@
    "senses": [
     {
      "pos": "v.",
-     "zh": "登上（飛機、船、車）"
+     "zh": "上，登上（大眾運輸工具）"
     },
     {
      "pos": "n.",
-     "zh": "董事會；板子"
+     "zh": "委員會，董事會"
     }
    ],
-   "related": [
-    {
-     "rel": "派",
-     "text": "boarding pass n. 登機證"
-    }
-   ],
+   "related": [],
    "example_en": "Passengers in rows 20 to 35 may now board the plane.",
    "example_zh": "20 至 35 排的乘客現在可以登機。",
-   "exam_point": "board＝get on；boarding gate 登機門、boarding pass 登機證為固定搭配。",
    "example_src": "原創",
-   "uncertain": false,
-   "uncertain_note": null
+   "exam_point": "board＝get on；boarding gate 登機門、boarding pass 登機證為固定搭配。",
+   "uncertain": true,
+   "uncertain_note": "例句1句尾 first 與出題重點「在閱讀測驗中」的「中」字被書頁內緣裁到，依上下文補齊；中譯「歡迎」二字依圖轉錄（語感上似應為「獲邀」，但印刷即如此顯示）"
   },
   {
    "num": 15,
    "word": "comfortable",
-   "stars": 2,
+   "stars": 3,
    "part": "5,6",
    "kk_us": "ˋkʌmfɚtəbl̩",
    "kk_uk": "ˋkʌmfətəbl",
@@ -388,66 +385,70 @@
    ],
    "related": [
     {
-     "rel": "派",
-     "text": "comfort n. 舒適"
+     "rel": "衍",
+     "text": "comfort n. 舒適；安慰 v. 使舒適；安慰"
+    },
+    {
+     "rel": "衍",
+     "text": "comfortably adv. 舒適地"
     }
    ],
    "example_en": "The shuttle bus offers comfortable seats and free Wi-Fi.",
    "example_zh": "接駁車提供舒適座位與免費無線網路。",
-   "exam_point": null,
    "example_src": "原創",
-   "uncertain": false,
-   "uncertain_note": null
+   "exam_point": null,
+   "uncertain": true,
+   "uncertain_note": "美式音標 fɚ 的捲舌鉤與字尾成音節 l̩ 的下標點為放大後判讀，個別記號仍偏小"
   },
   {
    "num": 16,
    "word": "declare",
-   "stars": 2,
+   "stars": 3,
    "part": "7",
    "kk_us": "dɪˋklɛr",
    "kk_uk": "diˋklɛə",
    "senses": [
     {
      "pos": "v.",
-     "zh": "（海關）申報；宣布"
+     "zh": "（在海關）申報；宣告"
     }
    ],
    "related": [
     {
-     "rel": "派",
-     "text": "declaration n. 申報（單）"
+     "rel": "衍",
+     "text": "declaration n. （在海關的）申報；宣告"
     }
    ],
    "example_en": "Do you have anything to declare at customs?",
    "example_zh": "你有需要向海關申報的物品嗎？",
-   "exam_point": "海關固定用語：nothing to declare 無申報物品；declaration form 申報單。",
    "example_src": "原創",
+   "exam_point": "海關固定用語：nothing to declare 無申報物品；declaration form 申報單。",
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 17,
    "word": "specify",
-   "stars": 2,
+   "stars": 3,
    "part": "5,6",
    "kk_us": "ˋspɛsəˏfaɪ",
    "kk_uk": "ˋspesifai",
    "senses": [
     {
      "pos": "v.",
-     "zh": "具體說明，指定"
+     "zh": "具體說明"
     }
    ],
    "related": [
     {
-     "rel": "派",
-     "text": "specific adj. 具體的"
+     "rel": "衍",
+     "text": "specific adj. 具體的；特定的"
     }
    ],
    "example_en": "Please specify your seating preference when booking.",
    "example_zh": "訂位時請具體說明您的座位偏好。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
@@ -461,23 +462,23 @@
    "senses": [
     {
      "pos": "v.",
-     "zh": "出發，離開"
+     "zh": "出發"
     }
    ],
    "related": [
     {
-     "rel": "派",
+     "rel": "衍",
      "text": "departure n. 出發"
     },
     {
-     "rel": "反",
-     "text": "arrive 抵達"
+     "rel": "同",
+     "text": "take off v. （飛機）起飛"
     }
    ],
    "example_en": "The express train departs from Platform 2 every half hour.",
    "example_zh": "特快車每半小時從二號月台發車。",
-   "exam_point": "depart from＋出發地、depart for＋目的地；departure 與 arrival 成對記。",
    "example_src": "原創",
+   "exam_point": "depart from＋出發地、depart for＋目的地；departure 與 arrival 成對記。",
    "uncertain": false,
    "uncertain_note": null
   },
@@ -491,21 +492,21 @@
    "senses": [
     {
      "pos": "n.",
-     "zh": "緊急狀況"
+     "zh": "緊急情況"
     }
    ],
    "related": [],
    "example_en": "In case of an emergency, follow the crew's instructions.",
    "example_zh": "遇緊急狀況時，請聽從機組人員指示。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 20,
    "word": "passenger",
-   "stars": 3,
+   "stars": 2,
    "part": "7",
    "kk_us": "ˋpæsəndʒɚ",
    "kk_uk": "ˋpæsindʒə",
@@ -518,60 +519,50 @@
    "related": [],
    "example_en": "Passengers are reminded to keep their boarding passes ready.",
    "example_zh": "提醒乘客備妥登機證。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 21,
    "word": "outgoing",
-   "stars": 1,
-   "part": "5,6",
+   "stars": 2,
+   "part": "7",
    "kk_us": "ˋaʊtˏgoɪŋ",
    "kk_uk": "ˋautˏgəuiŋ",
    "senses": [
     {
      "pos": "adj.",
-     "zh": "離開的，外送的；外向的"
+     "zh": "（從某地點）出發的，離開的；即將離職的"
     }
    ],
-   "related": [
-    {
-     "rel": "反",
-     "text": "incoming 進來的"
-    }
-   ],
+   "related": [],
    "example_en": "All outgoing flights were delayed because of the storm.",
    "example_zh": "所有離境班機都因暴風雨延誤。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 22,
    "word": "tightly",
-   "stars": 1,
+   "stars": 2,
    "part": "5,6",
    "kk_us": "ˋtaɪtlɪ",
    "kk_uk": null,
    "senses": [
     {
      "pos": "adv.",
-     "zh": "緊緊地"
+     "zh": "緊緊地；牢固地"
     }
    ],
-   "related": [
-    {
-     "rel": "派",
-     "text": "tight adj. 緊的"
-    }
-   ],
+   "related": [],
    "example_en": "Make sure the cap of the bottle is tightly closed before packing.",
    "example_zh": "打包前請確認瓶蓋已拴緊。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
@@ -579,31 +570,31 @@
    "num": 23,
    "word": "tour",
    "stars": 2,
-   "part": "7",
+   "part": "5,6",
    "kk_us": "tʊr",
    "kk_uk": "tuə",
    "senses": [
     {
      "pos": "n.",
-     "zh": "旅遊，遊覽"
+     "zh": "（工廠、設施等的）導覽；旅行"
     },
     {
      "pos": "v.",
-     "zh": "遊覽"
+     "zh": "旅行"
     }
    ],
    "related": [
     {
-     "rel": "派",
+     "rel": "衍",
      "text": "tourist n. 觀光客"
     }
    ],
    "example_en": "We toured the historic district with a local guide.",
    "example_zh": "我們在當地導遊帶領下遊覽了歷史街區。",
-   "exam_point": "動詞 tour 是及物動詞，直接接受詞（tour the city），不加 to。",
    "example_src": "原創",
-   "uncertain": false,
-   "uncertain_note": null
+   "exam_point": "動詞 tour 是及物動詞，直接接受詞（tour the city），不加 to。",
+   "uncertain": true,
+   "uncertain_note": "出題重點末行「是及物動詞」的「物」字被書頁內緣裁到，依上下文補齊"
   },
   {
    "num": 24,
@@ -615,71 +606,69 @@
    "senses": [
     {
      "pos": "n.",
-     "zh": "航空公司，運輸公司；運送者"
+     "zh": "運輸公司，航空公司；運輸工具"
     }
    ],
-   "related": [
-    {
-     "rel": "派",
-     "text": "carry v. 運送"
-    }
-   ],
+   "related": [],
    "example_en": "The low-cost carrier announced new routes to three cities.",
    "example_zh": "這家廉價航空宣布開闢三個城市的新航線。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 25,
    "word": "customarily",
-   "stars": 1,
+   "stars": 2,
    "part": "5,6",
    "kk_us": "ˋkʌstəmˏɛrəlɪ",
    "kk_uk": "ˋkʌstəmˏerili",
    "senses": [
     {
      "pos": "adv.",
-     "zh": "按照慣例，通常"
+     "zh": "習慣上，習俗上"
     }
    ],
    "related": [
     {
-     "rel": "派",
+     "rel": "衍",
      "text": "customary adj. 慣常的"
+    },
+    {
+     "rel": "衍",
+     "text": "custom n. 習慣，習俗"
+    },
+    {
+     "rel": "衍",
+     "text": "customs n. 海關"
     }
    ],
    "example_en": "Hotel staff customarily greet guests by name.",
    "example_zh": "飯店人員習慣上會以姓名問候客人。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": "詞性辨析：customarily 是副詞（習慣上）、customary 是形容詞（慣常的），Part 5 詞性題常拿這組出題。",
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 26,
    "word": "confuse",
-   "stars": 1,
-   "part": "5,6",
+   "stars": 2,
+   "part": "7",
    "kk_us": "kənˋfjuz",
    "kk_uk": null,
    "senses": [
     {
      "pos": "v.",
-     "zh": "使混淆，使困惑"
+     "zh": "使困惑"
     }
    ],
-   "related": [
-    {
-     "rel": "派",
-     "text": "confusion n. 混淆"
-    }
-   ],
+   "related": [],
    "example_en": "The similar gate numbers often confuse first-time travelers.",
    "example_zh": "相似的登機門號碼常讓初次搭機的旅客混淆。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
@@ -693,23 +682,19 @@
    "senses": [
     {
      "pos": "v.",
-     "zh": "抵達"
+     "zh": "到達"
     }
    ],
    "related": [
     {
-     "rel": "派",
-     "text": "arrival n. 抵達"
-    },
-    {
-     "rel": "反",
-     "text": "depart 出發"
+     "rel": "衍",
+     "text": "arrival n. 到達"
     }
    ],
    "example_en": "The delegation is scheduled to arrive at noon on Friday.",
    "example_zh": "代表團預定週五中午抵達。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
@@ -717,27 +702,22 @@
    "num": 28,
    "word": "brochure",
    "stars": 2,
-   "part": "7",
+   "part": "5,6",
    "kk_us": "broˋʃʊr",
    "kk_uk": "brəuˋʃjuə",
    "senses": [
     {
      "pos": "n.",
-     "zh": "（宣傳）小冊子"
+     "zh": "（宣傳用的）摺頁，小冊子"
     }
    ],
-   "related": [
-    {
-     "rel": "同",
-     "text": "pamphlet 小冊子"
-    }
-   ],
+   "related": [],
    "example_en": "Free brochures about local attractions are available in the lobby.",
    "example_zh": "大廳備有當地景點的免費簡介手冊。",
-   "exam_point": null,
    "example_src": "原創",
-   "uncertain": false,
-   "uncertain_note": null
+   "exam_point": "brochure（宣傳摺頁）、catalog（商品型錄）、guidelines（指導方針）意思相近但用途不同，閱讀題常要你選出正確的「冊子」。",
+   "uncertain": true,
+   "uncertain_note": "英式音標 ʃ 後的字元放大後仍偏糊，判讀為 [brəuˋʃjuə]，也可能是 [brəuˋʃuə]（j 不確定）"
   },
   {
    "num": 29,
@@ -749,19 +729,14 @@
    "senses": [
     {
      "pos": "v.",
-     "zh": "包含；使參與"
+     "zh": "需要～，包含～；使～涉入"
     }
    ],
-   "related": [
-    {
-     "rel": "派",
-     "text": "involvement n. 參與"
-    }
-   ],
+   "related": [],
    "example_en": "The tour package involves a full-day visit to the national park.",
    "example_zh": "這個旅遊套裝行程包含國家公園一日遊。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
@@ -775,7 +750,7 @@
    "senses": [
     {
      "pos": "v.",
-     "zh": "運送"
+     "zh": "（用船或其他運輸工具）運送"
     },
     {
      "pos": "n.",
@@ -785,20 +760,20 @@
    "related": [
     {
      "rel": "派",
-     "text": "shipment n. 貨運"
+     "text": "shipment n. 運輸；運輸的貨物"
     }
    ],
    "example_en": "The souvenirs you ordered will be shipped to your home address within five days.",
    "example_zh": "您訂購的紀念品將在五天內運送到您的住家地址。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 31,
    "word": "suitcase",
-   "stars": 1,
+   "stars": 2,
    "part": "7",
    "kk_us": "ˈsutˌkes",
    "kk_uk": null,
@@ -808,16 +783,11 @@
      "zh": "行李箱"
     }
    ],
-   "related": [
-    {
-     "rel": "同",
-     "text": "luggage 行李"
-    }
-   ],
+   "related": [],
    "example_en": "Please make sure your suitcase weighs less than 23 kilograms before check-in.",
    "example_zh": "報到前請確認您的行李箱重量低於 23 公斤。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
@@ -831,52 +801,47 @@
    "senses": [
     {
      "pos": "adj.",
-     "zh": "無法取得的；沒空的"
+     "zh": "無法利用的；無法取得的"
     }
    ],
    "related": [
     {
      "rel": "反",
-     "text": "available 可取得的"
+     "text": "available 可利用的；可取得的"
     }
    ],
    "example_en": "Window seats are unavailable on this flight because it is fully booked.",
    "example_zh": "本班機已客滿，靠窗座位無法取得。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 33,
    "word": "fill out/in",
-   "stars": 3,
-   "part": "7",
+   "stars": 1,
+   "part": "5,6",
    "kk_us": null,
    "kk_uk": null,
    "senses": [
     {
      "pos": "phr.",
-     "zh": "填寫（表格）"
+     "zh": "填寫，填好（表格等文件）"
     }
    ],
-   "related": [
-    {
-     "rel": "同",
-     "text": "complete 填寫完成"
-    }
-   ],
+   "related": [],
    "example_en": "Please fill out the customs declaration form before the plane lands.",
    "example_zh": "請在飛機降落前填寫海關申報表格。",
-   "exam_point": "fill out／fill in a form 填寫表格；出境入境情境高頻片語。",
    "example_src": "原創",
+   "exam_point": "fill out／fill in a form 填寫表格；出境入境情境高頻片語。",
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 34,
    "word": "customs",
-   "stars": 2,
+   "stars": 1,
    "part": "7",
    "kk_us": "ˈkʌstəmz",
    "kk_uk": null,
@@ -886,16 +851,11 @@
      "zh": "海關"
     }
    ],
-   "related": [
-    {
-     "rel": "派",
-     "text": "customs officer 海關人員"
-    }
-   ],
+   "related": [],
    "example_en": "All passengers must go through customs after collecting their baggage.",
    "example_zh": "所有乘客領取行李後都必須通過海關。",
-   "exam_point": "go through customs 通過海關；customs 表「海關」時恆用複數形。",
    "example_src": "原創",
+   "exam_point": "go through customs 通過海關；customs 表「海關」時恆用複數形。",
    "uncertain": false,
    "uncertain_note": null
   },
@@ -903,74 +863,74 @@
    "num": 35,
    "word": "away",
    "stars": 1,
-   "part": "7",
+   "part": "5,6",
    "kk_us": "əˈwe",
    "kk_uk": null,
    "senses": [
     {
      "pos": "adv.",
-     "zh": "離開；距離～之遠"
+     "zh": "離開，遠離"
     }
    ],
    "related": [],
    "example_en": "The hotel is only ten minutes away from the international airport.",
    "example_zh": "這家飯店距離國際機場只有十分鐘路程。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": "away 前面可以直接接距離（如 fifteen miles away）；far 前面不能直接加距離數字，是常見陷阱。",
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 36,
    "word": "dramatic",
-   "stars": 2,
+   "stars": 1,
    "part": "5,6",
    "kk_us": "drəˈmætɪk",
    "kk_uk": null,
    "senses": [
     {
      "pos": "adj.",
-     "zh": "急劇的；戲劇性的"
+     "zh": "戲劇性的；激動人心的；急劇的"
     }
    ],
    "related": [
     {
      "rel": "派",
-     "text": "dramatically adv. 大幅地"
+     "text": "dramatically adv. 戲劇性地；急劇地"
     }
    ],
    "example_en": "The seaside resort has seen a dramatic increase in bookings this summer.",
    "example_zh": "這家海濱度假村今年夏天的訂房量急劇增加。",
-   "exam_point": "a dramatic increase/decrease in + 名詞：～的大幅增加／減少。",
    "example_src": "原創",
+   "exam_point": "a dramatic increase/decrease in + 名詞：～的大幅增加／減少。",
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 37,
    "word": "hospitality",
-   "stars": 2,
-   "part": "7",
+   "stars": 1,
+   "part": "5,6",
    "kk_us": "ˌhɑspɪˈtælətɪ",
    "kk_uk": "ˌhɔspiˈtæliti",
    "senses": [
     {
      "pos": "n.",
-     "zh": "款待，好客"
+     "zh": "款待，殷勤招待"
     }
    ],
    "related": [
     {
      "rel": "派",
-     "text": "hospitable adj. 好客的"
+     "text": "hospitable adj. 好客的，招待周到的"
     }
    ],
    "example_en": "The staff were praised for their warm hospitality toward foreign visitors.",
    "example_zh": "工作人員因對外國旅客的熱情款待而受到讚賞。",
-   "exam_point": null,
    "example_src": "原創",
-   "uncertain": false,
-   "uncertain_note": null
+   "exam_point": "常見搭配：hospitality industry（餐旅服務業）、hospitality extended to～（給予～的款待）。",
+   "uncertain": true,
+   "uncertain_note": "英式音標中 i／ɪ 字元難以完全區分，依印刷判讀為 [ˌhɔspiˈtæliti]（美式為小型大寫 ɪ、英式為有點的 i）"
   },
   {
    "num": 38,
@@ -982,71 +942,66 @@
    "senses": [
     {
      "pos": "v.",
-     "zh": "沉浸於，盡情享受"
+     "zh": "沉迷；讓～享受"
     }
    ],
    "related": [
     {
      "rel": "派",
-     "text": "indulgence n. 放縱，享受"
+     "text": "indulgence n. 沉迷；放縱"
     }
    ],
    "example_en": "Guests can indulge in a variety of local dishes at the hotel restaurant.",
    "example_zh": "房客可以在飯店餐廳盡情享受各式當地菜餚。",
-   "exam_point": "indulge in + 名詞：盡情享受～。",
    "example_src": "原創",
+   "exam_point": "indulge in + 名詞：盡情享受～。",
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 39,
    "word": "proximity",
-   "stars": 2,
-   "part": "5,6",
+   "stars": 1,
+   "part": "7",
    "kk_us": "prɑkˈsɪmətɪ",
    "kk_uk": "prɔkˈsimiti",
    "senses": [
     {
      "pos": "n.",
-     "zh": "鄰近，接近"
+     "zh": "接近，鄰近"
     }
    ],
-   "related": [
-    {
-     "rel": "同",
-     "text": "closeness 接近"
-    }
-   ],
+   "related": [],
    "example_en": "Many travelers choose this hotel because of its close proximity to the train station.",
    "example_zh": "許多旅客因為這家飯店鄰近火車站而選擇它。",
-   "exam_point": "固定片語 in close proximity to（緊鄰～），介系詞用 to。",
    "example_src": "原創",
-   "uncertain": false,
-   "uncertain_note": null
+   "exam_point": "固定片語 in close proximity to（緊鄰～），介系詞用 to。",
+   "uncertain": true,
+   "uncertain_note": "英式音標中 i／ɪ 字元難以完全區分，依印刷判讀為 [prɔkˈsimiti]"
   },
   {
    "num": 40,
    "word": "seating",
-   "stars": 2,
+   "stars": 1,
    "part": "7",
    "kk_us": "ˈsitɪŋ",
    "kk_uk": null,
    "senses": [
     {
      "pos": "n.",
-     "zh": "座位（安排）"
+     "zh": "（整體的）座位安排；座位數量"
     }
    ],
    "related": [
     {
      "rel": "派",
-     "text": "seat n. 座位"
+     "text": "seat n. 座位 v. 使就座"
     }
    ],
    "example_en": "The new terminal offers comfortable seating for waiting passengers.",
    "example_zh": "新航廈為候機乘客提供舒適的座位。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": "seating 指整體座位安排或座位數（seating capacity）；seat 是一個座位。測驗常考兩者區分。",
    "uncertain": false,
    "uncertain_note": null
   },
@@ -1054,7 +1009,7 @@
    "num": 41,
    "word": "unlimited",
    "stars": 1,
-   "part": "7",
+   "part": "5,6",
    "kk_us": "ʌnˈlɪmɪtɪd",
    "kk_uk": null,
    "senses": [
@@ -1065,14 +1020,18 @@
    ],
    "related": [
     {
+     "rel": "派",
+     "text": "unlimitedly adv. 無限制地"
+    },
+    {
      "rel": "反",
-     "text": "limited 有限的"
+     "text": "limited, restricted 有限制的"
     }
    ],
    "example_en": "The car rental package includes unlimited mileage and full insurance.",
    "example_zh": "這個租車方案包含無限制里程與全額保險。",
-   "exam_point": "unlimited mileage（不限里程）為租車廣告常見用語。",
    "example_src": "原創",
+   "exam_point": "unlimited mileage（不限里程）為租車廣告常見用語。",
    "uncertain": false,
    "uncertain_note": null
   },
@@ -1086,49 +1045,57 @@
    "senses": [
     {
      "pos": "adv.",
-     "zh": "只要，僅僅；簡直"
+     "zh": "僅僅，只是；簡單地"
     }
    ],
    "related": [
     {
      "rel": "派",
      "text": "simple adj. 簡單的"
+    },
+    {
+     "rel": "同",
+     "text": "just 僅僅，只是"
     }
    ],
    "example_en": "Simply present this coupon to receive a discount.",
    "example_zh": "只要出示這張優惠券即可獲得折扣。",
-   "exam_point": null,
    "example_src": "原創",
+   "exam_point": null,
    "uncertain": false,
    "uncertain_note": null
   },
   {
    "num": 43,
    "word": "besides",
-   "stars": 2,
-   "part": "5,6",
+   "stars": 1,
+   "part": "7",
    "kk_us": "bɪˋsaɪdz",
    "kk_uk": null,
    "senses": [
     {
-     "pos": "prep.",
-     "zh": "除了～之外（還）"
+     "pos": "adv.",
+     "zh": "而且，此外"
     },
     {
-     "pos": "adv.",
-     "zh": "此外"
+     "pos": "prep.",
+     "zh": "除～之外"
     }
    ],
    "related": [
     {
      "rel": "同",
-     "text": "in addition 此外"
+     "text": "furthermore, in addition 而且，此外，還有"
+    },
+    {
+     "rel": "同",
+     "text": "except 除～之外"
     }
    ],
    "example_en": "Besides the museum pass, the ticket includes a river cruise.",
    "example_zh": "除了博物館通行證，這張票還包含遊河行程。",
-   "exam_point": "besides（除了～還有，包含）≠ except（除了～之外，排除）；beside 是「在～旁邊」。",
    "example_src": "原創",
+   "exam_point": "besides（除了～還有，包含）≠ except（除了～之外，排除）；beside 是「在～旁邊」。",
    "uncertain": false,
    "uncertain_note": null
   },
@@ -1142,387 +1109,25 @@
    "senses": [
     {
      "pos": "adv.",
-     "zh": "傳統上"
+     "zh": "傳統地"
     }
    ],
    "related": [
     {
      "rel": "派",
      "text": "traditional adj. 傳統的"
+    },
+    {
+     "rel": "派",
+     "text": "tradition n. 傳統"
     }
    ],
    "example_en": "Traditionally, the festival marks the beginning of the harvest season.",
    "example_zh": "傳統上，這個節慶標誌著收穫季節的開始。",
-   "exam_point": null,
    "example_src": "原創",
-   "uncertain": false,
-   "uncertain_note": null
-  }
- ],
- "extra_groups": [
-  {
-   "title": "延伸單字 — 機場與航班",
-   "list": [
-    {
-     "word": "check-in counter",
-     "pos": "n.",
-     "zh": "報到櫃檯"
-    },
-    {
-     "word": "boarding pass",
-     "pos": "n.",
-     "zh": "登機證"
-    },
-    {
-     "word": "layover",
-     "pos": "n.",
-     "zh": "中途停留"
-    },
-    {
-     "word": "connecting flight",
-     "pos": "n.",
-     "zh": "轉機航班"
-    },
-    {
-     "word": "aisle seat",
-     "pos": "n.",
-     "zh": "走道座位"
-    },
-    {
-     "word": "window seat",
-     "pos": "n.",
-     "zh": "靠窗座位"
-    },
-    {
-     "word": "carousel",
-     "pos": "n.",
-     "zh": "行李轉盤"
-    },
-    {
-     "word": "overhead compartment",
-     "pos": "n.",
-     "zh": "頭頂置物櫃"
-    },
-    {
-     "word": "turbulence",
-     "pos": "n.",
-     "zh": "亂流"
-    },
-    {
-     "word": "jet lag",
-     "pos": "n.",
-     "zh": "時差疲勞"
-    },
-    {
-     "word": "one-way ticket",
-     "pos": "n.",
-     "zh": "單程票"
-    },
-    {
-     "word": "round-trip",
-     "pos": "adj.",
-     "zh": "來回的"
-    },
-    {
-     "word": "fare",
-     "pos": "n.",
-     "zh": "票價，車資"
-    },
-    {
-     "word": "delay",
-     "pos": "n./v.",
-     "zh": "延誤"
-    },
-    {
-     "word": "cancellation",
-     "pos": "n.",
-     "zh": "取消"
-    },
-    {
-     "word": "refund",
-     "pos": "n./v.",
-     "zh": "退款"
-    },
-    {
-     "word": "upgrade",
-     "pos": "n./v.",
-     "zh": "升等"
-    },
-    {
-     "word": "aviation",
-     "pos": "n.",
-     "zh": "航空（業）"
-    }
-   ]
-  },
-  {
-   "title": "延伸單字 — 住宿與觀光",
-   "list": [
-    {
-     "word": "accommodation",
-     "pos": "n.",
-     "zh": "住宿"
-    },
-    {
-     "word": "reservation",
-     "pos": "n.",
-     "zh": "預訂"
-    },
-    {
-     "word": "vacancy",
-     "pos": "n.",
-     "zh": "空房"
-    },
-    {
-     "word": "amenity",
-     "pos": "n.",
-     "zh": "便利設施"
-    },
-    {
-     "word": "concierge",
-     "pos": "n.",
-     "zh": "禮賓人員"
-    },
-    {
-     "word": "complimentary",
-     "pos": "adj.",
-     "zh": "免費贈送的"
-    },
-    {
-     "word": "sightseeing",
-     "pos": "n.",
-     "zh": "觀光"
-    },
-    {
-     "word": "landmark",
-     "pos": "n.",
-     "zh": "地標"
-    },
-    {
-     "word": "souvenir",
-     "pos": "n.",
-     "zh": "紀念品"
-    },
-    {
-     "word": "guided tour",
-     "pos": "n.",
-     "zh": "導覽行程"
-    },
-    {
-     "word": "admission",
-     "pos": "n.",
-     "zh": "入場（費）"
-    },
-    {
-     "word": "excursion",
-     "pos": "n.",
-     "zh": "短途旅行"
-    },
-    {
-     "word": "resort",
-     "pos": "n.",
-     "zh": "度假村"
-    },
-    {
-     "word": "scenic",
-     "pos": "adj.",
-     "zh": "風景優美的"
-    },
-    {
-     "word": "breathtaking",
-     "pos": "adj.",
-     "zh": "令人屏息的"
-    }
-   ]
-  }
- ],
- "adv_groups": [
-  {
-   "title": "900分挑戰字 — 旅遊主題",
-   "list": [
-    {
-     "word": "embark",
-     "pos": "v.",
-     "zh": "登上（船、機）；著手"
-    },
-    {
-     "word": "disembark",
-     "pos": "v.",
-     "zh": "下（船、機）"
-    },
-    {
-     "word": "expedite",
-     "pos": "v.",
-     "zh": "加速辦理"
-    },
-    {
-     "word": "stopover",
-     "pos": "n.",
-     "zh": "中途停留站"
-    },
-    {
-     "word": "quarantine",
-     "pos": "n.",
-     "zh": "檢疫"
-    },
-    {
-     "word": "transit",
-     "pos": "n.",
-     "zh": "過境；運輸"
-    },
-    {
-     "word": "courteous",
-     "pos": "adj.",
-     "zh": "有禮貌的"
-    },
-    {
-     "word": "punctual",
-     "pos": "adj.",
-     "zh": "準時的"
-    },
-    {
-     "word": "exquisite",
-     "pos": "adj.",
-     "zh": "精緻的"
-    },
-    {
-     "word": "secluded",
-     "pos": "adj.",
-     "zh": "僻靜的"
-    },
-    {
-     "word": "bustling",
-     "pos": "adj.",
-     "zh": "熙來攘往的"
-    },
-    {
-     "word": "unwind",
-     "pos": "v.",
-     "zh": "放鬆"
-    }
-   ]
-  }
- ],
- "checkup": [
-  {
-   "type": "match",
-   "q": "「itinerary」的中文字義是？",
-   "options": [
-    "行程表",
-    "行李轉盤",
-    "緊急狀況",
-    "入場費"
-   ],
-   "answer": 0,
-   "explain": "itinerary n. 行程表，旅程路線"
-  },
-  {
-   "type": "match",
-   "q": "「declare」的中文字義是？",
-   "options": [
-    "延誤",
-    "（海關）申報；宣布",
-    "使混淆",
-    "盡情享受"
-   ],
-   "answer": 1,
-   "explain": "declare v. （海關）申報；宣布"
-  },
-  {
-   "type": "match",
-   "q": "「proximity」的中文字義是？",
-   "options": [
-    "款待",
-    "多樣性",
-    "鄰近，接近",
-    "目的地"
-   ],
-   "answer": 2,
-   "explain": "proximity n. 鄰近；片語 in close proximity to"
-  },
-  {
-   "type": "match",
-   "q": "「hospitality」的中文字義是？",
-   "options": [
-    "醫院",
-    "款待，好客",
-    "住宿",
-    "檢疫"
-   ],
-   "answer": 1,
-   "explain": "hospitality n. 款待（勿與 hospital 醫院混淆）"
-  },
-  {
-   "type": "match",
-   "q": "「brochure」的中文字義是？",
-   "options": [
-    "（宣傳）小冊子",
-    "登機證",
-    "行李箱",
-    "紀念品"
-   ],
-   "answer": 0,
-   "explain": "brochure n. 小冊子，同 pamphlet"
-  },
-  {
-   "type": "fill",
-   "q": "Please ______ your meal preference when you book the flight.（選出符合文意的單字）",
-   "options": [
-    "specify",
-    "declare",
-    "indulge",
-    "confuse"
-   ],
-   "answer": 0,
-   "explain": "specify 具體說明：訂位時具體說明餐點偏好。"
-  },
-  {
-   "type": "fill",
-   "q": "All ______ flights are listed on the departure board.",
-   "options": [
-    "missing",
-    "comfortable",
-    "outgoing",
-    "exotic"
-   ],
-   "answer": 2,
-   "explain": "outgoing flights 離境班機。"
-  },
-  {
-   "type": "fill",
-   "q": "The hotel is in close ______ to the convention center.",
-   "options": [
-    "hospitality",
-    "proximity",
-    "seating",
-    "duty"
-   ],
-   "answer": 1,
-   "explain": "in close proximity to 緊鄰～，固定片語。"
-  },
-  {
-   "type": "fill",
-   "q": "Travelers must go through ______ before leaving the airport.",
-   "options": [
-    "customs",
-    "carrier",
-    "baggage",
-    "attraction"
-   ],
-   "answer": 0,
-   "explain": "go through customs 通過海關。"
-  },
-  {
-   "type": "fill",
-   "q": "The package includes ______ mileage for the rental car.",
-   "options": [
-    "unavailable",
-    "diverse",
-    "unlimited",
-    "superb"
-   ],
-   "answer": 2,
-   "explain": "unlimited mileage 不限里程，租車廣告常見。"
+   "exam_point": null,
+   "uncertain": true,
+   "uncertain_note": "KK 尾音節 -nlɪ 的 l 下方疑似有成音節符號（ḷ，即 trəˋdɪʃənḷɪ），放大後仍難以確認，其餘字元確定。"
   }
  ]
 }
