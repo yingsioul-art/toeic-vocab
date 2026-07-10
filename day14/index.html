@@ -104,6 +104,17 @@ button.big:active{transform:scale(.985);}
 .footer-nav button.on{color:var(--brand-dark); font-weight:700; background:var(--brand-soft);}
 .hidden{display:none!important;}
 .uncertain-flag{font-size:.75rem; color:#b07f10; cursor:help;}
+.mic-btn{background:#fdeef0; color:#b03a52; border:2px solid #d96b82!important;}
+.mic-btn.listening{background:#d96b82; color:#fff; animation:pulse 1.2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(217,107,130,.45)}50%{box-shadow:0 0 0 10px rgba(217,107,130,0)}}
+.transcript{background:#f7f2fb; border:1px dashed #b9a3d0; border-radius:12px;
+  padding:10px 14px; margin-top:12px; font-size:1.05rem; min-height:2.4em; text-align:left;}
+.transcript .lbl{font-size:.8rem; color:#7c6a91; display:block;}
+.diff-line{margin-top:8px; font-size:1.05rem; line-height:1.7; text-align:left;}
+.diff-line .hit{color:var(--brand-dark); font-weight:600;}
+.diff-line .miss{color:var(--red); font-weight:700; text-decoration:underline;}
+.mic-note{background:#eef6fb; border:1px solid #c4dcee; border-radius:12px;
+  padding:10px 14px; margin:10px 0; font-size:.9rem; color:#3c6684; text-align:left;}
 @media (max-width:420px){
   html{font-size:16px;}
   .word-big{font-size:1.9rem;}
@@ -132,6 +143,7 @@ const defaultState = () => ({
   plan: null,                  // {days, start, batches:[{fam:[],unfam:[]}], doneDays:{}}
   review: [],                  // 待複習 num
   mastered: [],                // 已掌握 num
+  speakMarks: {},              // 口說自評：num -> 'ok' | 'again'（新增欄位，不影響舊資料）
   screen: 'home'
 });
 let S = load();
@@ -223,7 +235,7 @@ function render(){
   renderFilter(['home','classify','browse'].includes(S.screen));
   window.speechSynthesis && speechSynthesis.cancel();
   ({home:renderHome, classify:renderClassify, plan:renderPlan, today:renderToday,
-    browse:renderBrowse, listen:renderListen, quiz:renderQuiz}[S.screen]||renderHome)();
+    browse:renderBrowse, listen:renderListen, speak:renderSpeak, quiz:renderQuiz}[S.screen]||renderHome)();
 }
 
 /* ---------- home ---------- */
@@ -435,9 +447,10 @@ function renderToday(){
   html += '<div style="margin:10px 0 4px"><b>第 '+k+' 天要練這些字：</b></div>';
   b.unfam.forEach(n=>{ html += planWordLine(byNum[n],'unfam'); });
   b.fam.forEach(n=>{ html += planWordLine(byNum[n],'fam'); });
-  html += '<div class="small-note" style="margin:12px 0 4px">先練哪一堆？（流程：聽發音輪 → 聽力測驗）</div>';
+  html += '<div class="small-note" style="margin:12px 0 4px">先練哪一堆？（流程：聽發音輪 → 🎤 口說練習 → 聽力測驗）</div>';
   if(b.unfam.length) html += '<button class="big btn-unfam" onclick="startPile('+k+',\'unfam\')">先練不熟悉（'+b.unfam.length+' 字）</button>';
   if(b.fam.length) html += '<button class="big btn-fam" onclick="startPile('+k+',\'fam\')">先練熟悉（'+b.fam.length+' 字）</button>';
+  if(b.unfam.length+b.fam.length>0) html += '<button class="big mic-btn" onclick="startSpeakDay('+k+')">🎤 只做口說練習（今天 '+(b.unfam.length+b.fam.length)+' 字）</button>';
   if(!S.plan.doneDays[k]) html += '<button class="big btn-plain" onclick="markDayDone('+k+')">把這天標為完成</button>';
   html += '</div>';
   $screen.innerHTML = html;
@@ -489,7 +502,7 @@ function renderListen(){
   html += '<div class="row">'+
     '<button class="big btn-plain" '+(sess.idx===0?'disabled':'')+' onclick="listenNav(-1)">← 上一個</button>'+
     '<button class="big btn-ghost" onclick="replayCard()">🔁 重播</button>'+
-    '<button class="big btn-main" onclick="listenNav(1)">'+(sess.idx===total-1?'進入聽力測驗 →':'下一個 →')+'</button></div>';
+    '<button class="big btn-main" onclick="listenNav(1)">'+(sess.idx===total-1?'進入口說練習 →':'下一個 →')+'</button></div>';
   $screen.innerHTML = html;
   bindWordClicks();
   speakWordThenExample(w);
@@ -497,7 +510,7 @@ function renderListen(){
 function setSpeed(s){ slowMode=s; document.getElementById('sp-n').classList.toggle('on',!s); document.getElementById('sp-s').classList.toggle('on',s); }
 function replayCard(){ speakWordThenExample(byNum[sess.nums[sess.idx]]); }
 function listenNav(d){
-  if(sess.idx+d >= sess.nums.length){ startQuiz(); return; }
+  if(sess.idx+d >= sess.nums.length){ startSpeak(false); return; }   // 步驟3之後 → 口說練習
   sess.idx = Math.max(0, sess.idx+d);
   renderListen();
 }
@@ -517,6 +530,184 @@ function bindWordClicks(){
       speak(sp.dataset.w);
     };
   });
+}
+
+/* step 3.5 口說練習（聽發音輪之後、聽力測驗之前；也可從今日練習單獨進入） */
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+let spk = null;   // {mode:'word'|'sentence', listening, transcript, result:null|{pass,hits}, noted}
+let recObj = null;
+
+function startSpeak(standalone){
+  sess.speak = {idx:0, standalone: !!standalone};
+  spk = freshSpk();
+  S.screen='speak'; save(); render();
+}
+function startSpeakDay(k){
+  const b = S.plan.batches[k-1];
+  const nums = b.unfam.concat(b.fam);
+  if(!nums.length) return;
+  sess = {nums, idx:0, kind:'speakonly', dayK:k, otherKind:null};
+  startSpeak(true);
+}
+function freshSpk(){ return {mode:'word', listening:false, transcript:'', result:null, micNoteShown:false}; }
+
+function renderSpeak(){
+  if(!sess || !sess.speak){ go('today'); return; }
+  const sp = sess.speak, total = sess.nums.length;
+  setProgress('口說練習', sp.idx+1, total);
+  const w = byNum[sess.nums[sp.idx]];
+  let html = '<div class="card center">';
+  html += '<div class="stars">'+starStr(w.stars)+'</div>';
+  html += '<div class="word-big">'+w.word+'</div>';
+  html += '<div class="kk">KK '+(w.kk_us?('['+w.kk_us+']'):'')+(w.kk_uk?('　英 ['+w.kk_uk+']'):'')+'</div>';
+  w.senses.forEach(s=>{ html += '<div class="pos-zh"><span class="pos">'+s.pos+'</span>'+s.zh+'</div>'; });
+  if(w.example_en){
+    html += '<div class="example"><div class="en">'+clickableWords(w.example_en)+'</div>'+
+            '<div class="zh">'+w.example_zh+'</div></div>';
+  }
+  // 示範發音
+  html += '<div style="margin:12px 0" class="row">'+
+    '<button class="speak-btn" onclick="speak(\''+esc(w.word)+'\')">🔊 示範單字</button>'+
+    (w.example_en?'<button class="speak-btn" onclick="speak(\''+esc(w.example_en)+'\')">🔊 示範例句</button>':'')+
+    '<span class="speed-toggle"><button id="sp-n" class="'+(slowMode?'':'on')+'" onclick="setSpeed(false)">正常</button><button id="sp-s" class="'+(slowMode?'on':'')+'" onclick="setSpeed(true)">慢速</button></span></div>';
+  // 換我說
+  if(SR){
+    if(!spk.micNoteShown){
+      html += '<div class="mic-note">🎙️ 按「換我說」後開始唸，第一次使用瀏覽器會詢問<b>麥克風權限</b>，請按「允許」。唸完停頓一下就會自動比對。</div>';
+    }
+    html += '<div class="row">'+
+      '<button class="big mic-btn'+(spk.listening?' listening':'')+'" onclick="micStart(\'word\')">'+(spk.listening&&spk.mode==='word'?'🎙️ 聆聽中…請唸單字':'🎤 換我說：唸單字')+'</button>'+
+      (w.example_en?'<button class="big mic-btn'+(spk.listening&&spk.mode==='sentence'?' listening':'')+'" onclick="micStart(\'sentence\')">'+(spk.listening&&spk.mode==='sentence'?'🎙️ 聆聽中…請唸例句':'🎤 換我說：唸例句')+'</button>':'')+
+      '</div>';
+    if(spk.listening || spk.transcript || spk.result){
+      html += '<div class="transcript"><span class="lbl">辨識到你說的是：</span>'+
+        (spk.transcript ? spk.transcript : (spk.listening?'（聆聽中…）':''))+'</div>';
+    }
+    if(spk.result){
+      if(spk.result.pass){
+        html += '<div class="feedback good">'+pick(['發音很清楚！👏','聽得懂，說得好！🌟','很棒，就是這樣唸！'])+'</div>';
+      } else {
+        html += '<div class="feedback bad" style="font-weight:600">再試一次看看，不急 🌱</div>';
+        html += '<div class="diff-line">'+spk.result.diffHtml+'</div>';
+        html += '<div class="small-note" style="text-align:left">綠色＝有聽到、紅色＝沒聽清楚的部分。也可能是麥克風或環境音的關係，不一定是你唸錯。</div>';
+      }
+      html += '<div class="row">'+
+        '<button class="big btn-ghost" onclick="speak(\''+esc(spk.mode==='sentence'&&w.example_en? w.example_en : w.word)+'\')">🔊 再聽示範</button>'+
+        '<button class="big mic-btn" onclick="micStart(\''+spk.mode+'\')">🎤 再說一次</button></div>';
+    }
+  } else {
+    html += '<div class="mic-note">此瀏覽器不支援自動語音辨識，改用<b>自我評估模式</b>：聽示範 → 自己跟著唸幾次 → 下面自評。想要自動辨識功能，可改用 <b>Chrome</b> 或 <b>Edge</b> 開啟本頁。</div>';
+  }
+  // 自我歸類（不強迫過關）
+  html += '<div class="small-note" style="margin-top:12px">這個字的發音你覺得？</div>';
+  html += '<div class="row">'+
+    '<button class="big btn-fam" onclick="speakMark(\'ok\')">✅ 發音沒問題</button>'+
+    '<button class="big btn-warn" onclick="speakMark(\'again\')">📌 還要練（入複習）</button></div>';
+  html += '<button class="big btn-plain" onclick="speakNext()">略過這個字 →</button>';
+  html += '</div>';
+  $screen.innerHTML = html;
+  bindWordClicks();
+}
+function micStart(mode){
+  if(!SR) return;
+  if(recObj){ try{recObj.abort();}catch(e){} }
+  window.speechSynthesis && speechSynthesis.cancel();
+  spk.mode = mode; spk.listening = true; spk.transcript=''; spk.result=null; spk.micNoteShown=true;
+  const rec = new SR();
+  recObj = rec;
+  rec.lang='en-US'; rec.interimResults=true; rec.maxAlternatives=4;
+  rec.continuous = (mode==='sentence');
+  let finals = [], alts = [];
+  rec.onresult = (ev)=>{
+    let interim='';
+    for(let i=ev.resultIndex;i<ev.results.length;i++){
+      const r=ev.results[i];
+      if(r.isFinal){ finals.push(r[0].transcript); for(let a=0;a<r.length;a++) alts.push(r[a].transcript); }
+      else interim += r[0].transcript;
+    }
+    spk.transcript = (finals.join(' ')+' '+interim).trim();
+    const el = $screen.querySelector('.transcript');
+    if(el) el.innerHTML = '<span class="lbl">辨識到你說的是：</span>'+(spk.transcript||'（聆聽中…）');
+  };
+  rec.onerror = (ev)=>{
+    spk.listening=false;
+    if(ev.error==='not-allowed' || ev.error==='service-not-allowed'){
+      spk.transcript=''; spk.result=null;
+      alert('沒有取得麥克風權限。請點網址列的 🎙️/鎖頭圖示允許麥克風，再按「換我說」。');
+      renderSpeak();
+    } else {
+      spk.result = evalSpeech(spk.transcript, alts); renderSpeak();
+    }
+  };
+  rec.onend = ()=>{
+    if(!spk.listening) return;
+    spk.listening=false;
+    spk.result = evalSpeech(spk.transcript, alts);
+    renderSpeak();
+  };
+  try{ rec.start(); }catch(e){ spk.listening=false; }
+  renderSpeak();
+  if(mode==='sentence'){ setTimeout(()=>{ try{rec.stop();}catch(e){} }, 12000); }  // 例句最多聽 12 秒
+}
+function normSp(s){ return String(s||'').toLowerCase().replace(/[^a-z0-9' ]+/g,' ').replace(/\s+/g,' ').trim(); }
+function evalSpeech(transcript, alts){
+  const w = byNum[sess.nums[sess.speak.idx]];
+  const cands = [transcript].concat(alts||[]).map(normSp).filter(Boolean);
+  if(spk.mode==='word' || !w.example_en){
+    const targets = normSp(w.word).split(' ').filter(Boolean);   // 片語逐字（如 fill out/in → fill out in）
+    let best = {pass:false, hitSet:new Set()};
+    cands.forEach(c=>{
+      const toks = new Set(c.split(' '));
+      const hits = new Set(targets.filter(t=>toks.has(t)));
+      const pass = hits.size >= Math.max(1, targets.length-1) && hits.size>0 && (targets.length>1 ? true : toks.has(targets[0]));
+      if(hits.size > best.hitSet.size || (pass&&!best.pass)) best = {pass, hitSet:hits};
+    });
+    const diffHtml = '你要唸的是：' + targets.map(t=>'<span class="'+(best.hitSet.has(t)?'hit':'miss')+'">'+t+'</span>').join(' ');
+    return {pass:best.pass, diffHtml};
+  } else {
+    const targets = normSp(w.example_en).split(' ').filter(Boolean);
+    let best = {ratio:0, hitSet:new Set()};
+    cands.forEach(c=>{
+      const toks = new Set(c.split(' '));
+      const hits = new Set(targets.filter(t=>toks.has(t)));
+      const ratio = hits.size/targets.length;
+      if(ratio>best.ratio) best = {ratio, hitSet:hits};
+    });
+    const diffHtml = targets.map(t=>'<span class="'+(best.hitSet.has(t)?'hit':'miss')+'">'+t+'</span>').join(' ');
+    return {pass: best.ratio>=0.7, diffHtml};
+  }
+}
+function speakMark(kind){
+  const n = sess.nums[sess.speak.idx];
+  S.speakMarks[n] = kind;
+  if(kind==='again') addReview(n);        // 併入既有複習機制
+  save();
+  speakNext();
+}
+function speakNext(){
+  if(recObj){ try{recObj.abort();}catch(e){} recObj=null; }
+  const sp = sess.speak;
+  if(sp.idx === sess.nums.length-1){ finishSpeak(); return; }
+  sp.idx++; spk = freshSpk(); spk.micNoteShown = true;
+  renderSpeak();
+}
+function finishSpeak(){
+  const okN = sess.nums.filter(n=>S.speakMarks[n]==='ok').length;
+  const agN = sess.nums.filter(n=>S.speakMarks[n]==='again').length;
+  setProgress('口說練習', sess.nums.length, sess.nums.length);
+  let html = '<div class="card center">';
+  html += '<div class="feedback good" style="font-size:1.3rem">🎤 口說練習完成！</div>';
+  html += '<div style="margin:8px 0">發音沒問題 <b class="stat-fam">'+okN+'</b> 字　還要練 <b class="stat-unfam">'+agN+'</b> 字</div>';
+  html += '<div class="small-note">開口唸出來，記憶會更牢。做得很好！</div>';
+  if(sess.speak.standalone){
+    if(S.review.length>0) html += '<button class="big btn-warn" onclick="startReview()">🔁 複習清單（'+S.review.length+' 字）</button>';
+    html += '<button class="big btn-main" onclick="go(\'today\')">回今日練習</button>';
+  } else {
+    html += '<button class="big btn-main" onclick="startQuiz()">進入聽力測驗 →</button>';
+    html += '<button class="big btn-plain" onclick="go(\'today\')">先休息，回今日練習</button>';
+  }
+  html += '</div>';
+  $screen.innerHTML = html;
 }
 
 /* step 4 聽力測驗 */
@@ -667,7 +858,7 @@ function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.rand
 if(!('speechSynthesis' in window)){
   alert('這個瀏覽器不支援語音合成（TTS），聽發音與聽力測驗將無法出聲。建議用 Chrome / Edge / Safari 開啟。');
 }
-if(['listen','quiz'].includes(S.screen) ) S.screen = 'home';   // session 不跨次保存
+if(['listen','quiz','speak'].includes(S.screen) ) S.screen = 'home';   // session 不跨次保存
 render();
 </script>
 </body>
